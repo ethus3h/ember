@@ -1,0 +1,23 @@
+<h1 class="title">Command usage: <code>decrystallise</code></h1>
+
+<p class="breadcrumbs">Page location: 
+    <span><a href="/ember/">Ember</a></span>
+    <span>Ancillary projects</span>
+    <span><a href=".">Crystallise</a></span>
+</p>
+
+<h2>Overview</h2>
+<p><span class="hatnote-emphasis">This command is part of the <a href=".">Crystallise</a> package; see <a href=".">the package page</a> for installation instructions.</span></p>
+<p>This command retrieves files that were stored using the <a href="quickliquid.htm">crystallise</a> command.</p>
+<h2>Documentation</h2>
+<h3>Usage</h3>
+<h4>Syntax</h4>
+<figure class="center-figure app-syntax">
+    <code>decrystallise [--no-trim-extensions|--trim-extensions] &lt;crystal-address&gt;</code>
+    <p>where &lt;crystal-address&gt; is a Crystal address (produced by crystallise when storing files) from which to retrieve the files.</p>
+    <h5>Options</h5>
+    <ul>
+        <li><code>--no-trim-extensions</code>: Retain ".coal5" at the end of the identifier if present. Default behavior removes this text. <span class="note-emphasis">This option will become the default in a future version.</span></li>
+        <li><code>--trim-extensions</code>: Remove the text ".coal5" at the end of the identifier if present; this is currently the default behavior. <span class="note-emphasis"><code>--no-trim-extensions</code> will become the default behavior in a future version.</span></li>
+    </ul>
+</figure>

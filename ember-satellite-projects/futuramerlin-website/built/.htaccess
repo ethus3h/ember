@@ -1,0 +1,47 @@
+#.htaccess for futuramerlin.com, version 2.1 (2015 March 14a15)
+Redirect 301 /Wreathe%20web/index.html http://futuramerlin.com/ember/wreathe.htm
+Redirect 301 /home http://futuramerlin.com/
+Redirect 301 /c/2015/02/27/190-new-music-release-electric-dream-demos/ http://futuramerlin.com/c/2015/05/28/329-new-compilation-demo-released-infinite-universe-electric-dream-redux/
+
+RewriteOptions inherit
+DirectoryIndex index.htm
+ErrorDocument 404 /e.htm
+AddType application/octet-stream .iso
+AddType application/x-ms-win-installer .msi
+AddType audio/x-flac .flac
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.futuramerlin\.com$ [NC]
+RewriteRule ^(.*)$ http://futuramerlin.com/$1 [R=301,L]
+
+
+AddDefaultCharset utf-8
+
+# Turn off the ETags
+Header unset ETag
+FileETag None
+
+Header unset Cache-Control
+Header unset Pragma
+Header unset Set-Cookie
+<ifModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A604800
+ExpiresByType image/x-icon A2592000
+ExpiresByType application/x-javascript A2592000
+ExpiresByType text/css A604800
+ExpiresByType image/gif A2592000
+ExpiresByType image/png A2592000
+ExpiresByType image/jpeg A2592000
+ExpiresByType text/plain A604800
+ExpiresByType text/html A604800
+</ifModule>
+<ifModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifModule>
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^d\/s\/w\/Wreathe\%20web\/index\.html$ "http\:\/\/futuramerlin\.com\/r\.php\?c\=Wreathe\&a\=main" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^d\/s\/w\/Wreathe\%20web\/?(.*)$ "http\:\/\/futuramerlin\.com\/r\.php\?c\=Wreathe\&a\=main$1" [R=301,L]
+
+suPHP_ConfigPath /home/futuqiur/public_html
