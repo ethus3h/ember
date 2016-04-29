@@ -80,6 +80,11 @@
             font-weight: bold;
         }
 
+        .tangential-comment {
+            font-size: 1.33rem;
+            vertical-align: super;
+        }
+
         .inlineheader {
             font-weight: bold;
         }
