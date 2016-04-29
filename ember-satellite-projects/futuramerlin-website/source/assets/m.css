@@ -1202,6 +1202,7 @@
             list-style: none;
             counter-reset: none;
             display: block;
+            overflow-x: hidden;
         }
 
         nav > ul > li {
