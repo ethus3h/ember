@@ -4,5 +4,11 @@
 <dict>
     <key>fontSize</key>
     <string>20</string>
+    <key>bgColor</key>
+    <string>e2daf1/string>
+    <key>fgColor</key>
+    <string>000000/string>
+    <key>fgBoldColor</key>
+    <string>330000/string>
 </dict>
 </plist>
