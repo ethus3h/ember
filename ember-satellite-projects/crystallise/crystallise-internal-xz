@@ -1,2 +1,2 @@
 #!/bin/bash
-xz -k -C sha256 -T 0 --lzma2=preset=3,dict=64MiB -v "$crystalTempdir/$CrystalID".pax
+xz -k -C sha256 -T 0 --lzma2=preset=3 -v "$crystalTempdir/$CrystalID".pax
