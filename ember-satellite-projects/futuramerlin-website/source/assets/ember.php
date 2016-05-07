@@ -1144,7 +1144,7 @@ else {
                     echo '<center><h1>Git editor: What repository to edit?</h1><br><ul>';
                     $choices = scandir('/Users/elliot/git-repos/');
                     foreach ($choices as $choice) {
-                        
+                        a
                     }
                         <li><a href="ember.php?action=cloneRepo">Clone a repository</a></li>
                         <li><a href="ember.php?action=chooseRepo">Choose a repository to edit</a></li>
