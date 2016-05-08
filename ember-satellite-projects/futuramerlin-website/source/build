@@ -43,6 +43,5 @@ tr '\r' ' ' < "../built/2.tmp" > "../built/3.tmp"
 tr -s " " < "../built/3.tmp" > "../built/m.css"
 minify --no-comments -o "../built/m.css" "../built/m.css" > /dev/null
 rm ../built/*.tmp
-rm ../built/*.html
 cp "../built/m.css" "/m.css"
 echo "Done!"
