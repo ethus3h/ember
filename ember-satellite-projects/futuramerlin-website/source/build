@@ -36,7 +36,7 @@ cp -r ./assets/* ./assets/.[^.]* "../built/"
 )
 echo "Processing CSS..."
 cp "./assets/m.css" "../built/m.css"
-postcss --use postcss-cssnext -o "../built/m.css" "../built/m.css"
+postcss --use postcss-cssnext --postcss-cssnext.browsers "> 1%, iOS > 0, ie >= 5, last 3 versions, Firefox ESR, Firefox >= 1" -o "../built/m.css" "../built/m.css"
 tr '\n' ' ' < "../built/m.css" > "../built/1.tmp"
 tr '\t' ' ' < "../built/1.tmp" > "../built/2.tmp"
 tr '\r' ' ' < "../built/2.tmp" > "../built/3.tmp"
