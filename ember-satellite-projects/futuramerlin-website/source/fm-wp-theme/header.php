@@ -50,5 +50,6 @@
 				<a href="/music">Music</a>
 			</li>
 		</ul>
+		<a href="#">&#x1F51D;&#xFE0E;</a>
 	</nav>
 	<main>
