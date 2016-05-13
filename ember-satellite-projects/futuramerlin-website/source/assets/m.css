@@ -984,7 +984,7 @@
 
         /* Buttons */
 
-            nav.horiztoolbar > ul > li > .buttonName,
+            nav.horiztoolbar > label > .buttonName,
             #secondary > label > .bigemphasis {
                 padding: .67rem;
                 text-align: center;
@@ -995,7 +995,12 @@
                 cursor:pointer;
             }
 
-            nav.horiztoolbar > ul > li,
+            nav.horiztoolbar > label > .buttonName::after,
+            #secondary > label > .bigemphasis::after {
+                content: '\1F783';
+            }
+
+            nav.horiztoolbar > label,
             #secondary > label {
                 flex-grow: 1;
                 transition: color .2s, border .2s;
@@ -1008,7 +1013,7 @@
                 background-size: auto auto, auto 100%;
             }
 
-            nav.horiztoolbar > ul > li:first-of-type,
+            nav.horiztoolbar > label:first-of-type,
             #secondary > label:first-of-type {
                 border-left: none;
                 transition: color .2s, border .2s;
@@ -1020,7 +1025,7 @@
                 background-size: auto 50%, auto 100%, auto auto, auto 100%;
             }
 
-            nav.horiztoolbar > ul > li:last-of-type,
+            nav.horiztoolbar > label:last-of-type,
             #secondary > label:last-of-type {
                 border-right: none;
                 transition: color .2s, border .2s;
@@ -1032,9 +1037,9 @@
                 background-size: auto 50%, auto 100%, auto auto, auto 100%;
             }
 
-            nav.horiztoolbar > ul > li:first-of-type::before,
+            nav.horiztoolbar > label:first-of-type::before,
             #secondary > label:first-of-type::before,
-            nav.horiztoolbar > ul > li:last-of-type::before,
+            nav.horiztoolbar > label:last-of-type::before,
             #secondary > label:last-of-type::before {
                 position: absolute;
                 top: 0;
@@ -1048,12 +1053,12 @@
                 background: none;
             }
 
-            nav.horiztoolbar > ul > li:first-of-type::before,
+            nav.horiztoolbar > label:first-of-type::before,
             #secondary > label:first-of-type::before {
                 border-left: .095rem solid transparent;
             }
 
-            nav.horiztoolbar > ul > li:last-of-type::before,
+            nav.horiztoolbar > label:last-of-type::before,
             #secondary > label:last-of-type::before {
                 border-right: .095rem solid transparent;
             }
@@ -1110,9 +1115,9 @@
 
         /* Buttons, selected */
 
-            nav.horiztoolbar > ul > li:focus,
+            nav.horiztoolbar > label:focus,
             #secondary > label:focus,
-            nav.horiztoolbar > ul > li:active,
+            nav.horiztoolbar > label:active,
             #secondary > label:active {
                 transition: border .2s;
                 border: .095rem solid #87769d;
@@ -1124,6 +1129,11 @@
                 background-origin: padding-box;
                 background-size: auto 50%, auto 50%, auto 100%, auto 100%, auto auto, auto 100%;
                 box-shadow: inset .668rem .668rem .563rem -.938rem #000;
+            }
+
+            nav.horiztoolbar > label > input:checked ~ .buttonName::after,
+            #secondary > label > input:checked ~ .bigemphasis::after {
+                content: '\1F781';
             }
 
         /* Dropdowns */
@@ -1151,11 +1161,8 @@
                 }
 
             /* Show toolbar dropdowns when selected */
-
-                nav.horiztoolbar > ul > li:focus >:not(.buttonName),
-                #secondary > label:focus >:not(.bigemphasis),
-                nav.horiztoolbar > ul > li:active >:not(.buttonName),
-                #secondary > label:active >:not(.bigemphasis) {
+                nav.horiztoolbar > label > input:checked ~ :not(.buttonName):not(input),
+                #secondary > label > input:checked ~ :not(.bigemphasis):not(input) {
                     display: block;
                 }
 
