@@ -1000,6 +1000,11 @@
                 content: '\a0\a0\1F783';
             }
 
+            nav.horiztoolbar > label > .buttonName:first-of-type::after,
+            #secondary > label > .bigemphasis:first-of-type::after {
+                content: none;
+            }
+
             nav.horiztoolbar > label,
             #secondary > label {
                 flex-grow: 1;
@@ -1134,6 +1139,11 @@
             nav.horiztoolbar > label > input:checked ~ .buttonName::after,
             #secondary > label > input:checked ~ .bigemphasis::after {
                 content: '\a0\a0\1F781';
+            }
+
+            nav.horiztoolbar > label > input:checked ~ .buttonName::after,
+            #secondary > label > input:checked ~ .bigemphasis::after {
+                content: none;
             }
 
         /* Dropdowns */
