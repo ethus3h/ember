@@ -81,7 +81,7 @@
         }
 
         .tangential-comment {
-            font-size: 1.33rem;
+            font-size: 1.2rem;
             vertical-align: super;
         }
 
@@ -984,16 +984,6 @@
 
         /* Buttons */
 
-            nav.horiztoolbar > label > .buttonName,
-            #secondary > label > .bigemphasis {
-                padding: .67rem;
-                text-align: center;
-                font-size: 1.6rem;
-                font-weight: normal;
-                /* Hack for iOS Safari; see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile */
-                cursor:pointer;
-            }
-
             nav.horiztoolbar > label:first-of-type > .buttonName::after,
             #secondary > label:first-of-type > .bigemphasis::after {
                 content: '\a0\25B2\a0\a0';
@@ -1004,9 +994,19 @@
                 content: '\a0\a0\25BD';
             }
 
+            nav.horiztoolbar > label,
+            #secondary > label {
+                flex-grow: 1;
+            }
+
             nav.horiztoolbar > label > .buttonName,
             #secondary > label > .bigemphasis {
-                flex-grow: 1;
+                padding: .67rem;
+                text-align: center;
+                font-size: 1.6rem;
+                font-weight: normal;
+                /* Hack for iOS Safari; see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile */
+                cursor:pointer;
                 transition: color .2s, border .2s;
                 border: .095rem solid transparent;
                 background: linear-gradient(180deg, rgba(216, 208, 239, 0) 0, rgba(255, 255, 255, .1) 10%, rgba(255, 255, 255, .44) 50%, rgba(211, 206, 234, 0) 50%, rgba(211, 206, 234, 0) 100%), linear-gradient(to bottom, #f5f6fa 0%, #e3daf0 50%, #f5f6fa 100%);
@@ -1237,6 +1237,10 @@
             display: inline;
             text-align: start;
             position: absolute;
+        }
+
+        nav > ul > li:last-child::after {
+            content: none;
         }
 
         nav > ul {
