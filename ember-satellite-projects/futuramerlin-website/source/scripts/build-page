@@ -17,7 +17,7 @@ perl -0777 -p -i -e "s/(<h1 class=\"title\">(((?!<\/h1>)[\S\s])*)<\/h1>)/\\1<!--
 perl -0777 -p -i -e 's/(<p class=\"breadcrumbs\">(((?!<\/p>)[\S\s])*)<\/p>)/\1<!-- toc -->/g' "../../built/$1"
 perl -0777 -p -i -e "s/<!-- toc -->([\S\s]*)<!-- toc -->/\\1<!-- toc -->/g" "../../built/$1"
 hypertoc --inline --make_anchors --ol --ol_num_levels 0 --make_toc --bak "" --outfile "../../built/0.tmp" --toc_label "<h2>Table of Contents</h2>" --toc_tag "!-- toc --" --toc_tag_replace --quiet --header '<nav id="toc">' --footer "</nav>" --use_id --ignore_sole_first --toc_entry H2=1 --toc_entry H3=2 --toc_entry H4=3 --toc_entry H5=4 --toc_entry H6=5 --toc_end H2=/H2 --toc_end H3=/H3 --toc_end H4=/H4 --toc_end H5=/H5 --toc_end H6=/H6 "../../built/$1"
-html-minifier --output "../../built/$1" --remove-comments --collapse-whitespace --conservative-collapse --use-short-doctype "../../built/0.tmp"
+html-minifier --output "../../built/$1" --remove-comments --conservative-collapse --use-short-doctype "../../built/0.tmp"
 tr '\n' ' ' < "../../built/$1" > "../../built/1.tmp"
 tr '\t' ' ' < "../../built/1.tmp" > "../../built/2.tmp"
 tr '\r' ' ' < "../../built/2.tmp" > "../../built/3.tmp"
