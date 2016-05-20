@@ -36,6 +36,7 @@ echo "Title: $title"
 ere_quote() {
     sed 's/[]\.|$(){}?+*^]/\\&/g' <<< "$*"
 }
+export -f ere_quote
 title="$(ere_quote $title)"
 if [ -n "$title" ]; then
     replace="s/<title>Futuramerlin<\/title>/<title>$title &mdash; Futuramerlin<\/title>/g"
