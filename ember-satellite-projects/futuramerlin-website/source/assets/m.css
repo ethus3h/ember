@@ -525,10 +525,6 @@
         padding-top: 0;
     }
 
-    .nested-list:not(:last-child) > li:last-of-type::after {
-        content: none;
-    }
-
 /* Figures */
 
     .center-figure {
