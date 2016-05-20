@@ -1,0 +1,11 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Futuramerlin metasearch</ShortName>
+  <Description>Futuramerlin metasearch</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABinWsUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABinWsUAAAAAAAAAAAAAAAAnMCiB5O7mV5yrHxKVIhd/36zh0+NupRYgrKKWH+wh1h/sIdYf6+HWIKyilh9soZPVIhd/3KsfEqTu5lenMCiB4GxiRd2pn3/VYte/0FpR/9YjmH/WoVg/1uOY/9ckWT/XJFk/1uRZP9dkmb/WY9h/0FpR/9Vi17/dqZ9/4GxiRdyqXwBI2wvDLbSu65LdVL/xNvK/3anfv+yz7j/xdvL/8Tbyv/E28r/xNvK/8rg0P9LdVL/ttK7riNsLwxyqXwBAAAAAAAAAAC92cKmS3VR/9bo3P/B2cf/ibWQ/8nfz//O4tT/zuLU/8/j1f/V6Nv/S3VR/73ZwqYAAAAAAP//AAAAAAAAAAAAvdnCpkt1Uv/V6Nv/0eTX/77XxP+51L//0OTW/8/i1f/O4tT/1ejb/0t1Uv+92cKmAAAAAAD//wAAAAAAAAAAAL3ZwqZLdVL/1ejb/9Dj1f/e7OP/g7GL/93s4f/V5tr/z+PV/9Xo2/9LdVL/vdnCpgAAAAAAAAAAAAAAAAAAAAC92cKmS3VS/9Xo2//X6Nz/5/Hr/36thf/p8+3/4Ozk/9fo3P/V6Nv/S3VS/73ZwqYAAAAAAAAAAAAAAAAAAAAAvdnCpkt1Uf/Y6t//3uzi/+rz7f+Br4n/6/Ps/+ny7P/e7OL/2ere/0p1Uf+92cKmAAAAAAAAAAAAAAAAAAAAAL3ZwqZKdVH/2+vg/+Xw6P+szbH/TH1T/3qtg//4+/n/4e3k/9rq4P9KdVH/vdnCpgAAAAAAAAAAAAAAAAAAAAC92cKmSnVR/9rr3//g7OT/3evh/5a8nf+myKz/3Org/+Lu5v/Z697/S3VR/73ZwqYAAAAAAAAAAAAAAAAAAAAAvdnCpkt1Uf/W6Nz/2ejd/+Lu5f/o8uv/dqd9/2SRa//E2sn/1unc/0t1Uf+92cKmAAAAAAAAAAByqXwBI2wvDLbSu65LdVL/yuDQ/8bczP/N4NL/0OLV/9bl2v/U5Nj/x93O/8rg0P9LdVL/ttK7riNsLwxyqXwBgbGJF3amff9Vi17/QWlH/1mPYf9ckmX/W5Fk/1uRY/9bkmT/XJNl/1ySZf9Zj2H/QWlH/1WLXv92pn3/gbGJF5zAogeTu5lecqx8SlSIXf99soZPgrKKWH+vh1h/sIdYf6+HWH+vh1iCsopYfbKGT1SIXf9yrHxKk7uZXpzAogcAAAAAAAAAAAAAAABinWsUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABinWsUAAAAAAAAAAAAAAAA//8AAO/3AACAAQAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAIABAADv9wAA//8AAA==</Image>
+  <Url type="text/html" template="http://futuramerlin.com/s.php?q={searchTerms}" />
+  <Url type="application/x-suggestions+json" template="https://suggestqueries.google.com/complete/search?output=firefox&amp;client=firefox&amp;hl=en&amp;q={searchTerms}"/>
+  <moz:SearchForm>http://futuramerlin.com/s.php</moz:SearchForm>
+  <Contact>info@futuramerlin.com</Contact>
+</OpenSearchDescription>
