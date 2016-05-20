@@ -72,7 +72,7 @@
 
     <h5>Complex structures</h5>
     <ul>
-        <li>B: List(Type:$type): a Table(Integer:$id, Object<$type>:$value).</li>
+        <li>B: List(Type:$type): a Table(Integer:$id, Object&lt;$type&gt;:$value).</li>
         <li>B: Table(types)</li>
     </ul>
 
@@ -80,8 +80,8 @@
         <li>B: Object: All variables and methods are Objects. Methods return Objects.</li>
         <li>B: Class: A set of parameters and methods defining what an Object can be like.</li>
         <li>B: Method: Defined using the syntax: MethodName(Parameter1, Parameter2){ code; }, or an anonymous method defined using { }.</li>
-        <li>B: Parameter: A named value. String name, Type type, Object<$type> value.</li>
-        <li>B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table&lt;Integer, List&lt;Integer, Object&gt;, List&gt;).</Integer,>
+        <li>B: Parameter: A named value. String name, Type type, Object&lt;$type&gt; value.</li>
+        <li>B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table&lt;Integer, List&lt;Integer, Object&gt;, List&gt;).&lt;/Integer,&gt;</li>
     </li>
 
     <h4>Language builtins</h4>
@@ -122,7 +122,7 @@
     </table>
 
 <h2>EDF standard editor</h2>
-<p>use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode->Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.</p>
+<p>use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode-&gt;Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.</p>
 
 <h2>Development principles</h2>
 <p>(Always use the Ember TDD principles.)</p>

@@ -34,7 +34,7 @@ perl -0777 -p -i -e "s/\s+$//g" "../../built/4.tmp"
 title="$(cat ../../built/4.tmp)"
 echo "Title: $title"
 ere_quote() {
-    sed 's/[]\.|$(){}?+*^]/\\&/g' <<< "$*"
+    sed 's/[]\.|$(){}?+\/*^]/\\&/g' <<< "$*"
 }
 export -f ere_quote
 title="$(ere_quote $title)"
