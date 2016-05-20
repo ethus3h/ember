@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set("display_errors",1);
 
 if(isset($_REQUEST['q'])) {
-    $q = $_REQUEST['q']);
+    $q = $_REQUEST['q'];
     if(substr($q,0,1) == '!') {
         header("Location: https://duckduckgo.com/html?q=".urlencode($q));
     }
