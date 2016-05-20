@@ -4,101 +4,17 @@
     <span><a href="/ember/">Ember</a></span>
 </p>
 <h2>Ember Scripting Language (ESL)</h2>
-    <h3>ESL syntax</h3>
-    <dl>
-        <dt>"L"</dt> — <dd>low-level functionality, available only in Basic and Dangerous profiles. "B" - available in Basic, Standard, and Dangerous profiles.</dd>
-        <dt>"D"</dt> - <dd>available only in Dangerous profile. Otherwise, available only in Standard and Dangerous profiles.</dd>
-    </dl>
+    <p>Goal: Combine best features of bash, php, assembly, C, java, python, go</p>
 
-    <p>An argument with the wrong type getting passed to a function is a compile-time error.</p>
+    <p>#TODO: Rewrite these examples.</p>
 
-    <h4>Types</h4>
+    <p>Hello World:</p>
 
-    <dl>
-        B: <dt>Boolean</dt>: <dd>one of (True, False)</dd>
-    </dl>
+    <code>echo('Hello, World!');</code>
 
-    Numbers [missing scientific notation]:
-    B: BFractionalNumber: An Integer numerator and an Integer denominator.
-    B: ComplexNumber: A RealNumber real part, and a RealNumber imaginary part.
-    CompoundNumber: A sequence describing a number. Can include roman numerals, operations, significant figures, etc..
-    B: DecimalNumber: An Integer whole number part, a WholeNumber partial number part, and a WholeNumber number of repeating digits.
-    B: Integer: a Boolean sign (True: negative; False: positive) and a WholeNumber value. A sign of True and a value of 0 is a compile-time or run-time error.
-    B: Number: one of (RealNumber, ComplexNumber, [only in Standard and Dangerous profiles, CompoundNumber]).
-    B: NumericalConstant: one of (pi, e, maybe others?)
-    B: RealNumber: one of (BFractionalNumber, ComplexNumber, DecimalNumber, NumericalConstant, WholeNumber)
-    B: WholeNumber: A nonnegative integer.
-    Value: a Number and a Unit.
-    Unit
+    <p>Simple web spider (unfinished since the power's gone out, and I can't really see what I'm doing (I'm using a flashlight to write this note, but it's awkward)):</p>
 
-    B: String: a list of bytes.
-
-    Complex structures:
-    B: List(Type:$type): a Table(Integer:$id, Object<$type>:$value).
-    B: Table(types)
-
-    B: Object: All variables and methods are Objects. Methods return Objects.
-    B: Class: A set of parameters and methods defining what an Object can be like.
-    B: Method: Defined using the syntax: MethodName(Parameter1, Parameter2){ code; }, or an anonymous method defined using { }.
-    B: Parameter: A named value. String name, Type type, Object<$type> value.
-    B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table<Integer, List<Integer, Object>, List>).
-
-    Language builtins:
-    ========
-
-    Parameters, in format parameter:[possible values]: 
-    ========
-
-    context:[document | terminal | webscript] - affects whether to render output to a document display space, to send it to a terminal, or to render it as HTML/CSS/JS and send it to a Web server. Default depends on the file format: EDF defaults to document, ESL defaults to terminal, and EWS defaults to webscript.
-
-    profile:[basic | standard | dangerous] - Tells the interpreter/compiler what set of language features to allow.
-
-
-    Functions: 
-    ======
-
-    B: set(String:$param, String:$value) - set language parameter $param to $value. An unknown value for $param is a compile-time error. An unknown value for a given $param / $value pair is also a compile-time error. Alias for e.sys.interpreter.set().
-
-    B: say(String:$str) - send $str to the current output. Alias for e.io.say().
-
-    B: add(Number:$n1, Number:$n2) - return the sum of $n1 and $n2.
-
-    B: add(String:$s1, String:$s2) - return $s1 concatenated to $s2
-
-    B: subtract()
-
-    B: multiply()
-
-    B: divide() - Division by zero is a compile-time or run-time error. Returns a DecimalNumber.
-
-    B: mod()
-
-    B: exp()
-
-    compress(String:$string, [String:$compressionMethod])
-
-    encrypt(String:$string, String:$passphrase)
-
-
-    arrow pad (CAC = click / action / center "arrow")
-
-    prev. tab   ?       next tab
-    back page   up      forward page
-    left        [down|CAC]  right
-    CAC     [down|?]        ?
-    EDF standard editor: use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode->Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.
-
-
-    Ember scripting language
-    Combine best features of bash, php, assembly, C, java, python, go
-
-    Hello World:
-
-    echo('Hello, World!');
-
-    Simple web spider (unfinished since the power's gone out, and I can't really see what I'm doing (I'm using a flashlight to write this note, but it's awkward)):
-
-    exception:noURLsProvidedException {
+    <code>exception:noURLsProvidedException {
         this.description = 'Warning: No URLs were provided; returning an empty list.';
         this.behavior = {
             return(list);
@@ -120,17 +36,105 @@
                 $urls.mergeFrom($newURLs);
             }
         }
-    }
+    }</code>
+    <h3>ESL syntax</h3>
+    <ul>
+        <li>"L" — low-level functionality, available only in Basic and Dangerous profiles. "B" - available in Basic, Standard, and Dangerous profiles.</li>
+        <li>"D" - available only in Dangerous profile. Otherwise, available only in Standard and Dangerous profiles.</li>
+    </ul>
 
-(Always use the Ember TDD principles.)
-1. Fix unexpected/incorrect result bugs
-2. Fix crashes and other bugs that critically affect usability
-3. Optimize slow code where that optimization will dramatically improve usability, at hot points or other points
-4. Fix minor UX/UI/usability bugs
-5. Optimize slow code that will improve usability
-6. Fix regressions or lost features
-7. Return to step 1
-8. Add new features
-9. Return to step 1
-* Done *
-</pre>
+    <p>An argument with the wrong type getting passed to a function is a compile-time error.</p>
+
+    <h4>Types</h4>
+
+    <ul>
+        <li>B: Boolean: one of (True, False)</li>
+    </ul>
+
+    <h5>Numbers [missing scientific notation]<h5>
+    <ul>
+        <li>B: BFractionalNumber: An Integer numerator and an Integer denominator.</li>
+        <li>B: ComplexNumber: A RealNumber real part, and a RealNumber imaginary part.</li>
+        <li>CompoundNumber: A sequence describing a number. Can include roman numerals, operations, significant figures, etc..</li>
+        <li>B: DecimalNumber: An Integer whole number part, a WholeNumber partial number part, and a WholeNumber number of repeating digits.</li>
+        <li>B: Integer: a Boolean sign (True: negative; False: positive) and a WholeNumber value. A sign of True and a value of 0 is a compile-time or run-time error.</li>
+        <li>B: Number: one of (RealNumber, ComplexNumber, [only in Standard and Dangerous profiles, CompoundNumber]).</li>
+        <li>B: NumericalConstant: one of (pi, e, maybe others?)</li>
+        <li>B: RealNumber: one of (BFractionalNumber, ComplexNumber, DecimalNumber, NumericalConstant, WholeNumber)</li>
+        <li>B: WholeNumber: A nonnegative integer.</li>
+        <li>Value: a Number and a Unit.</li>
+        <li>Unit</li>
+    </ul>
+
+    <ul>
+        <li>B: String: a list of bytes.</li>
+    </ul>
+
+    <h5>Complex structures</h5>
+    <ul>
+        <li>B: List(Type:$type): a Table(Integer:$id, Object<$type>:$value).</li>
+        <li>B: Table(types)</li>
+    </ul>
+
+    <ul>
+        <li>B: Object: All variables and methods are Objects. Methods return Objects.</li>
+        <li>B: Class: A set of parameters and methods defining what an Object can be like.</li>
+        <li>B: Method: Defined using the syntax: MethodName(Parameter1, Parameter2){ code; }, or an anonymous method defined using { }.</li>
+        <li>B: Parameter: A named value. String name, Type type, Object<$type> value.</li>
+        <li>B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table<Integer, List<Integer, Object>, List>).</Integer,>
+    </li>
+
+    <h4>Language builtins</h4>
+
+    <h5>Language operation parameters, in format parameter:[possible values]</h5>
+
+    <ul>
+        <li>context:[document | terminal | webscript] - affects whether to render output to a document display space, to send it to a terminal, or to render it as HTML/CSS/JS and send it to a Web server. Default depends on the file format: EDF defaults to document, ESL defaults to terminal, and EWS defaults to webscript.</li></li>
+        <li>profile:[basic | standard | dangerous] - Tells the interpreter/compiler what set of language features to allow.</li>
+    </ul>
+
+
+    <h5>Functions</h5>
+
+    <ul>
+        <li>B: set(String:$param, String:$value) - set language parameter $param to $value. An unknown value for $param is a compile-time error. An unknown value for a given $param / $value pair is also a compile-time error. Alias for e.sys.interpreter.set().</li>
+        <li>B: say(String:$str) - send $str to the current output. Alias for e.io.say().</li>
+        <li>B: add(Number:$n1, Number:$n2) - return the sum of $n1 and $n2.</li>
+        <li>B: add(String:$s1, String:$s2) - return $s1 concatenated to $s2</li>
+        <li>B: subtract()</li>
+        <li>B: multiply()</li>
+        <li>B: divide() - Division by zero is a compile-time or run-time error. Returns a DecimalNumber.</li>
+        <li>B: mod()</li>
+        <li>B: exp()</li>
+        <li>compress(String:$string, [String:$compressionMethod])</li>
+        <li>encrypt(String:$string, String:$passphrase)</li>
+    </ul>
+
+<h2>Keyboard layout
+
+    <h3>arrow pad</h3>
+    <p>CAC = click / action / center "arrow"</p>
+    <table>
+        <tr><td>prev. tab</td><td>?</td><td>next tab</td></tr>
+        <tr><td>back page</td><td>up</td><td>forward page</td></tr>
+        <tr><td>left</td><td>[down|CAC]</td><td>right</td></tr>
+        <tr>CAC</td><td>[down|?]</td><td>?</td></tr>
+    </table>
+
+<h2>EDF standard editor</h2>
+<p>use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode->Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.</p>
+
+<h2>Development principles</h2>
+<p>(Always use the Ember TDD principles.)</p>
+<ol>
+    <li>Fix unexpected/incorrect result bugs</li>
+    <li>Fix crashes and other bugs that critically affect usability</li>
+    <li>Optimize slow code where that optimization will dramatically improve usability, at hot points or other points</li>
+    <li>Fix minor UX/UI/usability bugs</li>
+    <li>Optimize slow code that will improve usability</li>
+    <li>Fix regressions or lost features</li>
+    <li>Return to step 1</li>
+    <li>Add new features</li>
+    <li>Return to step 1</li>
+    <li class="unordered-list-item-in-ol">* Done *</li>
+</ol>
