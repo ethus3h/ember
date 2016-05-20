@@ -3,123 +3,124 @@
 <p class="breadcrumbs">Page location: 
     <span><a href="/ember/">Ember</a></span>
 </p>
-<pre>
+<h2>Ember Scripting Language (ESL)</h2>
+    <h3>ESL syntax</h3>
+    <dl>
+        <dt>"L"</dt> — <dd>low-level functionality, available only in Basic and Dangerous profiles. "B" - available in Basic, Standard, and Dangerous profiles.</dd>
+        <dt>"D"</dt> - <dd>available only in Dangerous profile. Otherwise, available only in Standard and Dangerous profiles.</dd>
+    </dl>
 
-ESL syntax.
-==========
+    <p>An argument with the wrong type getting passed to a function is a compile-time error.</p>
 
-"L" - low-level functionality, available only in Basic and Dangerous profiles. "B" - available in Basic, Standard, and Dangerous profiles. "D" - available only in Dangerous profile. Otherwise, available only in Standard and Dangerous profiles.
+    <h4>Types</h4>
 
-An argument with the wrong type getting passed to a function is a compile-time error.
+    <dl>
+        B: <dt>Boolean</dt>: <dd>one of (True, False)</dd>
+    </dl>
 
-Types:
-======
+    Numbers [missing scientific notation]:
+    B: BFractionalNumber: An Integer numerator and an Integer denominator.
+    B: ComplexNumber: A RealNumber real part, and a RealNumber imaginary part.
+    CompoundNumber: A sequence describing a number. Can include roman numerals, operations, significant figures, etc..
+    B: DecimalNumber: An Integer whole number part, a WholeNumber partial number part, and a WholeNumber number of repeating digits.
+    B: Integer: a Boolean sign (True: negative; False: positive) and a WholeNumber value. A sign of True and a value of 0 is a compile-time or run-time error.
+    B: Number: one of (RealNumber, ComplexNumber, [only in Standard and Dangerous profiles, CompoundNumber]).
+    B: NumericalConstant: one of (pi, e, maybe others?)
+    B: RealNumber: one of (BFractionalNumber, ComplexNumber, DecimalNumber, NumericalConstant, WholeNumber)
+    B: WholeNumber: A nonnegative integer.
+    Value: a Number and a Unit.
+    Unit
 
-B: Boolean: one of (True, False)
+    B: String: a list of bytes.
 
-Numbers [missing scientific notation]:
-B: BFractionalNumber: An Integer numerator and an Integer denominator.
-B: ComplexNumber: A RealNumber real part, and a RealNumber imaginary part.
-CompoundNumber: A sequence describing a number. Can include roman numerals, operations, significant figures, etc..
-B: DecimalNumber: An Integer whole number part, a WholeNumber partial number part, and a WholeNumber number of repeating digits.
-B: Integer: a Boolean sign (True: negative; False: positive) and a WholeNumber value. A sign of True and a value of 0 is a compile-time or run-time error.
-B: Number: one of (RealNumber, ComplexNumber, [only in Standard and Dangerous profiles, CompoundNumber]).
-B: NumericalConstant: one of (pi, e, maybe others?)
-B: RealNumber: one of (BFractionalNumber, ComplexNumber, DecimalNumber, NumericalConstant, WholeNumber)
-B: WholeNumber: A nonnegative integer.
-Value: a Number and a Unit.
-Unit
+    Complex structures:
+    B: List(Type:$type): a Table(Integer:$id, Object<$type>:$value).
+    B: Table(types)
 
-B: String: a list of bytes.
+    B: Object: All variables and methods are Objects. Methods return Objects.
+    B: Class: A set of parameters and methods defining what an Object can be like.
+    B: Method: Defined using the syntax: MethodName(Parameter1, Parameter2){ code; }, or an anonymous method defined using { }.
+    B: Parameter: A named value. String name, Type type, Object<$type> value.
+    B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table<Integer, List<Integer, Object>, List>).
 
-Complex structures:
-B: List(Type:$type): a Table(Integer:$id, Object<$type>:$value).
-B: Table(types)
+    Language builtins:
+    ========
 
-B: Object: All variables and methods are Objects. Methods return Objects.
-B: Class: A set of parameters and methods defining what an Object can be like.
-B: Method: Defined using the syntax: MethodName(Parameter1, Parameter2){ code; }, or an anonymous method defined using { }.
-B: Parameter: A named value. String name, Type type, Object<$type> value.
-B: Type: Either a type name (e.g. String), or a type name and qualifying types (e.g. Table<Integer, List<Integer, Object>, List>).
+    Parameters, in format parameter:[possible values]: 
+    ========
 
-Language builtins:
-========
+    context:[document | terminal | webscript] - affects whether to render output to a document display space, to send it to a terminal, or to render it as HTML/CSS/JS and send it to a Web server. Default depends on the file format: EDF defaults to document, ESL defaults to terminal, and EWS defaults to webscript.
 
-Parameters, in format parameter:[possible values]: 
-========
-
-context:[document | terminal | webscript] - affects whether to render output to a document display space, to send it to a terminal, or to render it as HTML/CSS/JS and send it to a Web server. Default depends on the file format: EDF defaults to document, ESL defaults to terminal, and EWS defaults to webscript.
-
-profile:[basic | standard | dangerous] - Tells the interpreter/compiler what set of language features to allow.
-
-
-Functions: 
-======
-
-B: set(String:$param, String:$value) - set language parameter $param to $value. An unknown value for $param is a compile-time error. An unknown value for a given $param / $value pair is also a compile-time error. Alias for e.sys.interpreter.set().
-
-B: say(String:$str) - send $str to the current output. Alias for e.io.say().
-
-B: add(Number:$n1, Number:$n2) - return the sum of $n1 and $n2.
-
-B: add(String:$s1, String:$s2) - return $s1 concatenated to $s2
-
-B: subtract()
-
-B: multiply()
-
-B: divide() - Division by zero is a compile-time or run-time error. Returns a DecimalNumber.
-
-B: mod()
-
-B: exp()
-
-compress(String:$string, [String:$compressionMethod])
-
-encrypt(String:$string, String:$passphrase)
+    profile:[basic | standard | dangerous] - Tells the interpreter/compiler what set of language features to allow.
 
 
-arrow pad (CAC = click / action / center "arrow")
+    Functions: 
+    ======
 
-prev. tab   ?       next tab
-back page   up      forward page
-left        [down|CAC]  right
-CAC     [down|?]        ?
-EDF standard editor: use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode->Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.
+    B: set(String:$param, String:$value) - set language parameter $param to $value. An unknown value for $param is a compile-time error. An unknown value for a given $param / $value pair is also a compile-time error. Alias for e.sys.interpreter.set().
+
+    B: say(String:$str) - send $str to the current output. Alias for e.io.say().
+
+    B: add(Number:$n1, Number:$n2) - return the sum of $n1 and $n2.
+
+    B: add(String:$s1, String:$s2) - return $s1 concatenated to $s2
+
+    B: subtract()
+
+    B: multiply()
+
+    B: divide() - Division by zero is a compile-time or run-time error. Returns a DecimalNumber.
+
+    B: mod()
+
+    B: exp()
+
+    compress(String:$string, [String:$compressionMethod])
+
+    encrypt(String:$string, String:$passphrase)
 
 
-Ember scripting language
-Combine best features of bash, php, assembly, C, java, python, go
+    arrow pad (CAC = click / action / center "arrow")
 
-Hello World:
+    prev. tab   ?       next tab
+    back page   up      forward page
+    left        [down|CAC]  right
+    CAC     [down|?]        ?
+    EDF standard editor: use glyph editing thing from GlyphWiki?; provide graphical way to choose Dcs when selecting them in syntaxes and in the mapping editor, etc.; for editing the mapping table, when a user clicks on it they should be taken to a list of all the unique values of the mapping-from name (e.g. Unicode, Mojikyo, etc.), and when they click one of those, if it has sub-mappings (e.g. Unicode->Greek and Coptic), it should provide a list of those, and THEN it should show a table of what they selected.
 
-echo('Hello, World!');
 
-Simple web spider (unfinished since the power's gone out, and I can't really see what I'm doing (I'm using a flashlight to write this note, but it's awkward)):
+    Ember scripting language
+    Combine best features of bash, php, assembly, C, java, python, go
 
-exception:noURLsProvidedException {
-    this.description = 'Warning: No URLs were provided; returning an empty list.';
-    this.behavior = {
-        return(list);
-        break;
-    }
-}
+    Hello World:
 
-function:Crawl[str:urls] throws noURLsProvidedException {
-    # Starting from a seed URL, returns a list of URLs linked.
-    array(list(str, bool):$AutoID):urls = explode($urls,' ','\');
-    if($urls.count == 0) {
-        throw noUrlsProvidedException;
-    }
-    foreach ($urls as $url) {
-        if($url.get(1) == true) {
-            # $url[0] is shorthand for $url.get(0).
-            str:$result = network.get($url[0], --allow-insecure=1);
-            list:$newURLs = str.extractURLs($result,str.guessDataType);
-            $urls.mergeFrom($newURLs);
+    echo('Hello, World!');
+
+    Simple web spider (unfinished since the power's gone out, and I can't really see what I'm doing (I'm using a flashlight to write this note, but it's awkward)):
+
+    exception:noURLsProvidedException {
+        this.description = 'Warning: No URLs were provided; returning an empty list.';
+        this.behavior = {
+            return(list);
+            break;
         }
     }
-}
+
+    function:Crawl[str:urls] throws noURLsProvidedException {
+        # Starting from a seed URL, returns a list of URLs linked.
+        array(list(str, bool):$AutoID):urls = explode($urls,' ','\');
+        if($urls.count == 0) {
+            throw noUrlsProvidedException;
+        }
+        foreach ($urls as $url) {
+            if($url.get(1) == true) {
+                # $url[0] is shorthand for $url.get(0).
+                str:$result = network.get($url[0], --allow-insecure=1);
+                list:$newURLs = str.extractURLs($result,str.guessDataType);
+                $urls.mergeFrom($newURLs);
+            }
+        }
+    }
 
 (Always use the Ember TDD principles.)
 1. Fix unexpected/incorrect result bugs
