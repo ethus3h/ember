@@ -521,6 +521,14 @@
         font-weight: normal;
     }
 
+    .nested-list {
+        padding-top: 0;
+    }
+
+    ul > .nested-list:not(:last-child) > li:last-of-type::after, ol > .nested-list:not(:last-child) > li:last-of-type::after {
+        content: none;
+    }
+
 /* Figures */
 
     .center-figure {
