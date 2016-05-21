@@ -1,0 +1,23 @@
+<pre><code>exception:noURLsProvidedException {
+        this.description = 'Warning: No URLs were provided; returning an empty list.';
+        this.behavior = {
+            return(list);
+            break;
+        }
+    }
+
+    function:Crawl[str:urls] throws noURLsProvidedException {
+        # Starting from a seed URL, returns a list of URLs linked.
+        array(list(str, bool):):urls = explode(,' ','\');
+        if(.count == 0) {
+            throw noUrlsProvidedException;
+        }
+        foreach ( as ) {
+            if(.get(1) == true) {
+                # [0] is shorthand for .get(0).
+                str: = network.get([0], --allow-insecure=1);
+                list: = str.extractURLs(,str.guessDataType);
+                .mergeFrom();
+            }
+        }
+    }</code></pre> --remove-comments --conservative-collapse --use-short-doctype
