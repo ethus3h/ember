@@ -18,21 +18,21 @@ perl -0777 -p -i -e 's/(<p class=\"breadcrumbs\">(((?!<\/p>)[\S\s])*)<\/p>)/\1<!
 perl -0777 -p -i -e "s/<!-- toc -->([\S\s]*)<!-- toc -->/\\1<!-- toc -->/g" "../../built/$1"
 hypertoc --inline --make_anchors --ol --ol_num_levels 0 --make_toc --bak "" --outfile "../../built/0.tmp" --toc_label "<h2>Table of Contents</h2>" --toc_tag "!-- toc --" --toc_tag_replace --quiet --header '<nav id="toc">' --footer "</nav>" --use_id --ignore_sole_first --toc_entry H2=1 --toc_entry H3=2 --toc_entry H4=3 --toc_entry H5=4 --toc_entry H6=5 --toc_end H2=/H2 --toc_end H3=/H3 --toc_end H4=/H4 --toc_end H5=/H5 --toc_end H6=/H6 "../../built/$1"
 #This handles <pre> tags correctly, AFAICT.
-html-minifier --output "../../built/$1" --remove-comments --conservative-collapse --use-short-doctype "../../built/0.tmp"
+html-minifier --output "../../built/$1" --remove-comments --collapse-whitespace --conservative-collapse --use-short-doctype "../../built/0.tmp"
 tr '\n' ' ' < "../../built/$1" > "../../built/1.tmp"
 tr '\t' ' ' < "../../built/1.tmp" > "../../built/2.tmp"
 tr '\r' ' ' < "../../built/2.tmp" > "../../built/3.tmp"
-tr -s " " < "../../built/3.tmp" > "../../built/$1"
+#tr -s " " < "../../built/3.tmp" > "../../built/$1"
 perl -0777 -p -i -e "s/nav-item-inactive $Page\"/nav-item-selected\"/g" "../../built/$1"
 cp "../content/$1" "../../built/4.tmp"
-#For debugging: wc -l ../../built/4.tmp
-#TODO: what does the next line do? Am I breaking anything by commenting it out?
-#perl -ni -e "print, exit if s/(<h1 class=\"title\">(((?!<\/h1>)[\S\s])*)<\/h1>)/\\1/sg" "../../built/4.tmp"
+#For debugging: wc -l ../../built/$1
+#TODO: what does the next line do? Am I breaking anything by commenting it out? OHHH this is all just working on the title
+perl -ni -e "print, exit if s/(<h1 class=\"title\">(((?!<\/h1>)[\S\s])*)<\/h1>)/\\1/sg" "../../built/4.tmp"
 perl -0777 -p -i -e 's/^\s*//;s/\s*$//;' "../../built/4.tmp"
+#"it's looking for a non-empty <h1 class="title> tag" —go|dfish
 perl -0777 -p -i -e "s/<h1 class=\"title\">(((?!<\/h1>)[\S\s])*)<\/h1>/\\1/g" "../../built/4.tmp"
-#Remove the first HTML tag #TODO: Figure out and document why I do this
 perl -0777 -p -i -e "s/(?i)<[^>]*>/ /g" "../../built/4.tmp"
-#perl -0777 -p -i -e "s/\s+/ /g" "../../built/4.tmp"
+perl -0777 -p -i -e "s/\s+/ /g" "../../built/4.tmp"
 perl -0777 -p -i -e "s/^\s+//g" "../../built/4.tmp"
 perl -0777 -p -i -e "s/\s+$//g" "../../built/4.tmp"
 title="$(cat ../../built/4.tmp)"
