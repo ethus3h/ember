@@ -168,6 +168,15 @@
             display: inline-block;
         }
 
+    /* Pre */
+
+        pre {
+            margin: 0.25rem;
+            padding: 0.25rem;
+            overflow: scroll;
+            border: 0.063rem dotted rgba(128,128,128,0.5);
+        }
+
     /* Blockquote */
 
         blockquote {
@@ -668,7 +677,14 @@
 
     table {
         table-layout: fixed;
-        width: 100%;
+        margin: .5rem;
+        max-width: calc(100% - .5rem);
+        border-spacing: calc(1rem / 3rem);
+        border: .063rem dotted rgba(1,50,32,0.5);
+    }
+
+    td {
+        padding: calc(1rem / 3rem);
         border: .063rem dotted rgb(1,50,32);
     }
 
