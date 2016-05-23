@@ -34,7 +34,7 @@
 <p>The file format version for this version of the standard is ASCII 1_0_44 padded with 966 ASCII spaces.</p>
 <p>If the Author Identifier begins with ASCII PUAI: then it is a Private Use Author Identifier and is not specified by this standard. Private Use Author Identifiers and Comments may not contain the vertical bar | or ASCII null (0x00).</p>
 <p>Creation metadata format specification</p>
-<p>If the Creation metadata starts with <b>20 ASCII spaces</b>, the following data (until the end of the Creation metadata block) is to be interpreted (using the Gregorian calendar) as: </p>
+<p>If the Creation metadata starts with <b>20 ASCII spaces</b>, the following data (until the end of the Creation metadata block) is to be interpreted (using the Gregorian calendar) as:</p>
 <p>|Creation time:[±6-digit year]-[2-digit month]-[2-digit day] [2-digit 24-hour hour].[2-digit minute].[2-digit second].[6-digit microseconds] [time zone offset in seconds] [32 spaces reserved for future use for time certainty value]|Creation location: [location beginning with “geo:” or “(name) ”, padded to the right with spaces]</p>
 <p><br></p>
 <p>If the location begins with geo:, it is to be interpreted as a geo URI (http://tools.ietf.org/html/rfc5870 ).</p>
@@ -532,39 +532,39 @@
 <p>Structural principles: old Weave version</p>
 <p>Note that this section is VERY outdated as of 2014-12-30, and describes the Weave system. The current proposed data structure as of 2014-12-30 is similar, but uses an append-only list instead, in which each entry is a node. (That way, relationships, metadata, etc. are all nodes and so have all of the fun and useful properties of nodes.)</p>
 <p>Nodes</p>
-<p>A <b>node</b> is an individual record of an item. It is the central element to data organisation in Weave. A node can have both metadata and relationships to provide information regarding it. </p>
-<p>It can have a data file attached to it. </p>
-<p>A node can have the following fields: </p>
-<p>Title </p>
-<p>Sort title </p>
-<p>Display title </p>
-<p>Short title </p>
-<p>Type </p>
-<p>Description </p>
-<p>Disambiguation description </p>
-<p>Source (citation) </p>
-<p>Comments </p>
-<p>Short description </p>
-<p>Universe status </p>
-<p>Copyright status </p>
-<p>Morality status </p>
-<p>Morality status as pertinent to minors </p>
-<p>Personal data status </p>
-<p>A node's dissemination can be controlled through the use of Permissions. </p>
+<p>A <b>node</b> is an individual record of an item. It is the central element to data organisation in Weave. A node can have both metadata and relationships to provide information regarding it.</p>
+<p>It can have a data file attached to it.</p>
+<p>A node can have the following fields:</p>
+<p>Title</p>
+<p>Sort title</p>
+<p>Display title</p>
+<p>Short title</p>
+<p>Type</p>
+<p>Description</p>
+<p>Disambiguation description</p>
+<p>Source (citation)</p>
+<p>Comments</p>
+<p>Short description</p>
+<p>Universe status</p>
+<p>Copyright status</p>
+<p>Morality status</p>
+<p>Morality status as pertinent to minors</p>
+<p>Personal data status</p>
+<p>A node's dissemination can be controlled through the use of Permissions.</p>
 <p>Relationships</p>
-<p>A <b>relationship</b> is a description of the connection between two nodes. </p>
+<p>A <b>relationship</b> is a description of the connection between two nodes.</p>
 <p>Metadata</p>
 <p>A metadatum is a record of a concrete attribute of or an objective truth regarding a node, such as the number of words in a book or the dimensions of a sculpture.</p>
 <h2>Computing environment description</h2>
 <p>One of the fundamental elements of this project would be the creation of a cloud-based information technology system, intended to provide rapid information storage and retrieval (ISR). This would likely use an append-only NoSQL database to store a softly directed concept graph. It would use, in the current implementation I am working on, eight columns: id (integer), node (integer, related to id), date (integer, related to a String node’s id), type (integer, related to type.id), data (integer, related to a String node’s id), deleted (Boolean), author (integer), access_control (integer, related to a String node’s id). Other tables would be needed, including class (id: integer; description: string); …[TODO]. [Also TODO: Looking at it as an object inheritance hierarchy?] [Also TODO: Asynchronous/non-request-driven (background/daemon/triggered/cron tasks)] I think that most or all knowledge can be effectively represented using three basic structures: nodes, relationships, and metadata. I am also developing the Document-Character-Entity encoding system (DCE), which is a state-switching hierarchical many-to-one binary character encoding model. DCE comprises a list of “DCE characters” (Dcs), which are individual semantic units that can be compiled together as a list, as well as individual mapping tables from Dcs to bytes; these mapping tables are linked by state-switch Dcs. Each Dc has rules indicating the syntactic context in which it can be sensibly used, and instructions for parsing it. These rules can be defined using the keywords if, then, else, precedes, succeeds, invalidate, any, state, valid, e.g. if Dc 165 meant “start styled region” it could perhaps be defined as: <code>if(precedes(&lt;any, [end styled region]&gt;)){state(styled);valid;}</code>. A Backus-Naur Form representation of this language would be [TODO].</p>
-<p>The nodes of a graph are the individual records that it stores. Relationships between those nodes are the edges of the graph, although it is possible that the system I am developing will provide for more complex relationships, for example by allowing relationships to connect several nodes to each other in a variety of ways, although whether that proves necessary or useful remains to be seen. Metadata are an item’s traits: information such as the title of a node, or a description of it. The way I have designed this system, placing all three of these types of entity into one table, allows relationships and metadata to have the attributes of nodes: for example, metadata could be attached to a relationship or another metadatum, or relationships could be specified that connect any combination of the three. There are many existing ISR systems, such as flat files and flat searching, flat-search filterable record sets, sorted records, a variety of tree and tree-like structures, tagged or labeled records, traditional tabular databases, relational databases, sparse tables, sparse matrices and entity-attribute-value models, graphs and digraphs, Boolean-queryable datasets, hierarchies, automated natural-language document acquisition and indexing, metadata-enriched natural-language document acquisition and indexing, and selective-display intelligent query results. The system I am proposing would primarily leverage a graph structure augmented through the use of richly labeled nodes, providing great flexibility in the structures it can manage; in addition, I believe that most or all of the above structures could be emulated within a graph-driven environment. </p>
-<p>One large challenge faced by the system I propose is the role of server-side processing (SSP). SSP is a vital element of much of modern butt application software, but it does not fit nicely into the information-driven model I propose. I think the best solution for this is through the application of dynamic parsing of DCE content as it is returned by the server. While this strategy could present a serious security risk, if the dynamic content is handed off to servers dedicated to this purpose and sandboxing is employed, I think this risk could be effectively mitigated, at least to the extent of avoiding access privilege escalation attacks against the main database. This will also provide effective options for building the wide variety of ISR systems I outlined above as both self-hosted applications and in user space. </p>
-<p>There are a variety of content sources that would populate this ISR system: publicly available datasets, creative works, and other resources; resources added and/or created by individuals using the system; “dark” content such as is currently held by social networks, governments, and other organizations that do not publicly release their records; moderated content that has been reviewed and fact-checked and annotated as such by the NGO; dynamically generated content; and computed content, for example, the results from a mathematical calculation or an operation on a dataset. </p>
-<p>I propose that this ISR system be leveraged by the NGO for several purposes. First, it can be used to record the individuals who are participants in the NGO. Through the development and application of a multipronged biometrics system, perhaps similar to that of India’s Aadhaar program (Wikipedia 2014(d)), the use of names could be easily foregone, allowing for people who are mononymous, change their name frequently, have unconventional names (such as names without graphic representation, names that mutate over time, musical names, graphic names, etc., or even names that simply are not very common (For example, 马𩧢 (Mǎ Chěng) in China who is inconvenienced because her name is not supported by China’s computer systems. (LaFraniere 2009; Wikipedia 2014(e)))), have no name, and so on and so forth to easily use the system, without being subjected to the usual tribulations that accompany any of the above in many modern governments. (It would also eliminate similar gender identity and other issues in receiving government services.) While instability of identification traits in individuals, either through subversion of the system or through chance, is indeed a concern, both for positive and negative identification (Sahoo, Choubisa, and Prasanna 2012), hopefully a sufficiently deep set of metrics could be established to prevent this from being an issue. When an individual becomes part of the NGO, they would be enrolled in the biometric identification system, and marked with a system for tracking of some type. This could take several forms: the most practical and useful, probably, would be a wristwatch-like interface to cloud computing systems that would contain a GPS system and other useful electronics. The purpose of this would be the providing of emergency services: in the event of an emergency, the wearer could interact in it in a way to convey the existence and, if possible, the nature and situation of an emergency. This information would be entered automatically into the ISR system, which would provide a report of the emergency, including the person’s location, their direction and speed of travel, any pre-existing health conditions, their current health state (heart rate, blood pressure, and such). The system could automatically delegate the emergency to a nearby station of the NGO, which would act (presumably with the assistance of emergency response services) to resolve the situation. (I recall having encountered similar systems designed for elderly or disabled individuals; these served in large part as the inspiration for this scenario and solution.) </p>
-<p>This system also would provide an excellent opportunity for surveillance. By unifying all document processing and communications within the organization into the ISR system I propose, the process of collecting this data and monitoring it for threats would be vastly simplified. There are certainly compelling arguments against surveillance, but if one does not have faith and trust in the organizations created to protect them, those organizations have clearly failed at their purpose and begun to act not in the interest of those whose interests they are designed to protect, but most likely rather in the interest of their own perpetuation for the benefit of those who hold the power to control them. Thomas Jefferson famously wrote in the Declaration of Independence </p>
+<p>The nodes of a graph are the individual records that it stores. Relationships between those nodes are the edges of the graph, although it is possible that the system I am developing will provide for more complex relationships, for example by allowing relationships to connect several nodes to each other in a variety of ways, although whether that proves necessary or useful remains to be seen. Metadata are an item’s traits: information such as the title of a node, or a description of it. The way I have designed this system, placing all three of these types of entity into one table, allows relationships and metadata to have the attributes of nodes: for example, metadata could be attached to a relationship or another metadatum, or relationships could be specified that connect any combination of the three. There are many existing ISR systems, such as flat files and flat searching, flat-search filterable record sets, sorted records, a variety of tree and tree-like structures, tagged or labeled records, traditional tabular databases, relational databases, sparse tables, sparse matrices and entity-attribute-value models, graphs and digraphs, Boolean-queryable datasets, hierarchies, automated natural-language document acquisition and indexing, metadata-enriched natural-language document acquisition and indexing, and selective-display intelligent query results. The system I am proposing would primarily leverage a graph structure augmented through the use of richly labeled nodes, providing great flexibility in the structures it can manage; in addition, I believe that most or all of the above structures could be emulated within a graph-driven environment.</p>
+<p>One large challenge faced by the system I propose is the role of server-side processing (SSP). SSP is a vital element of much of modern butt application software, but it does not fit nicely into the information-driven model I propose. I think the best solution for this is through the application of dynamic parsing of DCE content as it is returned by the server. While this strategy could present a serious security risk, if the dynamic content is handed off to servers dedicated to this purpose and sandboxing is employed, I think this risk could be effectively mitigated, at least to the extent of avoiding access privilege escalation attacks against the main database. This will also provide effective options for building the wide variety of ISR systems I outlined above as both self-hosted applications and in user space.</p>
+<p>There are a variety of content sources that would populate this ISR system: publicly available datasets, creative works, and other resources; resources added and/or created by individuals using the system; “dark” content such as is currently held by social networks, governments, and other organizations that do not publicly release their records; moderated content that has been reviewed and fact-checked and annotated as such by the NGO; dynamically generated content; and computed content, for example, the results from a mathematical calculation or an operation on a dataset.</p>
+<p>I propose that this ISR system be leveraged by the NGO for several purposes. First, it can be used to record the individuals who are participants in the NGO. Through the development and application of a multipronged biometrics system, perhaps similar to that of India’s Aadhaar program (Wikipedia 2014(d)), the use of names could be easily foregone, allowing for people who are mononymous, change their name frequently, have unconventional names (such as names without graphic representation, names that mutate over time, musical names, graphic names, etc., or even names that simply are not very common (For example, 马𩧢 (Mǎ Chěng) in China who is inconvenienced because her name is not supported by China’s computer systems. (LaFraniere 2009; Wikipedia 2014(e)))), have no name, and so on and so forth to easily use the system, without being subjected to the usual tribulations that accompany any of the above in many modern governments. (It would also eliminate similar gender identity and other issues in receiving government services.) While instability of identification traits in individuals, either through subversion of the system or through chance, is indeed a concern, both for positive and negative identification (Sahoo, Choubisa, and Prasanna 2012), hopefully a sufficiently deep set of metrics could be established to prevent this from being an issue. When an individual becomes part of the NGO, they would be enrolled in the biometric identification system, and marked with a system for tracking of some type. This could take several forms: the most practical and useful, probably, would be a wristwatch-like interface to cloud computing systems that would contain a GPS system and other useful electronics. The purpose of this would be the providing of emergency services: in the event of an emergency, the wearer could interact in it in a way to convey the existence and, if possible, the nature and situation of an emergency. This information would be entered automatically into the ISR system, which would provide a report of the emergency, including the person’s location, their direction and speed of travel, any pre-existing health conditions, their current health state (heart rate, blood pressure, and such). The system could automatically delegate the emergency to a nearby station of the NGO, which would act (presumably with the assistance of emergency response services) to resolve the situation. (I recall having encountered similar systems designed for elderly or disabled individuals; these served in large part as the inspiration for this scenario and solution.)</p>
+<p>This system also would provide an excellent opportunity for surveillance. By unifying all document processing and communications within the organization into the ISR system I propose, the process of collecting this data and monitoring it for threats would be vastly simplified. There are certainly compelling arguments against surveillance, but if one does not have faith and trust in the organizations created to protect them, those organizations have clearly failed at their purpose and begun to act not in the interest of those whose interests they are designed to protect, but most likely rather in the interest of their own perpetuation for the benefit of those who hold the power to control them. Thomas Jefferson famously wrote in the Declaration of Independence</p>
 <blockquote>“that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness. —That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, —That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness” (Jefferson 1776);</blockquote>
-<p>in this rather radical passage he lays out in shockingly blunt language the Lockean principle that government is more of a means to an end than an end in and of itself. It is from this basic premise that I draw my conclusion that surveillance in the interest of safety of the people by the institutions they create for their protection is an excellent strategy; I also feel that similar scrutiny must be brought to bear upon the institutions themselves by the people who have created them, thus ensuring that those institutions act effectively in their interests. In addition, these institutions should never attempt to withhold armaments from the people they protect: individuals should be provided the means to create the weapons held by their government. At present this would be impractical (it would, for example, be foolhardy to attempt to overthrow a nuclear power at present, and yet giving nuclear weapons to every person would likely end up in global annihilation), but a long-term global general de-escalation of arms is of significant importance, so that people can, relatively realistically, be in control of the institutions they have created in power as well as in name. In the meantime, there is not much that can be done to this end beyond keeping your rifle maintained and your eye good in the hopes that the day may come that they might represent some element of political power you could have in aggregate with the others around you. Any revolution, of course, would likely only be engendered by horrible social mismanagement or oppression triggering a societal consensus to revolt (this has indeed been the case in some areas recently, such as in the Egyptian revolution in 2011 (Al Jazeera 2011)); this is quite fortunate as if it were not so, unpleasant chaos would no doubt ensue. </p>
-<p>Education and qualifications could be tracked through this system, as could taxes. For example, when a person completed testing by the organization in a given subject, that score could be recorded in their profile in such a way that it could be used to determine what jobs they are allowed to work at. Taxation should be managed through time, so that a person would put in a certain number of hours of work selected from the jobs that need doing according to the ISR’s task record tracking system (possibly the number of hours necessary for a given amount of the organization’s services provided would be related to the level of qualification necessary for the work in question) to receive the organization’s services in exchange. The person could choose which services to allocate their time credits to — for example, requesting food credits, requesting tickets to operas, or donating them to a militia. In such a way, the taxes levied would hopefully never have to be put to a use the individual did not believe in. Trading could also perhaps be managed through the ISR system. </p>
+<p>in this rather radical passage he lays out in shockingly blunt language the Lockean principle that government is more of a means to an end than an end in and of itself. It is from this basic premise that I draw my conclusion that surveillance in the interest of safety of the people by the institutions they create for their protection is an excellent strategy; I also feel that similar scrutiny must be brought to bear upon the institutions themselves by the people who have created them, thus ensuring that those institutions act effectively in their interests. In addition, these institutions should never attempt to withhold armaments from the people they protect: individuals should be provided the means to create the weapons held by their government. At present this would be impractical (it would, for example, be foolhardy to attempt to overthrow a nuclear power at present, and yet giving nuclear weapons to every person would likely end up in global annihilation), but a long-term global general de-escalation of arms is of significant importance, so that people can, relatively realistically, be in control of the institutions they have created in power as well as in name. In the meantime, there is not much that can be done to this end beyond keeping your rifle maintained and your eye good in the hopes that the day may come that they might represent some element of political power you could have in aggregate with the others around you. Any revolution, of course, would likely only be engendered by horrible social mismanagement or oppression triggering a societal consensus to revolt (this has indeed been the case in some areas recently, such as in the Egyptian revolution in 2011 (Al Jazeera 2011)); this is quite fortunate as if it were not so, unpleasant chaos would no doubt ensue.</p>
+<p>Education and qualifications could be tracked through this system, as could taxes. For example, when a person completed testing by the organization in a given subject, that score could be recorded in their profile in such a way that it could be used to determine what jobs they are allowed to work at. Taxation should be managed through time, so that a person would put in a certain number of hours of work selected from the jobs that need doing according to the ISR’s task record tracking system (possibly the number of hours necessary for a given amount of the organization’s services provided would be related to the level of qualification necessary for the work in question) to receive the organization’s services in exchange. The person could choose which services to allocate their time credits to — for example, requesting food credits, requesting tickets to operas, or donating them to a militia. In such a way, the taxes levied would hopefully never have to be put to a use the individual did not believe in. Trading could also perhaps be managed through the ISR system.</p>
 <h2>Structured specifications</h2>
 <h3>Server behavior specification</h3>
 <h3>OS client behavior specification</h3>
@@ -572,7 +572,7 @@
 <h2>Notes and Ideas</h2>
 <p>Ideas and Notes</p>
 <p>Authority Contexts</p>
-<p>These do not indicate that information is guaranteed correct within the given authority context, but only that that is the intended authority of the material. </p>
+<p>These do not indicate that information is guaranteed correct within the given authority context, but only that that is the intended authority of the material.</p>
 <ul>
   <li>Objective consensus: Like Wikipedia. Neutral point of view. Doesn't necessarily represent all points of view equally because of lack of consensus about them.</li>
   <li>Objective egalitarian: Neutral point of view, and tries to accept all viewpoints as equally legitimate.</li>
@@ -582,7 +582,7 @@
   <li>Subjective single/subset source: Opinion (no neutral point of view), as established by a single source or a subset of available sources.</li>
   <li>Subjective individual/organization source: Opinion (no neutral point of view), as believed by an individual or organization.</li>
 </ul>
-<p>And the in-universe counterparts of the above: </p>
+<p>And the in-universe counterparts of the above:</p>
 <ul>
   <li>In-universe consensus</li>
   <li>In-universe egalitarian</li>
@@ -593,10 +593,10 @@
   <li>In-universe subjective individual/organization source</li>
 </ul>
 <p>Modular Dc Sequence Builders</p>
-<p>Idea: Modular Dc Sequence Builders </p>
-<p>For instance: A set builder: Collects nodes. Could be used for file uploads, etc. </p>
-<p>So, if I want to "upload" a file (send it to an Ember app), I am given a set builder dialog. It lets me pick a document or data record to send. Then, the set containing that document (at its present revision) is saved as a node; that node ID is then passed to the app. The node would have a trait indicating that it was static (that the contents it references would not be able to be changed — just revisions of them at the present state). Alternatively, a dynamic set could be created, in which the document would be able to be updated. Sets could have restrictions e.g. about how many documents they could contain, whether they could contain complex structures (such as a directory tree), whether one document could be swapped out with another or not, (or whether they are dynamic or static). Sets could also be driven by search criteria (e.g. the most relevant 10 nodes for a given keyword, or all nodes matching "DOOM" XOR "MOOD", or all four nodes with type Musician and a "is member of" relationship to "The Beatles", or the rapidly changing set of nodes with type Musician and a current or past "is member of" relationship to "Yes"), or built programmatically from new or existing nodes. This would allow file uploads, searches, etc. to all be driven using the SAME basic user interface module. Basically, a file picker on steroids. The set node would have a Dc sequence representation, as do all nodes, so this is really a Dc sequence builder. A set builder could also be used, for example, to choose what nodes to perform an operation on. So, if I'm writing an app to find all the "has foo of" relationships, delete them, and create corresponding "has bar of" relationships, I could create a dynamic set representing all the "has foo of" relationships, the app would know the node ID of that set, and it would then operate on the present state of that set whenever it is run. Of course, like anything else in Ember a set could "time travel" — a new set could display its results as if it had existed at a previous time, or the previous contents of the set could be displayed even if it did exist then. Another application of the set builder could be creating an Ember theme to share with the community that displayed the current top 10 tracks on the Billboard Hot 100 — a set could be created representing the top 10, and a rule could be created if desired to deal with the condition if the Hot 100 was discontinued: the set could be configured to return nothing, to return a fixed list, to return the top 10 from the final edition of the charts, etc.. </p>
-<p>Likewise, a Color sequence builder should exist, and a Time sequence builder, and a Number sequence builder (could handle variables and complex expressions!), and a Mathematical Equation sequence builder (which would create a Number sequence builder for numbers). </p>
+<p>Idea: Modular Dc Sequence Builders</p>
+<p>For instance: A set builder: Collects nodes. Could be used for file uploads, etc.</p>
+<p>So, if I want to "upload" a file (send it to an Ember app), I am given a set builder dialog. It lets me pick a document or data record to send. Then, the set containing that document (at its present revision) is saved as a node; that node ID is then passed to the app. The node would have a trait indicating that it was static (that the contents it references would not be able to be changed — just revisions of them at the present state). Alternatively, a dynamic set could be created, in which the document would be able to be updated. Sets could have restrictions e.g. about how many documents they could contain, whether they could contain complex structures (such as a directory tree), whether one document could be swapped out with another or not, (or whether they are dynamic or static). Sets could also be driven by search criteria (e.g. the most relevant 10 nodes for a given keyword, or all nodes matching "DOOM" XOR "MOOD", or all four nodes with type Musician and a "is member of" relationship to "The Beatles", or the rapidly changing set of nodes with type Musician and a current or past "is member of" relationship to "Yes"), or built programmatically from new or existing nodes. This would allow file uploads, searches, etc. to all be driven using the SAME basic user interface module. Basically, a file picker on steroids. The set node would have a Dc sequence representation, as do all nodes, so this is really a Dc sequence builder. A set builder could also be used, for example, to choose what nodes to perform an operation on. So, if I'm writing an app to find all the "has foo of" relationships, delete them, and create corresponding "has bar of" relationships, I could create a dynamic set representing all the "has foo of" relationships, the app would know the node ID of that set, and it would then operate on the present state of that set whenever it is run. Of course, like anything else in Ember a set could "time travel" — a new set could display its results as if it had existed at a previous time, or the previous contents of the set could be displayed even if it did exist then. Another application of the set builder could be creating an Ember theme to share with the community that displayed the current top 10 tracks on the Billboard Hot 100 — a set could be created representing the top 10, and a rule could be created if desired to deal with the condition if the Hot 100 was discontinued: the set could be configured to return nothing, to return a fixed list, to return the top 10 from the final edition of the charts, etc..</p>
+<p>Likewise, a Color sequence builder should exist, and a Time sequence builder, and a Number sequence builder (could handle variables and complex expressions!), and a Mathematical Equation sequence builder (which would create a Number sequence builder for numbers).</p>
 <p>General ideas</p>
 <ul>
   <li>Tagged nodes, including a system for storing the tags as part of a tag grouping (which could have permissions like a document). Would also have a global tag system, so people could add tags to the global tag grouping.</li>
@@ -604,7 +604,7 @@
   <li>Hopefully these traits would help keep restrictions from being a pain in the ass</li>
 </ul>
 <p>Data flows</p>
-<p>Listed: tolerance per item — (maximum ping in ms | minimum bandwidth per second) </p>
+<p>Listed: tolerance per item — (maximum ping in ms | minimum bandwidth per second)</p>
 <p>Fully featured client</p>
 <p>Input</p>
 <ul>
@@ -665,20 +665,20 @@
   </ul>
 </ul>
 <p>Note: DCE named syntaxes</p>
-<p>DCE named syntaxes? (as extension of named sequences) E.g. U+1F4B0 MONEY BAG could map to a Dc "Money bag". The Money bag Dc would be defined as: &lt;Enclosing Bag&gt;(&lt;Class:Currency symbols&gt;) </p>
-<p>This would allow a) the mapping to represent the money (currency symbol) semantic of the Unicode character and b) a user to create a visually identical sequence with something else in it (e.g. </p>
+<p>DCE named syntaxes? (as extension of named sequences) E.g. U+1F4B0 MONEY BAG could map to a Dc "Money bag". The Money bag Dc would be defined as: &lt;Enclosing Bag&gt;(&lt;Class:Currency symbols&gt;)</p>
+<p>This would allow a) the mapping to represent the money (currency symbol) semantic of the Unicode character and b) a user to create a visually identical sequence with something else in it (e.g.</p>
 <p>&lt;Enclosing Bag&gt;&lt;Begin Discrete Block&gt;&lt;Begin Style Override&gt;&lt;Begin Style Definition&gt;&lt;Sans Serif&gt;&lt;End Style Definition&gt;XXX&lt;End Style Override&gt;&lt;End Discrete Block&gt;</p>
-<p>to create a flour bag if the user wanted the same style as the Money bag) </p>
+<p>to create a flour bag if the user wanted the same style as the Money bag)</p>
 <p>Node examples — use cases:</p>
-<p>Node — a new document someone created… — type: Digital data Has title (file name); has relationships: ☆→created by (ember account), ☆has revisions (each time saved or autosaved). Node: — a piece of music someone had in their computer upon backing up w/ Ember… — type: Digital data. Has title (file name); Relationships: has revision: only the current revision, since it’s never been resaved; has creator (ember account).; has date created (date created from filesystem — with source annotation) Note that the content &amp; format metadata are stored with the Revision nodes, not with the main nodes. Each revision node has autodetected music metadata (e.g. by Musicbrainz PUID lookup) or other autodetected metadata, such as plagiarism detection information. Music metadata &amp; such can be added manually to main &amp;/or revision nodes. DCE (and Wreathe and Ember) should use Google Wave’s letter-by-letter edit tracking technology… then DCE data backed up wouldn’t need independent revision nodes like that — but instead just independent revision nodes for actual conceptual revisions of the document. Maybe, to prevent confusion, autosaved revisions could be called by a different name (i.e. a word other than “revision”.)?…. Wreathe and Ember should hide their DCE underpinnings, for the most part, but at the same time, lower-level DCE editing should be easy. </p>
+<p>Node — a new document someone created… — type: Digital data Has title (file name); has relationships: ☆→created by (ember account), ☆has revisions (each time saved or autosaved). Node: — a piece of music someone had in their computer upon backing up w/ Ember… — type: Digital data. Has title (file name); Relationships: has revision: only the current revision, since it’s never been resaved; has creator (ember account).; has date created (date created from filesystem — with source annotation) Note that the content &amp; format metadata are stored with the Revision nodes, not with the main nodes. Each revision node has autodetected music metadata (e.g. by Musicbrainz PUID lookup) or other autodetected metadata, such as plagiarism detection information. Music metadata &amp; such can be added manually to main &amp;/or revision nodes. DCE (and Wreathe and Ember) should use Google Wave’s letter-by-letter edit tracking technology… then DCE data backed up wouldn’t need independent revision nodes like that — but instead just independent revision nodes for actual conceptual revisions of the document. Maybe, to prevent confusion, autosaved revisions could be called by a different name (i.e. a word other than “revision”.)?…. Wreathe and Ember should hide their DCE underpinnings, for the most part, but at the same time, lower-level DCE editing should be easy.</p>
 <p>Implementation</p>
-<p>A full DCE editor à la Wreathe isn’t necessarily necessary for Ember’s web-based administration — just use the all-in-one DCE editor / Ember browser / etc. in Wreathe if one wants desktop-power-level DCE editing in Wreathe [possibly meant to write Ember there?]. Plus, DCE editing can be easily implemented in a web environment without worrying about rendering or display so much — just work with the raw Dcs if that kind of “advanced” functionality is desired, if necessary…? </p>
+<p>A full DCE editor à la Wreathe isn’t necessarily necessary for Ember’s web-based administration — just use the all-in-one DCE editor / Ember browser / etc. in Wreathe if one wants desktop-power-level DCE editing in Wreathe [possibly meant to write Ember there?]. Plus, DCE editing can be easily implemented in a web environment without worrying about rendering or display so much — just work with the raw Dcs if that kind of “advanced” functionality is desired, if necessary…?</p>
 <p>Database schema ideas</p>
 <p>Ember data modeling</p>
-<p>Might be useful: http://www.slideshare.net/DanLynn1/storing-and-manipulating-graphs-in-hbase </p>
+<p>Might be useful: http://www.slideshare.net/DanLynn1/storing-and-manipulating-graphs-in-hbase</p>
 <p>Example schema</p>
-<p>Note that this is simplified (doesn't deal with character encodings, localisation, strings, etc…. </p>
-<p>Rough example of how things might work (note that type 2 is a relationship and does not necessarily take data but has a node as its target, while type 3 is a metadatum and has to take data but only has its root node: </p>
+<p>Note that this is simplified (doesn't deal with character encodings, localisation, strings, etc….</p>
+<p>Rough example of how things might work (note that type 2 is a relationship and does not necessarily take data but has a node as its target, while type 3 is a metadatum and has to take data but only has its root node:</p>
 <p><br></p>
 <p>Top of Form</p>
 <p><br></p>
@@ -687,7 +687,7 @@
   <tbody>
     <tr>
       <td valign="middle">
-        <p>id </p>
+        <p>id</p>
       </td>
       <td valign="middle">
         <p><b>description </b></p>
@@ -695,26 +695,26 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>node </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>1 </p>
-      </td>
-      <td valign="middle">
-        <p>relationship </p>
+        <p>node</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>2 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>metadatum </p>
+        <p>relationship</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>2</p>
+      </td>
+      <td valign="middle">
+        <p>metadatum</p>
       </td>
     </tr>
   </tbody>
@@ -726,7 +726,7 @@
   <tbody>
     <tr>
       <td valign="middle">
-        <p>id </p>
+        <p>id</p>
       </td>
       <td valign="middle">
         <p><b>class </b></p>
@@ -740,27 +740,13 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>person </p>
-      </td>
-      <td valign="middle">
-        <p><br></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>1 </p>
-      </td>
-      <td valign="middle">
-        <p>0 </p>
-      </td>
-      <td valign="middle">
-        <p>basic node </p>
+        <p>person</p>
       </td>
       <td valign="middle">
         <p><br></p>
@@ -768,30 +754,44 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>2 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>has author </p>
+        <p>basic node</p>
       </td>
       <td valign="middle">
-        <p>is author of </p>
+        <p><br></p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>3 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>2 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>has title </p>
+        <p>has author</p>
       </td>
       <td valign="middle">
-        <p>is title of </p>
+        <p>is author of</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>3</p>
+      </td>
+      <td valign="middle">
+        <p>2</p>
+      </td>
+      <td valign="middle">
+        <p>has title</p>
+      </td>
+      <td valign="middle">
+        <p>is title of</p>
       </td>
     </tr>
   </tbody>
@@ -803,7 +803,7 @@
   <tbody>
     <tr>
       <td valign="middle">
-        <p>id </p>
+        <p>id</p>
       </td>
       <td valign="middle">
         <p><b>username </b></p>
@@ -820,19 +820,19 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>test </p>
+        <p>test</p>
       </td>
       <td valign="middle">
-        <p>blahblahblah </p>
+        <p>blahblahblah</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
     </tr>
   </tbody>
@@ -844,7 +844,7 @@
   <tbody>
     <tr>
       <td valign="middle">
-        <p>id </p>
+        <p>id</p>
       </td>
       <td valign="middle">
         <p><b>node </b></p>
@@ -873,205 +873,205 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
-      </td>
-      <td valign="middle">
-        <p><br></p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p><br></p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>0</p>
+      </td>
+      <td valign="middle">
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
-      </td>
-      <td valign="middle">
-        <p><br></p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p><br></p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>0</p>
+      </td>
+      <td valign="middle">
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>2 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
-      </td>
-      <td valign="middle">
-        <p><br></p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p><br></p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>0</p>
+      </td>
+      <td valign="middle">
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>3 </p>
+        <p>3</p>
       </td>
       <td valign="middle">
-        <p>2 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>2 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>4 </p>
+        <p>4</p>
       </td>
       <td valign="middle">
-        <p>3 </p>
+        <p>3</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
-      </td>
-      <td valign="middle">
-        <p><br></p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p><br></p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>0</p>
+      </td>
+      <td valign="middle">
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>5 </p>
+        <p>5</p>
       </td>
       <td valign="middle">
-        <p>2 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>2 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>6 </p>
+        <p>6</p>
       </td>
       <td valign="middle">
-        <p>4 </p>
+        <p>4</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>3 </p>
+        <p>3</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
       <td valign="middle">
-        <p>1 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
         <p><br></p>
       </td>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>DCEe… </p>
+        <p>DCEe…</p>
       </td>
     </tr>
   </tbody>
@@ -1079,19 +1079,19 @@
 <p>Top of Form</p>
 <p><br></p>
 <p>Comments and ideas</p>
-<p>How to deal with complicated situations, e.g. three-node relationships? Could relationships all just be special cases of metadata? (Or maybe vice versa, although I don't think that would work?) What about nondirectional relationships? Or unidirectional? </p>
-<p>Everything in one big table?? </p>
-<p>How to delete relationships?? </p>
-<p>Relationships and metadata as nodes, all together in one big table?? </p>
-<p>For each node: id </p>
-<p>For each node revision: id, node_id, revision_date, type, data, node_1, node_2 </p>
-<p>node_id: related to node table </p>
-<p>type: e.g. "Node has number of pages metadata" or "Data" or "Person" or "node_1 is author of node_2" </p>
-<p>data: DCE data ID associated with the node (for metadata, this would be the value of the metadata; for a data-type node this would be its contents) </p>
-<p>node_1 and node_2: two nodes that this node represents a relationship between </p>
+<p>How to deal with complicated situations, e.g. three-node relationships? Could relationships all just be special cases of metadata? (Or maybe vice versa, although I don't think that would work?) What about nondirectional relationships? Or unidirectional?</p>
+<p>Everything in one big table??</p>
+<p>How to delete relationships??</p>
+<p>Relationships and metadata as nodes, all together in one big table??</p>
+<p>For each node: id</p>
+<p>For each node revision: id, node_id, revision_date, type, data, node_1, node_2</p>
+<p>node_id: related to node table</p>
+<p>type: e.g. "Node has number of pages metadata" or "Data" or "Person" or "node_1 is author of node_2"</p>
+<p>data: DCE data ID associated with the node (for metadata, this would be the value of the metadata; for a data-type node this would be its contents)</p>
+<p>node_1 and node_2: two nodes that this node represents a relationship between</p>
 <p>Structuring EMBER DMS</p>
 <p><br></p>
-<p>The Ember data management system: project objectives, implementation plan, and operational structure. </p>
+<p>The Ember data management system: project objectives, implementation plan, and operational structure.</p>
 <p>Project objectives</p>
 <p><br></p>
 <p><br></p>
@@ -1109,26 +1109,26 @@
 <p>Top of Form</p>
 <p><br></p>
 <p>Button</p>
-<p>Layers: </p>
+<p>Layers:</p>
 <ul>
   <li>Background</li>
   <li>Highlights (like murrine, except not round: `-. `-' .-' .-. = left up right down, respectively)</li>
   <li>Content</li>
   <li></li>
 </ul>
-<p>Instead of content highlights, have a boolean parameter for stacking order that allows the Highlights layer to go above or below the Content layer. </p>
+<p>Instead of content highlights, have a boolean parameter for stacking order that allows the Highlights layer to go above or below the Content layer.</p>
 <p><i>n</i>-space-native computer graphics system</p>
-<p>Idea for a robust n-space-native multithreaded compositing computer graphics system…: </p>
-<p>There can be many applications. </p>
-<p>Each application can write to many source spaces, each of which has its own pair of buffers. Each source has two buffers so the data can be read by the compositor at any time, even while the source AND one buffer are being updated. That way, the compositor doesn't ever have to wait. It could just not paint things that weren't ready, but then that could make those things flicker. </p>
-<p>There is one OS output system. </p>
-<p>Compositor is a space of the same type as the output (for a 2-dimensional computer screen, for example, the composition space is 2-dimensional). </p>
-<p>A space is an n-dimensional data structure of graphics (generally vector) objects. Except for the composition space, spaces are organized in relation to other spaces (the origin of the enclosed space corresponds to a given position in the enclosing space). When the enclosed space has more dimensions than the enclosing space, each extra dimension can be chosen to be sliced, projected, or (sliced and?) protruding from the enclosing space. The compositor should also be able to handle other cases correctly, e.g. when the size of one unit in a space is different from another, when a space is rotated relative to another, when the size of one unit changes within a space, unusually shaped spaces, spaces that wrap around at the edges, spaces with holes in them, spaces split into parts, spaces with areas that teleport, spaces that change over time, two or more a-dimensional spaces with b intersecting dimensions (for b less than or equal to a — the other dimensions protruding), etc.. </p>
-<p>Regarding unusually shaped spaces: consider a piece of string as a one-dimensional space. It has a clear linear point system along its length, but it can be bent within 3 dimensions. This case should be handled correctly by the compositor. </p>
-<p>: How to handle situations where an application needs to reference another application's spaces? Shouldn't be too hard to do, but maybe should have some sort of security/access protection system in place…. </p>
+<p>Idea for a robust n-space-native multithreaded compositing computer graphics system…:</p>
+<p>There can be many applications.</p>
+<p>Each application can write to many source spaces, each of which has its own pair of buffers. Each source has two buffers so the data can be read by the compositor at any time, even while the source AND one buffer are being updated. That way, the compositor doesn't ever have to wait. It could just not paint things that weren't ready, but then that could make those things flicker.</p>
+<p>There is one OS output system.</p>
+<p>Compositor is a space of the same type as the output (for a 2-dimensional computer screen, for example, the composition space is 2-dimensional).</p>
+<p>A space is an n-dimensional data structure of graphics (generally vector) objects. Except for the composition space, spaces are organized in relation to other spaces (the origin of the enclosed space corresponds to a given position in the enclosing space). When the enclosed space has more dimensions than the enclosing space, each extra dimension can be chosen to be sliced, projected, or (sliced and?) protruding from the enclosing space. The compositor should also be able to handle other cases correctly, e.g. when the size of one unit in a space is different from another, when a space is rotated relative to another, when the size of one unit changes within a space, unusually shaped spaces, spaces that wrap around at the edges, spaces with holes in them, spaces split into parts, spaces with areas that teleport, spaces that change over time, two or more a-dimensional spaces with b intersecting dimensions (for b less than or equal to a — the other dimensions protruding), etc..</p>
+<p>Regarding unusually shaped spaces: consider a piece of string as a one-dimensional space. It has a clear linear point system along its length, but it can be bent within 3 dimensions. This case should be handled correctly by the compositor.</p>
+<p>: How to handle situations where an application needs to reference another application's spaces? Shouldn't be too hard to do, but maybe should have some sort of security/access protection system in place….</p>
 <p><br></p>
-<p>The finely dashed lines indicate data going to or coming from multiple instances of the structures shown. </p>
-<p>To clarify: the compositor should be able to composite any number of simple or complex n-dimensional spaces into a single simple n-dimensional space. </p>
+<p>The finely dashed lines indicate data going to or coming from multiple instances of the structures shown.</p>
+<p>To clarify: the compositor should be able to composite any number of simple or complex n-dimensional spaces into a single simple n-dimensional space.</p>
 <p>Top of Form</p>
 <p><br></p>
 <p>Pseudocode for the methods:</p>
@@ -1167,10 +1167,10 @@
 <p>    copy buffer B into Compositor</p>
 <p>    V.up()</p>
 <p>Coal (data storage system)</p>
-<p>The Coal Project is an experimental knowledge archival system built using the Internet Archive’s services. The project stores knowledge in a consistent way that enables the information to be understandable by both computers and humans, and accessible to historians, analysts, and other researchers. It is distinct from projects such as Wikidata and MusicBrainz that aim to collect knowledge, in that a primary purpose of the Coal Project is to archive this information. It is also distinct from projects such as the Internet Archive that primarily archive unstructured documents, in that the Coal Project archives knowledge in a way that can be understood by computers. The Coal Project can supplement archived documents by making the knowledge they contain available separately from the documents themselves, as well as by placing documents within the historical context in which they were created by making connections between the documents and other archived records. </p>
-<p>Coal is the storage system for Ember. </p>
+<p>The Coal Project is an experimental knowledge archival system built using the Internet Archive’s services. The project stores knowledge in a consistent way that enables the information to be understandable by both computers and humans, and accessible to historians, analysts, and other researchers. It is distinct from projects such as Wikidata and MusicBrainz that aim to collect knowledge, in that a primary purpose of the Coal Project is to archive this information. It is also distinct from projects such as the Internet Archive that primarily archive unstructured documents, in that the Coal Project archives knowledge in a way that can be understood by computers. The Coal Project can supplement archived documents by making the knowledge they contain available separately from the documents themselves, as well as by placing documents within the historical context in which they were created by making connections between the documents and other archived records.</p>
+<p>Coal is the storage system for Ember.</p>
 <p><br></p>
-<p>In a nutshell: Long number in, short number out… then later, can put the short number in and get the long number out </p>
+<p>In a nutshell: Long number in, short number out… then later, can put the short number in and get the long number out</p>
 <p>File formats and extensions</p>
 <ul>
   <li>*.cct: Coal chunk temporary data file.</li>
@@ -1186,7 +1186,7 @@
   <tbody>
     <tr>
       <td valign="middle">
-        <p>Code </p>
+        <p>Code</p>
       </td>
       <td valign="middle">
         <p><b>Meaning </b></p>
@@ -1194,111 +1194,111 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>0 </p>
+        <p>0</p>
       </td>
       <td valign="middle">
-        <p>Successful </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>1 </p>
-      </td>
-      <td valign="middle">
-        <p>Incorrect authorization key </p>
+        <p>Successful</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>2 </p>
+        <p>1</p>
       </td>
       <td valign="middle">
-        <p>Moving uploaded file failed </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>3 </p>
-      </td>
-      <td valign="middle">
-        <p>Uploaded file does not exist at $target_path </p>
+        <p>Incorrect authorization key</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>4 </p>
+        <p>2</p>
       </td>
       <td valign="middle">
-        <p>Chunk encryption failed too many times </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>5 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal creation failed too many times </p>
+        <p>Moving uploaded file failed</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>6 </p>
+        <p>3</p>
       </td>
       <td valign="middle">
-        <p>Uploaded file not referenced in $_FILES </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>7 </p>
-      </td>
-      <td valign="middle">
-        <p>Retrieved coal was null </p>
+        <p>Uploaded file does not exist at $target_path</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>8 </p>
+        <p>4</p>
       </td>
       <td valign="middle">
-        <p>Chunk data sent for insertion failed checks </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>9 </p>
-      </td>
-      <td valign="middle">
-        <p>Chunk insertion failed too many times </p>
+        <p>Chunk encryption failed too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>10 </p>
+        <p>5</p>
       </td>
       <td valign="middle">
-        <p>S3 bucket exists and not owned by user (see also code 36) </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>11 </p>
-      </td>
-      <td valign="middle">
-        <p>Unknown exception while uploading to Internet Archive </p>
+        <p>Coal creation failed too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>12 </p>
+        <p>6</p>
       </td>
       <td valign="middle">
-        <p>cURL request failed </p>
+        <p>Uploaded file not referenced in $_FILES</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>13 </p>
+        <p>7</p>
+      </td>
+      <td valign="middle">
+        <p>Retrieved coal was null</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>8</p>
+      </td>
+      <td valign="middle">
+        <p>Chunk data sent for insertion failed checks</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>9</p>
+      </td>
+      <td valign="middle">
+        <p>Chunk insertion failed too many times</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>10</p>
+      </td>
+      <td valign="middle">
+        <p>S3 bucket exists and not owned by user (see also code 36)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>11</p>
+      </td>
+      <td valign="middle">
+        <p>Unknown exception while uploading to Internet Archive</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>12</p>
+      </td>
+      <td valign="middle">
+        <p>cURL request failed</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>13</p>
       </td>
       <td valign="middle">
         <p><br></p>
@@ -1306,298 +1306,298 @@
     </tr>
     <tr>
       <td valign="middle">
-        <p>14 </p>
+        <p>14</p>
       </td>
       <td valign="middle">
-        <p>Decrypted chunk failed checks too many times </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>15 </p>
-      </td>
-      <td valign="middle">
-        <p>Retrieved chunk data failed checks too many times </p>
+        <p>Decrypted chunk failed checks too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>16 </p>
+        <p>15</p>
       </td>
       <td valign="middle">
-        <p>Chunk retrieval failed too many times </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>17 </p>
-      </td>
-      <td valign="middle">
-        <p>Block list retrieval failed too many times </p>
+        <p>Retrieved chunk data failed checks too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>18 </p>
+        <p>16</p>
       </td>
       <td valign="middle">
-        <p>Returned block data failed checks too many times </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>19 </p>
-      </td>
-      <td valign="middle">
-        <p>Compiled record data failed checks too many times </p>
+        <p>Chunk retrieval failed too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>20 </p>
+        <p>17</p>
       </td>
       <td valign="middle">
-        <p>retrieveCoal failed </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>21 </p>
-      </td>
-      <td valign="middle">
-        <p>resetstatus ran too many times (note: this was a mistake that was supposed to mean what 16 already means) </p>
+        <p>Block list retrieval failed too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>22 </p>
+        <p>18</p>
       </td>
       <td valign="middle">
-        <p>Returned block data failed checks at least once (potential error) </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>23 </p>
-      </td>
-      <td valign="middle">
-        <p>Complied record data failed checks at least once (potential error) </p>
+        <p>Returned block data failed checks too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>24 </p>
+        <p>19</p>
       </td>
       <td valign="middle">
-        <p>Block list retrieval failed at least once (potential error) </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>25 </p>
-      </td>
-      <td valign="middle">
-        <p>(informational code: not an error) Duplicate found </p>
+        <p>Compiled record data failed checks too many times</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>26 </p>
+        <p>20</p>
       </td>
       <td valign="middle">
-        <p>(informational code: not an error) Running procedure for handling duplicate chunk </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>27 </p>
-      </td>
-      <td valign="middle">
-        <p>(informational code: not an error) ia_upload returned error 10 </p>
+        <p>retrieveCoal failed</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>28 </p>
+        <p>21</p>
       </td>
       <td valign="middle">
-        <p>(informational code: not an error) ia_upload returned other error </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>29 </p>
-      </td>
-      <td valign="middle">
-        <p>(informational code: not an error) Retrieved chunk data failed check; retrying </p>
+        <p>resetstatus ran too many times (note: this was a mistake that was supposed to mean what 16 already means)</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>30 </p>
+        <p>22</p>
       </td>
       <td valign="middle">
-        <p>(informational code: not an error) Decrypted chunk failed check; retrying </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>31 </p>
-      </td>
-      <td valign="middle">
-        <p>(informational code: not an error) Coal creation failed; retrying </p>
+        <p>Returned block data failed checks at least once (potential error)</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>32 </p>
+        <p>23</p>
       </td>
       <td valign="middle">
-        <p>ID missing from chunk retrieval request </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>33 </p>
-      </td>
-      <td valign="middle">
-        <p>(status code: potentially an error) Chunk address too short </p>
+        <p>Complied record data failed checks at least once (potential error)</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>34 </p>
+        <p>24</p>
       </td>
       <td valign="middle">
-        <p>(from S3 library) S3::putObjectFile(): Failed to copy file </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>35 </p>
-      </td>
-      <td valign="middle">
-        <p>(from S3 library) S3::putBucket(): Unable to create bucket (it may already exist and/or be owned by someone else) </p>
+        <p>Block list retrieval failed at least once (potential error)</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>36 </p>
+        <p>25</p>
       </td>
       <td valign="middle">
-        <p>(previously used code 10) insertChunk returned a non-zero status code </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>37 </p>
-      </td>
-      <td valign="middle">
-        <p>(potential error) Coal test retrieval failed; sleeping and retrying </p>
+        <p>(informational code: not an error) Duplicate found</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>38 </p>
+        <p>26</p>
       </td>
       <td valign="middle">
-        <p>(potential error) Chunk metadata parsing failed; retrying </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>39 </p>
-      </td>
-      <td valign="middle">
-        <p>Chunk metadata parsing failed too many times </p>
+        <p>(informational code: not an error) Running procedure for handling duplicate chunk</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>40 </p>
+        <p>27</p>
       </td>
       <td valign="middle">
-        <p>(potential error) Coal metadata chunk parsing failed; retrying </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>41 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal metadata chunk parsing failed too many times </p>
+        <p>(informational code: not an error) ia_upload returned error 10</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>42 </p>
+        <p>28</p>
       </td>
       <td valign="middle">
-        <p>(potential error) Coal metadata chunk metadata parsing failed; retrying </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>43 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal metadata chunk metadata parsing failed too many times </p>
+        <p>(informational code: not an error) ia_upload returned other error</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>44 </p>
+        <p>29</p>
       </td>
       <td valign="middle">
-        <p>ia_upload failed too many times </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>45 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal test retrieval failed </p>
+        <p>(informational code: not an error) Retrieved chunk data failed check; retrying</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>46 </p>
+        <p>30</p>
       </td>
       <td valign="middle">
-        <p>Coal metadata was not correctly unserialized to an array </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>46 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal metadata was not correctly unserialized to an array </p>
+        <p>(informational code: not an error) Decrypted chunk failed check; retrying</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>46 </p>
+        <p>31</p>
       </td>
       <td valign="middle">
-        <p>Coal metadata was not correctly unserialized to an array </p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle">
-        <p>46 </p>
-      </td>
-      <td valign="middle">
-        <p>Coal metadata was not correctly unserialized to an array </p>
+        <p>(informational code: not an error) Coal creation failed; retrying</p>
       </td>
     </tr>
     <tr>
       <td valign="middle">
-        <p>50 </p>
+        <p>32</p>
       </td>
       <td valign="middle">
-        <p>ID for chunk retrieval was invalid (supersedes error 32, erroneously presented as an informational status in the code) </p>
+        <p>ID missing from chunk retrieval request</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>33</p>
+      </td>
+      <td valign="middle">
+        <p>(status code: potentially an error) Chunk address too short</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>34</p>
+      </td>
+      <td valign="middle">
+        <p>(from S3 library) S3::putObjectFile(): Failed to copy file</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>35</p>
+      </td>
+      <td valign="middle">
+        <p>(from S3 library) S3::putBucket(): Unable to create bucket (it may already exist and/or be owned by someone else)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>36</p>
+      </td>
+      <td valign="middle">
+        <p>(previously used code 10) insertChunk returned a non-zero status code</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>37</p>
+      </td>
+      <td valign="middle">
+        <p>(potential error) Coal test retrieval failed; sleeping and retrying</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>38</p>
+      </td>
+      <td valign="middle">
+        <p>(potential error) Chunk metadata parsing failed; retrying</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>39</p>
+      </td>
+      <td valign="middle">
+        <p>Chunk metadata parsing failed too many times</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>40</p>
+      </td>
+      <td valign="middle">
+        <p>(potential error) Coal metadata chunk parsing failed; retrying</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>41</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata chunk parsing failed too many times</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>42</p>
+      </td>
+      <td valign="middle">
+        <p>(potential error) Coal metadata chunk metadata parsing failed; retrying</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>43</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata chunk metadata parsing failed too many times</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>44</p>
+      </td>
+      <td valign="middle">
+        <p>ia_upload failed too many times</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>45</p>
+      </td>
+      <td valign="middle">
+        <p>Coal test retrieval failed</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>46</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata was not correctly unserialized to an array</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>46</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata was not correctly unserialized to an array</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>46</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata was not correctly unserialized to an array</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>46</p>
+      </td>
+      <td valign="middle">
+        <p>Coal metadata was not correctly unserialized to an array</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <p>50</p>
+      </td>
+      <td valign="middle">
+        <p>ID for chunk retrieval was invalid (supersedes error 32, erroneously presented as an informational status in the code)</p>
       </td>
     </tr>
   </tbody>
@@ -1704,9 +1704,9 @@
   <li>(…?)</li>
 </ul>
 <p><br></p>
-<p>Subresources can be chained together: </p>
+<p>Subresources can be chained together:</p>
 <p>ember://1/2/[time]/3_ArbitraryNode/M_Title/7_ArbitraryNodeTitle/H_History/8_RevisionOfArbitraryNodeTitle/M_CreatedBy/9_UserWhoCreatedRevisionOfArbitraryNodeTitle/M_Parent/C_10</p>
-<p>would be the DCE representation of the information about the relationship between the user who created revision 8 of node 3’s title, and that user’s parent. </p>
+<p>would be the DCE representation of the information about the relationship between the user who created revision 8 of node 3’s title, and that user’s parent.</p>
 <p><br></p>
 <p>Ember builtin commands (built in to the shell/CLI) should be exposed via the directory structure. As should other resources  Dcs, DCE mapping data, relationship types, node types, metadata types, etc….</p>
 <p><br></p>
