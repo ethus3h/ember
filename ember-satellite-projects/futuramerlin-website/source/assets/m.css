@@ -669,6 +669,7 @@
     table {
         table-layout: fixed;
         width: 100%;
+        border: .063rem dotted rgb(1,50,32);
     }
 
 /* Audio and video */
