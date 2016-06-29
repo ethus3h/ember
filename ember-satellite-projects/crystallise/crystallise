@@ -1,7 +1,7 @@
 #!/bin/bash
 # Crystallise
 # Version:
-export crystalliseVersion='2.13.5.20'
+export crystalliseVersion='2.13.5.21'
 
 # You need a file named config.txt in your home directory with a title, a collection identifier, a passphrase, and your desired directory to contain temporary files, each in its own line.
 
@@ -27,7 +27,7 @@ fi
 crystalTempdir=$(sed '4q;d' "$HOME"/config.txt)
 export crystalTempdir
 
-CrystalID=Crystal-$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
+CrystalID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
 export CrystalID
 
 crystallise-logsession "$CrystalID" "$@" 2>&1 | tee -a "$crystalTempdir/$CrystalID"

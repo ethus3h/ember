@@ -86,21 +86,64 @@ echo "The crystal will have the following address when it is ready: $CrystalID"
 
 printf "%s" "$crystallisePassphrase" > "$crystalTempdir/$CrystalID".tmp
 
+CrystalliseFirstArg="$1"
+shift
+
+#Needed because readlink isn't available in OS X. From http://stackoverflow.com/questions/17577093/how-do-i-get-the-absolute-directory-of-a-file-in-bash
+function myreadlink() {
+  (
+  cd "$(dirname "$1")"         # or  cd ${1%/*}
+  echo "$PWD"/"$(basename "$1")" # or  echo $PWD/${1##*/}
+  )
+}
+
+export -f myreadlink
+
+#Resolve relative paths in the arguments, since GNU tar's -P doesn't
+CrystallisePaths=( "$@" )
+echo "First entry in array: $CrystallisePaths"
+for i in "${!CrystallisePaths[@]}"; do
+    #resolve path
+    echo "Trying to resolve ${CrystallisePaths[$i]}..."
+    abspath="$(myreadlink "${CrystallisePaths[$i]}")"
+    CrystallisePaths[$i]="$abspath"
+done
+
 echo "Building local index..."
 
-hashdeep -c md5,sha1,sha256 -o fbcpsde "$crystalTempdir/""$@" "$crystalTempdir/$CrystalID" | tee "$crystalTempdir/$CrystalID.local.idx"
+hashdeep -c md5,sha1,sha256 -o fbcpsd "$crystalTempdir/""$CrystalliseFirstArg" "${CrystallisePaths[@]}" "$crystalTempdir/$CrystalID" | tee "$crystalTempdir/$CrystalID.local.idx"
 
 echo "Building deep index..."
 
-hashdeep -c md5,sha1,sha256 -o fbcpsde -r "$crystalTempdir/""$@" "$crystalTempdir/$CrystalID" | tee "$crystalTempdir/$CrystalID.deep.idx"
+hashdeep -c md5,sha1,sha256 -o fbcpsd -r "$crystalTempdir/""$CrystalliseFirstArg" "${CrystallisePaths[@]}" "$crystalTempdir/$CrystalID" | tee "$crystalTempdir/$CrystalID.deep.idx"
 
-tar -cv -P --format pax -f "$crystalTempdir/$CrystalID.pax" "$crystalTempdir/""$@" "$crystalTempdir/$CrystalID" "$crystalTempdir/$CrystalID.local.idx" "$crystalTempdir/$CrystalID.deep.idx" "$crystalTempdir/$CrystalID.tmp" "$crystalTempdir/$CrystalID.tmp" "$crystalTempdir/$CrystalID.time-start.warc.gz" "$crystalTempdir/$CrystalID.ip.warc.gz" "$crystalTempdir/$CrystalID.time-env.warc.gz"
+#Ignore exit code 1 from tar on Linux, which indicates files changed while reading; see http://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it
+set +e
+tar -cv -P --format pax -f "$crystalTempdir/$CrystalID.pax" "$crystalTempdir/""$CrystalliseFirstArg" "${CrystallisePaths[@]}" "$crystalTempdir/$CrystalID" "$crystalTempdir/$CrystalID.local.idx" "$crystalTempdir/$CrystalID.deep.idx" "$crystalTempdir/$CrystalID.tmp" "$crystalTempdir/$CrystalID.tmp" "$crystalTempdir/$CrystalID.time-start.warc.gz" "$crystalTempdir/$CrystalID.ip.warc.gz" "$crystalTempdir/$CrystalID.time-env.warc.gz"
+exitcode=$?
+
+if [ "$exitcode" != "0" ] && [[ $OSTYPE != *inux* ]]; then
+    exit $exitcode
+fi
+if [ "$exitcode" != "1" ] && [ "$exitcode" != "0" ]; then
+    exit $exitcode
+fi
+set -e
+
+echo "Successfully tared!"
 
 unset opt
+unset optb
 
-[[ $OSTYPE = *linux* ]] && (( opt++ ))
+set +e
+#If GNU/Linux, set opt to 1 and unset optb; otherwise opposite
+[[ $OSTYPE = *inux* ]] && (( opt++ ))
+[[ $OSTYPE != *inux* ]] && (( optb++ ))
+set -e
 
-script /dev/null ${opt+-c} crystallise-internal-xz
+#If the opt(b) variable is unset, insert the text after "opt(b)+"
+#opt is for GNU/Linux; optb is for others
+script ${optb+/dev/null} ${opt+-e} ${opt+-c} crystallise-internal-xz ${opt+/dev/null}
 
 rm -v "$crystalTempdir/$CrystalID".pax
 
@@ -116,13 +159,13 @@ hashdeep -c md5,sha1,sha256 -o fbcpsde "$crystalTempdir/$CrystalID".coal5 | tee 
 
 echo "Sending..."
 
-script /dev/null ${opt+-c} crystallise-internal-ia
+script ${optb+/dev/null} ${opt+-e} ${opt+-c} crystallise-internal-ia ${opt+/dev/null}
 
 echo "Retrieving remote index..."
 
 wget --delete-after --save-headers --output-document - "https://archive.org/metadata/$CrystalID/" | tee "$crystalTempdir/$CrystalID.json"
 
-script /dev/null ${opt+-c} crystallise-internal-xz-b
+script ${optb+/dev/null} ${opt+-e} ${opt+-c} crystallise-internal-xz-b ${opt+/dev/null}
 
 echo "Copying indices..."
 
@@ -135,7 +178,7 @@ printf "\033c"
 
 #Delete everything except log
 echo "Cleaning up..."
-yes | rm -rv "${@:2}"
+yes | rm -rv "${CrystallisePaths[@]}"
 echo "Done cleaning up..."
 
 echo "Time (log stage 3) locally:"
