@@ -411,7 +411,7 @@ xkb_symbols "wreathe-base" {
     key <RTRN> {	[ Return		]	};
 
     key <CAPS> {	[ F13 ]	};
-    key <NMLK> {	[ Num_Lock 		]	};
+    key <NMLK> { [ Num_Lock, Pointer_EnableKeys ] };
 
     key <LFSH> {	[ Shift_L		]	};
     key <LCTL> {	[ Multi_key		]	};
@@ -420,7 +420,7 @@ xkb_symbols "wreathe-base" {
     key <RTSH> {	[ Shift_R		]	};
     key <RCTL> {	[ Multi_key		]	};
     key <RWIN> {	[ Alt_R   ]	};
-    key <MENU> {	[ Menu			]	};
+    key <MENU> {	[ Pointer_Button3		]	};
 
     // Beginning of modifier mappings.
     modifier_map Shift  { Shift_L, Shift_R };
