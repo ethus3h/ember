@@ -1,0 +1,457 @@
+//This defines keyboard layouts for Wreathe. To enable them, simply append this file to /usr/share/X11/xkb/symbols/us (probably should remove any existing Wreathe layout definitions first). Then, run "setxkbmap -v 10 us wreathe-qwerty" (or whatever layout variant you want) (without the quotation marks) then "sudo localectl set-x11-keymap us pc105 wreathe-qwerty" (parentheticals apply likewise).
+xkb_symbols "wreathe-qwerty" {
+    name[Group1]= "Wreathe layout: English (QWERTY)";
+    
+    include "us(wreathe-base)"
+    
+    key <TLDE> {	[     grave,	asciitilde	]	};
+    key <AE11> {	[     minus,	underscore	]	};
+    key <AE12> {	[     equal,	plus		]	};
+    key <BKSP> {	[ apostrophe,	quotedbl	]	};
+
+    key <AD01> {	[	  q,	Q 		]	};
+    key <AD02> {	[	  w,	W		]	};
+    key <AD03> {	[	  e,	E		]	};
+    key <AD04> {	[	  r,	R		]	};
+    key <AD05> {	[	  t,	T		]	};
+    key <AD06> {	[	  y,	Y		]	};
+    key <AD07> {	[	  u,	U		]	};
+    key <AD08> {	[	  i,	I		]	};
+    key <AD09> {	[	  o,	O		]	};
+    key <AD10> {	[	  p,	P		]	};
+    key <AD11> {	[ bracketleft,	braceleft	]	};
+    key <AD12> {	[ bracketright,	braceright	]	};
+    key <BKSL> {	[ backslash,         bar	]	};
+
+    key <AC01> {	[	  a,	A 		]	};
+    key <AC02> {	[	  s,	S		]	};
+    key <AC03> {	[	  d,	D		]	};
+    key <AC04> {	[	  f,	F		]	};
+    key <AC05> {	[	  g,	G		]	};
+    key <AC06> {	[	  h,	H		]	};
+    key <AC07> {	[	  j,	J		]	};
+    key <AC08> {	[	  k,	K		]	};
+    key <AC09> {	[	  l,	L		]	};
+    key <AC10> {	[ semicolon,	colon		]	};
+
+    key <AB01> {	[	  z,	Z 		]	};
+    key <AB02> {	[	  x,	X		]	};
+    key <AB03> {	[	  c,	C		]	};
+    key <AB04> {	[	  v,	V		]	};
+    key <AB05> {	[	  b,	B		]	};
+    key <AB06> {	[	  n,	N		]	};
+    key <AB07> {	[	  m,	M		]	};
+    key <AB08> {	[     comma,	less		]	};
+    key <AB09> {	[    period,	greater		]	};
+    key <AB10> {	[     slash,	question	]	};
+};
+
+xkb_symbols "wreathe-dvorak" {
+    name[Group1]= "Wreathe layout: English (Dvorak)";
+
+    include "us(wreathe-base)"
+
+    key <TLDE> { [       grave,	asciitilde, dead_grave, dead_tilde	] };
+    key <AE11> { [ bracketleft,	braceleft	]	};
+    key <AE12> { [ bracketright, braceright,  dead_tilde] };
+    key <BKSP> { [	minus,	underscore	]	};
+
+    key <AD01> { [  apostrophe,	quotedbl, dead_acute, dead_diaeresis	] };
+    key <AD02> { [	comma,	less,   dead_cedilla, dead_caron	] };
+    key <AD03> { [      period,	greater, dead_abovedot, periodcentered	] };
+    key <AD04> { [	    p,	P		]	};
+    key <AD05> { [	    y,	Y		]	};
+    key <AD06> { [	    f,	F		]	};
+    key <AD07> { [	    g,	G		]	};
+    key <AD08> { [	    c,	C		]	};
+    key <AD09> { [	    r,	R		]	};
+    key <AD10> { [	    l,	L		]	};
+    key <AD11> { [	slash,	question	]	};
+    key <AD12> { [	equal,	plus		]	};
+    key <BKSL> { [  backslash,  bar             ]       };
+
+    key <AC01> { [	    a,	A 		]	};
+    key <AC02> { [	    o,	O		]	};
+    key <AC03> { [	    e,	E		]	};
+    key <AC04> { [	    u,	U		]	};
+    key <AC05> { [	    i,	I		]	};
+    key <AC06> { [	    d,	D		]	};
+    key <AC07> { [	    h,	H		]	};
+    key <AC08> { [	    t,	T		]	};
+    key <AC09> { [	    n,	N		]	};
+    key <AC10> { [	    s,	S		]	};
+
+    key <AB01> { [   semicolon,	colon, dead_ogonek, dead_doubleacute ] };
+    key <AB02> { [	    q,	Q		]	};
+    key <AB03> { [	    j,	J		]	};
+    key <AB04> { [	    k,	K		]	};
+    key <AB05> { [	    x,	X		]	};
+    key <AB06> { [	    b,	B		]	};
+    key <AB07> { [	    m,	M		]	};
+    key <AB08> { [	    w,	W		]	};
+    key <AB09> { [	    v,	V		]	};
+    key <AB10> { [	    z,	Z		]	};
+
+};
+
+xkb_symbols "wreathe-layout" {
+    name[Group1]= "Wreathe layout";
+
+    include "us(wreathe-base)"
+
+};
+
+xkb_symbols "wreathe-2012" {
+    name[Group1]= "Wreathe layout (2012)";
+
+    include "us(wreathe-base)"
+
+    key <RALT> {
+      type[Group1]="ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    replace key <LVL3> {
+      type[Group1] = "ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    modifier_map Mod5 { <LVL3> };
+
+    key <TLDE> { [ backslash, asciicircum, dead_circumflex, dead_circumflex ] };
+
+    key <AE01> { [ 1, asciitilde, dead_tilde, dead_tilde ] };
+    key <AE02> { [ 2, bracketleft ] };
+    key <AE03> { [ 3, braceleft ] };
+    key <AE04> { [ 4, less, EuroSign ] };
+    key <AE05> { [ 5, bar ] };
+    key <AE06> { [ 6, numbersign ] };
+    key <AE07> { [ 7, greater ] };
+    key <AE08> { [ 8, braceright ] };
+    key <AE09> { [ 9, bracketright, dead_grave ] };
+    key <AE10> { [ 0, percent ] };
+    key <AE11> { [ q, Q ] };
+    key <AE12> { [ z, Z ] };
+
+    key <AD01> { [ y, Y, dead_acute, dead_diaeresis ] };
+    key <AD02> { [ p, P, adiaeresis, dead_caron ] };
+    key <AD03> { [ o, O, ecircumflex, periodcentered ] };
+    key <AD04> { [ u, U, ediaeresis, dead_cedilla ] };
+    key <AD05> { [ hyphen, equals, udiaeresis ] };
+    key <AD06> { [ k, K ] };
+    key <AD07> { [ d, D ] };
+    key <AD08> { [ l, L, ccedilla, dead_abovedot ] };
+    key <AD09> { [ c, C ] };
+    key <AD10> { [ w, W ] };
+    key <AD11> { [ x, X ] };
+    key <AD12> { [ slash, plus ] };
+
+    key <AC01> { [ comma, colon, agrave ] };
+    key <AC02> { [ n, N, ocircumflex ] };
+    key <AC03> { [ e, E, eacute ] };
+    key <AC04> { [ a, A, ucircumflex ] };
+    key <AC05> { [ i, I, icircumflex ] };
+    key <AC06> { [ m, M ] };
+    key <AC07> { [ h, H ] };
+    key <AC08> { [ t, T ] };
+    key <AC09> { [ s, S, ssharp ] };
+    key <AC10> { [ r, R ] };
+    key <AC11> { [ quotedbl, exclam ] };
+
+    key <AB01> { [ parenleft, asciigrave, dead_grave, acircumflex ] };
+    key <AB02> { [ parenright, question, odiaeresis, dead_ogonek ] };
+    key <AB03> { [ apostrophe, asterisk, egrave, dead_doubleacute ] };
+    key <AB04> { [ period, semicolon, ugrave ] };
+    key <AB05> { [ underscore, ampersand, idiaeresis ] };
+    key <AB06> { [ b, B ] };
+    key <AB07> { [ f, F ] };
+    key <AB08> { [ g, G ] };
+    key <AB09> { [ v, V ] };
+    key <AB10> { [ j, J ] };
+
+    key <BKSL> { [ dollar, at ] };
+
+    key <FN05> { [ XF86Mail, F5, F5 ] };
+    key <FN08> { [ XF86Calculator, F8, F8 ] };
+    key <RCTL> { type[Group1]="TWO_LEVEL", [ XF86Search, F1 ] };
+    key <LALT> { [ Control_L ] };
+    key <LWIN> { [ Alt_L ] };
+    key <RALT> { [ Control_R ] };
+    key <MENU> { [ Alt_R ] };
+    key <LCTL> { type[Group1]="TWO_LEVEL", [ Multi_key, Multi_key ] };
+    key <CAPS> { [ VoidSymbol ] };
+
+    key <RALT> {
+      type[Group1]="ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    replace key <LVL3> {
+      type[Group1] = "ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
+    };
+    modifier_map Mod5 { <LVL3> };
+};
+
+xkb_symbols "wreathe-2013" {
+    name[Group1]= "Wreathe layout (2013)";
+
+    include "us(wreathe-base)"
+
+    key <TLDE> {	[     backslash,	asciicircum	]	};
+    key <AE01> {	[	  1,	quotedbl 		]	};
+    key <AE02> {	[	  2,	bracketleft		]	};
+    key <AE03> {	[	  3,	braceleft	]	};
+    key <AE04> {	[	  4,	less		]	};
+    key <AE05> {	[	  5,	bar		]	};
+    key <AE06> {	[	  6,	numbersign	]	};
+    key <AE07> {	[	  7,	greater	]	};
+    key <AE08> {	[	  8,	braceright	]	};
+    key <AE09> {	[	  9,	bracketright	]	};
+    key <AE10> {	[	  0,	exclam	]	};
+    key <AE11> {	[     q,	Q	]	};
+    key <AE12> {	[     z,	Z		]	};
+    key <BKSP> {	[ asciitilde,	percent	]	};
+
+    key <AD01> {	[	  y,	Y 		]	};
+    key <AD02> {	[	  p,	P		]	};
+    key <AD03> {	[	  o,	O		]	};
+    key <AD04> {	[	  u,	U		]	};
+    key <AD05> {	[	  minus,	equal		]	};
+    key <AD06> {	[	  k,	K		]	};
+    key <AD07> {	[	  d,	D		]	};
+    key <AD08> {	[	  l,	L		]	};
+    key <AD09> {	[	  c,	C		]	};
+    key <AD10> {	[	  w,	W		]	};
+    key <AD11> {	[ slash,	plus	]	};
+    key <AD12> {	[ j,	J	]	};
+    key <BKSL> {	[ dollar,         at	]	};
+
+    key <AC01> {	[	  comma,	colon 		]	};
+    key <AC02> {	[	  n,	N		]	};
+    key <AC03> {	[	  e,	E		]	};
+    key <AC04> {	[	  a,	A		]	};
+    key <AC05> {	[	  i,	I		]	};
+    key <AC06> {	[	  m,	M		]	};
+    key <AC07> {	[	  h,	H		]	};
+    key <AC08> {	[	  t,	T		]	};
+    key <AC09> {	[	  s,	S		]	};
+    key <AC10> {	[	  r,	R		]	};
+
+    key <AB01> {	[	  parenleft,	backslash 		]	};
+    key <AB02> {	[	  parenright,	question		]	};
+    key <AB03> {	[	  apostrophe,	asterisk		]	};
+    key <AB04> {	[	  period,	semicolon		]	};
+    key <AB05> {	[	  underscore,	ampersand		]	};
+    key <AB06> {	[	  b,	B		]	};
+    key <AB07> {	[	  f,	F		]	};
+    key <AB08> {	[	  g,	G		]	};
+    key <AB09> {	[	  v,	V		]	};
+    key <AB10> {	[	  x,	X	]	};
+};
+
+xkb_symbols "wreathe-apple" {
+    name[Group1]= "Wreathe layout: fixes for Apple keyboards";
+    //Apple keyboard has modifier keys in different place
+    key <LWIN> {	[ Control_L		]	};
+    key <RWIN> {	[ Control_R		]	};
+    key <ALT>  {	[ NoSymbol, Alt_L	]	};
+    key <LALT> { [ Alt_L, Meta_L ] };
+    key <RALT> { type[Group1] = "TWO_LEVEL",
+                 symbols[Group1] = [ Alt_R, Meta_R ] };
+    modifier_map Mod1 { Alt_L, Alt_R, Meta_L, Meta_R };
+};
+
+xkb_symbols "wreathe-base" {
+    name[Group1]= "Wreathe layout base";
+    key <AE01> {	[	  1,	exclam 		]	};
+    key <AE02> {	[	  2,	at		]	};
+    key <AE03> {	[	  3,	numbersign	]	};
+    key <AE04> {	[	  4,	dollar		]	};
+    key <AE05> {	[	  5,	percent		]	};
+    key <AE06> {	[	  6,	asciicircum	]	};
+    key <AE07> {	[	  7,	ampersand	]	};
+    key <AE08> {	[	  8,	asterisk	]	};
+    key <AE09> {	[	  9,	parenleft	]	};
+    key <AE10> {	[	  0,	parenright	]	};
+
+    key <ESC>  {	[ Escape		]	};
+
+    // The extra key on many European keyboards:
+    key <LSGT> {	[ less, greater, bar, brokenbar ] };
+
+    // The following keys are common to many layouts.
+    key <BKSL> {	[ backslash,	bar	]	};
+    key <SPCE> {	[ 	 space		]	};
+
+    //Function keys
+    key <FK01> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F14, F1, F1, F1, XF86_Switch_VT_1 ]
+    };
+
+    key <FK02> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F15, F2, F2, F2, XF86_Switch_VT_2 ]
+    };
+
+    key <FK03> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F16, F3, F3, F3, XF86_Switch_VT_3 ]
+    };
+
+    key <FK04> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F17, F4, F4, F4, XF86_Switch_VT_4 ]
+    };
+
+    key <FK05> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F18, F5, F5, F5, XF86_Switch_VT_5 ]
+    };
+
+    key <FK06> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F19, F6, F6, F6, XF86_Switch_VT_6 ]
+    };
+
+    key <FK07> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F20, F7, F7, F7, XF86_Switch_VT_7 ]
+    };
+
+    key <FK08> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F21, F8, F8, F8, XF86_Switch_VT_8 ]
+    };
+
+    key <FK09> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F22, F9, F9, F9, XF86_Switch_VT_9 ]
+    };
+
+    key <FK10> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F23, F10, F10, F10, XF86_Switch_VT_10 ]
+    };
+
+    key <FK11> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F24, F11, F11, F11, XF86_Switch_VT_11 ]
+    };
+
+    key <FK12> {
+	type="CTRL+ALT",
+	symbols[Group1]= [ F25, F12, F12, F12, XF86_Switch_VT_12 ]
+    };
+
+    //Editing keys
+    key <PRSC> {
+    type= "PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  Scroll_Lock		]	};
+    key <PAUS> {
+	type= "PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+
+    key  <INS> {	[  Insert		]	};
+    key <HOME> {	[  Home			]	};
+    key <PGUP> {	[  Prior		]	};
+    key <DELE> {	[  Delete		]	};
+    key  <END> {	[  End			]	};
+    key <PGDN> {	[  Next			]	};
+
+    key   <UP> {	[  Up			]	};
+    key <LEFT> {	[  Left			]	};
+    key <DOWN> {	[  Down			]	};
+    key <RGHT> {	[  Right		]	};
+
+
+    // Puts some commands to control the X server on
+    // the fifth level of the keypad's operator keys.
+    key <KPDV> {
+        type="CTRL+ALT",	// Ungrab cancels server/keyboard/pointer grabs
+        symbols[Group1]= [ KP_Divide, KP_Divide, KP_Divide, KP_Divide, XF86_Ungrab ]
+    };
+    key <KPMU> {
+        type="CTRL+ALT",	// ClsGrb kills whichever client has a grab in effect
+        symbols[Group1]= [ KP_Multiply,	KP_Multiply, KP_Multiply, KP_Multiply, XF86_ClearGrab ]
+    };
+    key <KPSU> {
+        type="CTRL+ALT",	// -VMode switches to the previous video mode
+        symbols[Group1]= [ KP_Subtract, KP_Subtract, KP_Subtract, KP_Subtract, XF86_Prev_VMode ]
+    };
+    key <KPAD> {
+        type="CTRL+ALT",	// +VMode switches to the next video mode
+        symbols[Group1]= [ KP_Add, KP_Add, KP_Add, KP_Add, XF86_Next_VMode ]
+    };
+
+    //Keypad numbers
+    key  <KP7> {	[  KP_Home,	KP_7	]	};
+    key  <KP8> {	[  KP_Up,	KP_8	]	};
+    key  <KP9> {	[  KP_Prior,	KP_9	]	};
+
+    key  <KP4> {	[  KP_Left,	KP_4	]	};
+    key  <KP5> {	[  KP_Begin,	KP_5	]	};
+    key  <KP6> {	[  KP_Right,	KP_6	]	};
+
+    key  <KP1> {	[  KP_End,	KP_1	]	};
+    key  <KP2> {	[  KP_Down,	KP_2	]	};
+    key  <KP3> {	[  KP_Next,	KP_3	]	};
+    key <KPEN> {	[	KP_Enter	]	};
+    key <KPEQ> {	[	KP_Equal	]	};
+
+    key  <KP0> {	[  KP_Insert,	KP_0	]	};
+    key <KPDL> {	[  KP_Delete,	KP_Decimal ]	};
+    key <KPPT> {	[  KP_Decimal,	KP_Decimal ]	};
+
+    //More keys
+    key <AC11> {	[ BackSpace, BackSpace	]	};
+
+    key  <TAB> {	[ Tab,	ISO_Left_Tab	]	};
+    key <RTRN> {	[ Return		]	};
+
+    key <CAPS> {	[ F13 ]	};
+    key <NMLK> {	[ Num_Lock 		]	};
+
+    key <LFSH> {	[ Shift_L		]	};
+    key <LCTL> {	[ Multi_key		]	};
+    key <LWIN> {	[ Alt_L		]	};
+
+    key <RTSH> {	[ Shift_R		]	};
+    key <RCTL> {	[ Multi_key		]	};
+    key <RWIN> {	[ Alt_R   ]	};
+    key <MENU> {	[ Menu			]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { Shift_L, Shift_R };
+    modifier_map Lock   { Caps_Lock };
+    modifier_map Control{ Control_L, Control_R };
+    modifier_map Mod2   { Num_Lock };
+    modifier_map Mod4   { Super_L, Super_R };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    key <LVL3> {	[ ISO_Level3_Shift	]	};
+    key <MDSW> {	[ Mode_switch 		]	};
+    modifier_map Mod5   { <LVL3>, <MDSW> };
+
+    key <ALT>  {	[ NoSymbol, Alt_L	]	};
+    key <LALT> { [ Control_L, Control_L ] };
+    key <RALT> { type[Group1] = "TWO_LEVEL",
+                 symbols[Group1] = [ Control_R, Control_R ] };
+    modifier_map Mod1 { Alt_L, Alt_R, Meta_L, Meta_R };
+
+    key <META> {	[ NoSymbol, Meta_L	]	};
+    modifier_map Mod1   { <META> };
+
+    key <SUPR> {	[ NoSymbol, Super_L	]	};
+    modifier_map Mod4   { <SUPR> };
+
+    key <HYPR> {	[ NoSymbol, Hyper_L	]	};
+    modifier_map Mod4   { <HYPR> };
+    // End of modifier mappings.
+
+    key <OUTP> { [ XF86Display ] };
+    key <KITG> { [ XF86KbdLightOnOff ] };
+    key <KIDN> { [ XF86KbdBrightnessDown ] };
+    key <KIUP> { [ XF86KbdBrightnessUp ] };
+};
