@@ -420,7 +420,7 @@ xkb_symbols "wreathe-base" {
     key <RTSH> {	[ Shift_R		]	};
     key <RCTL> {	[ Multi_key		]	};
     key <RWIN> {	[ Alt_R   ]	};
-    key <MENU> {	[ Pointer_Button3		]	};
+    key <MENU> {	[ F26		]	};
 
     // Beginning of modifier mappings.
     modifier_map Shift  { Shift_L, Shift_R };
