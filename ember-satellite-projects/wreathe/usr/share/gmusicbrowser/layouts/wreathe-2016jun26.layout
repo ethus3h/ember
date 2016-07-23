@@ -1,0 +1,61 @@
+[Wreathe default]
+#Also 2016jun22a23
+Type=G+
+Default		= Window(size=1120x820) VPRight(size=200-550) HPmain(size=400)
+Title		= "Music"
+VolumeScroll	= VBplayer
+DefaultFocus	= Play
+Name		= _"Wreathe default"
+
+VBmain		= 5VBplayer  _HBmain
+ HBmain		= VBPlayListView _VBLeft _VBRight
+  VBPlayListView = _FilterPane1(pages=artist,searchbox=1,hidetabs=1,activate=playlist,activate2=queueinsert,page_artist="depth:1,histogram:1,lmarkup:'0|<b>%a</b>%Y\x0a<small>%b</small>\x0a<small>%s <small>%l</small></small>',lpicsize:0|64,sort='default|alpha',type='artist|album'") _FilterPane(pages=savedtree,hidetabs=1,activate=playlist,activate2=queueinsert)
+  VBRight	= HBmenuA Text(markup="Up next:") _QueueList(songtree=1,cols="titleaay",colwidth="queuenumber 0",showbb=1,activate=play,activate2=queueinsert) _NBTrackInfoPane
+   NBTrackInfoPane = (newbutton=0) Cover(default=elementary/no-cover.svg,showcover=0) PluginLyrics SongInfo(tabtitle=_"Track info") PictureBrowser0(tabtitle=_"Album art")
+   HBmenuA = _BMmenuA
+    BMmenuA = (label=_"History") PlayItem(text=_"History")
+  VBLeft = SimpleSearch _SongList(activate=playlist,activate2=queueinsert) Total
+  VBplayer	= VBText_Cover
+   VBText_Cover= HBButtons1 _VBText
+    VBText  = (border=8) HBTrackInfo HBTime
+     HBTrackInfo = Cover2(default=elementary/no-cover.svg,showcover=0) _VBTrackInfo
+      VBTrackInfo = _HBTitle -HBArtist
+       HBTitle	= _Title _Filler1 EBHamburger -VolumeIcon -Next -Play -Button(activate="RunPerlCode(::GoToCurrentSong;::QueueInsertSelected;::PrevSong)",stock=gtk-media-previous) -Button2(activate="OpenCustom(EqualizerPresetsW)",stock=gmb-view-list) -Button3(activate="ToggleRandom",stock=gmb-shuffle) -Stars
+        EBHamburger = (label="   ") HBHamburger
+         HBHamburger = _HBmenu Quit Pref
+          HBmenu		= _MBmenu
+           MBmenu	= PSortItem QueueItem
+       HBArtist	= Artist(markup="<b>$artist</b>",minsize=0) Text3(markup=" — ") _Album(markup="<span weight='normal' style='italic'>$album</span> ($year)") _Filler2
+     HBTime	= _TimeBar(text="$current of $total ($percent%), $left remaining", initsize="XX:XX / -XX:XX")
+
+# layouts used internally
+[Volume]
+VSize= 100 VolumeSlider
+VBox = Volume(xalign=.5) _VolumeSlider(vertical=1)
+
+[EqualizerPresetsW]
+Window		= size=500x450,uniqueid=EqualizerPresetsW,ifexist=replace
+VBmain		= EqualizerPresets _Equalizer
+Title		= _"Equalizer"
+
+[Progress]
+VBmain		= _VProgress(lastclose=1)
+Title		= _"Progress"
+
+[Karaoke]
+Type= K
+VBmain= PluginKaraoke
+Window= pos=50%x100%,size=80%x1,insensitive=1,nodecoration=1,ontop=1
+
+[EditList]
+Title=List Edit
+Default		= Window(size=500x300)
+VBmain		= 3_SongList(mode=editlist,activate=playlist) EditListButtons
+
+{Column titleaay}
+menutitle = _"Title - Artist - Album - Year"
+title = _"Song"
+hreq=text:h
+width=200
+sort= title:i
+text : text(markup='<b>'.pesc($title_or_file).'</b>'.pesc($version_or_empty).'\n<small>'.pesc($artist).' — <i>'.pesc($album).'</i> ('.pesc($year).')</small>',pad=2)

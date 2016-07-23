@@ -1,0 +1,164 @@
+# Set default options for the first time gmusicbrowser is launched
+# lines starting with a "#" are comments
+
+# default audio backend :
+#AudioOut: Play_mplayer
+#AudioOut: Play_123
+
+# activate some plugins, use "PLUGIN_" followed by the PID
+# of the plugin found at the top of the plugin file :
+PLUGIN_LYRICS: 1
+PLUGIN_FETCHCOVER: 1
+PLUGIN_AUTOSAVE: 1
+PLUGIN_MPRIS2: 1
+
+# default player layout
+#Layout: Small player
+# default browser layout
+#LayoutB: Browser with SongTree
+
+# for more possible values, look at the [Options] section of ~/.gmusicbrowser/gmbrc
+[Options]
+AddFullscreenButton: 0
+AlwaysInPlaylist: 0
+Artists_split_re:
+  - ',?\s+And\s+'
+  - ',?\s+and\s+'
+  - '\s*&\s*'
+  - '\s*,\s+'
+  - '\s*/\s*'
+  - '\s*;\s*'
+  - '\s+feat\.\s+'
+  - '\s+featuring\s+'
+Artists_title_re:
+  - '\(feat\.\s+([^)]+)\)'
+  - '\(featuring\s+([^)]+)\)'
+  - '\(with\s+([^)]+)\)'
+AudioOut: Play_GST
+AutoRemoveCurrentSong: 0
+CloseToTray: 1
+CustomKeyBindings:
+  BackSpace: DeleteSelected
+  q: EnqueueSelected
+  space: PlayPause
+DateFormat_history:
+  - ''
+  - '%c 604800 %A %X 86400 Today %X 60 now'
+DefaultOptions_songlist_PlayList:
+  cols: playandqueue title artist album year length track file lastplay playcount rating
+  colwidth: album 200 artist 200 file 400 lastplay 100 length 50 playandqueue 20 playcount 50 rating 80 title 270 track 40 year 40
+  follow: 1
+  rowtip: ''
+  sort: path file
+DefaultOptions_songlist_QueueList:
+  cols: title artist album year length track file lastplay playcount rating
+  colwidth: album 200 artist 200 file 400 lastplay 100 length 50 playandqueue 20 playcount 50 rating 80 title 270 track 40 year 40
+  follow: ''
+  rowtip: ''
+  sort: "path album:i disc track file"
+DefaultOptions_songlist_SongList:
+  autoupdate: 1
+  cols: length title_or_file artist conductor composer lyricist
+  colwidth: album 200 artist 150 composer 79 conductor 81 file 400 genre 180 lastplay 100 length 57 lyricist 134 playandqueue 20 playcount 50 rating 527 title 168 title_or_file 325 track 40 version 78 year 50
+  follow: 1
+  rowtip: ''
+  sort: title_or_file
+DefaultOptions_songtree_QueueList:
+  cols: titleaay
+  colwidth: queuenumber 2 titleaa 320
+  follow: ''
+  grouping: ''
+  isearchfields: title
+  rowtip: ''
+  sort: path file
+DefaultOptions_songtree_SongTree:
+  autoupdate: 1
+  cols: playandqueueandtrack title length ratingpic
+  colwidth: artist 124 lastplay 107 length 49 playandqueue 19 playandqueueandtrack 20 playcount 22 ratingpic 100 title 390 titleaa 397 track 21
+  follow: 1
+  grouping: album|artistalbum_breadcrumbs(picsize=100)|disc|discleft(width=15)
+  isearchfields: title
+  rowtip: ''
+  sort: year album disc track
+DefaultRating: 0
+IconTheme: oxygen
+Layout: Wreathe default
+LayoutB: 3 Filter panes
+LayoutF: default fullscreen
+LayoutS: Search
+LayoutT: full with buttons
+Layouts:
+  "Wreathe default":
+    EBHamburger:
+      expand: ''
+    FilterPane:
+      hidebb: 0
+      hidetabs: 1
+      min: 1
+      page: savedtree
+      pages: savedtree
+    FilterPane1:
+      hidebb: 0
+      hidetabs: 1
+      min: 1
+      page: artist
+      page_artist:
+        depth: 1
+        histogram: 1
+        lmarkup: "0|<b>%a</b>%Y\x0a<small>%b</small>\x0a<small>%s <small>%l</small></small>"
+        lpicsize: 0|64
+        sort: default|alpha
+        type: artist|album
+      pages: artist
+    NBTrackInfoPane:
+      page: Cover
+      page_opt: {}
+      pages: Cover PluginLyrics SongInfo PictureBrowser0
+    PictureBrowser0:
+      follow: 1
+      hpos: 140
+      pdf_mode: 1
+      reset_zoom_on: folder
+      scroll_zoom: 1
+      show_folders: 1
+      show_list: 0
+      show_toolbar: 0
+      vpos: 80
+    PluginLyrics:
+      edit: 0
+      follow: 1
+      font: Normal 10
+      justification: left
+    QueueList:
+      cols: titleaay
+      colwidth: queuenumber 2 titleaa 320
+      follow: ''
+      grouping: ''
+      isearchfields: title
+      rowtip: ''
+      sort: path file
+    SimpleSearch:
+      autofilter: 1
+      casesens: 0
+      fields: title|artist|album|comment|label|genre|file
+      literal: 0
+      regexp: 0
+      suggest: 1
+    SongInfo:
+      collapsed: ''
+    SongList:
+      autoupdate: 1
+      cols: length title_or_file artist conductor composer lyricist
+      colwidth: album 200 artist 150 composer 79 conductor 81 file 400 genre 180 lastplay 100 length 57 lyricist 134 playandqueue 20 playcount 50 rating 527 title 168 title_or_file 325 track 40 version 78 year 50
+      follow: 1
+      rowtip: ''
+      sort: title_or_file
+    Total:
+      mode: filter
+    Window:
+      pos: 0x40
+      size: 1278x957
+  "full with buttons":
+    Window:
+      pos: 623x26
+      size: 506x159
