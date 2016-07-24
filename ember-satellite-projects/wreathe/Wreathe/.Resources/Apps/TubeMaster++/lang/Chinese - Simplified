@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>选项</0>
+	<1>敬请捐助</1>
+	<2>关于</2>
+	<3>捕捉媒体</3>
+	<4>视频搜索</4>
+	<5>MP3搜索</5>
+
+//Panel Capture
+	<6>禁用捕捉</6>
+	<7>启用捕捉</7>
+	<8>保存选定的文件</8>
+	<9>转换选定的文件</9>
+
+//Video Search Panel
+	<10>视频搜索引擎</10>
+	<11>全球视频搜索</11>
+	<12>文件名</12>
+	<13>长度</13>
+	<14>分类</14>
+	<15>频道</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3搜索引擎</16>
+	<17>标题</17>
+	<18>下载!</18>
+
+//Options Panel
+	<19>TubeMaster++启动时自动开启捕捉功能.</19>
+	<20>TubeMaster++启动时自动检查更新</20>
+	<21>TubeMaster++最小化后显示任务栏图标</21>
+	<22>转换完成后从列表中删除捕捉的文件</22>
+	<23>选择程序语言</23>
+	<24>保存文件默认文件夹</24>
+	<25>启用文件下载完成后自动转换</25>
+	
+//List File Item	
+	<26>保存文件</26>
+	<27>转换文件</27>
+	<28>播放文件</28>
+	<29>点击重命名</29>
+	<30>完成!</30>
+	<31>正在转换请等待...</31>
+	<32>复制链接地址</32>
+	<33>停止转换</33>
+	<34>加载中...</34>
+	<35>检测到新文件!捕捉中...</35>
+
+	<36>播放影片</36>
+	
+//MessageBoxes
+	<37>确定？</37>
+	<38>是否停止转换?</38>
+	<39>确定要删除所有捕捉的文件?</39>
+	<40>文件已存在</40>
+	<41>错误!文件已存在.请重命名!</41>
+	<42>关闭后将中断下载.停止下载？</42>
+	<43>您确定要删除该文件?</43>
+	<44>由于您当前还没有安装WinPcap. TubeMaster++无法运行!</44>
+	<45>确认安装WinPcap?</45>
+	<46>错误!请安装WinPcap!</46>
+	<47>确定关闭TubeMaster++?</47>
+	<48>发现可用更新</48>
+	<49>TubeMaster++当前有一个可用更新文件.您是否需要下载?(推荐下载)</49>
+	
+//Added
+	<50>出错啦!服务器无响应!请稍后再试.</50>
+	<51>下载中...</51>
+	<52>载入中...</52>
+	<53>捕捉功能处于活动状态.您可以禁用捕捉功能,因为该功能会捕捉到MP3.现在禁用吗?</53>
+	<54>建议您禁用捕捉功能.</54>
+	<55>关闭TubeMaster++时提问我.</55>
+	<56>关闭</56>
+	<57>小提示:您可以拖放其他媒体文件至此(MP3,MP4,,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>标　题</58>
+	<59>艺术家</59>
+	<60>专　辑</60>
+	<61>年　份</61>
+	<62>音　轨</62>
+	<63>流　派</63>
+	<64>取　消</64>
+	<65>应　用</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>	
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

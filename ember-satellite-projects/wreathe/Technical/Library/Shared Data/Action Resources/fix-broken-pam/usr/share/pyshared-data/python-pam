@@ -1,0 +1,10 @@
+[python-package]
+format = 1
+python-version = 2.6
+[pycentral]
+version = 0.6.11
+include-links = 1
+[files]
+/usr/lib/python2.6/dist-packages/PAMmodule.so=f
+/usr/lib/python2.6/dist-packages/PAM-0.4.2.egg-info=f
+/usr/share/pyshared/PAM-0.4.2.egg-info=f

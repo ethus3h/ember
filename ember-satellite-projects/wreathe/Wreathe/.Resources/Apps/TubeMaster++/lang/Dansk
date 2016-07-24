@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Indstillinger</0>
+	<1>Donér</1>
+	<2>Om</2>
+	<3>Fundene</3>
+	<4>Søg efter video</4>
+	<5>Søg efter MP3</5>
+
+//Panel Capture
+	<6>Deaktiver søgning</6>
+	<7>Aktiver søgning</7>
+	<8>Gem markerede medier</8>
+	<9>Konverter Medier</9>
+
+//Video Search Panel
+	<10>Søg efter video</10>
+	<11>Global Video søgning</11>
+	<12>Navn</12>
+	<13>Længde</13>
+	<14>Kategori</14>
+	<15>Kanal</15>
+	
+	
+//MP3 Search Panel
+	<16>Søg efter MP3</16>
+	<17>Titel</17>
+	<18>Download !</18>
+
+//Options Panel
+	<19>Aktiver automatisk søgning når TubeMaster++ starter.</19>
+	<20>Aktiver automatisk søgning når TubeMaster++ starter.</20>
+	<21>Aktiver proceslinjeikon når TubeMaster++ er minimeret.</21>
+	<22>Slet fundene medier fra listen efter konvertering.</22>
+	<23>Program sprog</23>
+	<24>Standard output mappe</24>
+	<25>Aktiver automatisk konvertering når et medie er downloadet.</25>
+	
+//List File Item	
+	<26>Gem medie</26>
+	<27>Konverter medie</27>
+	<28>Afspil medie</28>
+	<29>Klik her for at omdøbe mediet...</29>
+	<30>Færdig !</30>
+	<31>Foretager konvertering ...</31>
+	<32>Koper link direkte link til clipboardet.</32>
+	<33>Stop konverterings processen.</33>
+	<34>Henter ...</34>
+	<35>Nyt medie fundet ! Gemmer ...</35>
+
+	<36>Afspil video</36>
+	
+//MessageBoxes
+	<37>Bekræft ?</37>
+	<38>Vil du stoppe konverteringen ?</38>
+	<39>Vil du slette alle konverterede medier ?</39>
+	<40>Mediet eksistere allerede</40>
+	<41>Fejl. Mediet eksistere allerede. Skift venligst mediets navn.</41>
+	<42>Medie downloading vil blive stoppet ! Stop downloading ?</42>
+	<43>Vil du slette dette medie ?</43>
+	<44>Det ser ud til at du ikke har Libpcap (Winpcap til Windows) installeret på denne computer. TubeMaster++ kan ikke benyttes uden LibPcap installeret.</44>
+	<45>Vil du installere det nu ? ?</45>
+	<46>Fejl ! installer venligst LibPcap !</46>
+	<47>Vil du lukke TubeMaster++ ?</47>
+	<48>Der er en ny opdatering</48>
+	<49>En opdatering er tilgængelig til TubeMaster++. Vil du downloade den ? (Anbefales)</49>
+	
+//Added
+	<50>Fejl. Der er ingen respons. Prøv venligst igen senere.</50>
+	<51>Downloader</51>
+	<52>henter</52>
+	<53>Hentning er aktiv. Du skal stoppe den fordi TubeMaster++ Vil hente MP3 filen. Deaktiver nu ?</53>
+	<54>Det anbefales at du stopper hentningen.</54>
+	<55>Spørg før lukning af TubeMaster++.</55>
+	<56>Luk</56>
+	<57>Tip : Du kan "Drag And Drop" andre media filer her (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Song Title</58>
+	<59>Artist Name</59>
+	<60>Album Title</60>
+	<61>Year</61>
+	<62>Track Number</62>
+	<63>Genre</63>
+	<64>Cancel</64>
+	<65>Apply</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

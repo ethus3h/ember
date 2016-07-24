@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Optionen</0>
+	<1>Bitte spenden Sie!</1>
+	<2>Über</2>
+	<3>Medien Aufzeichnung</3>
+	<4>Video Suche</4>
+	<5>MP3 Suche</5>
+
+//Panel Capture
+	<6>Aufzeichnung ausschalten</6>
+	<7>Aufzeichnung einschalten</7>
+	<8>Ausgewählte Dateien sichern</8>
+	<9>Ausgewählte Dateien umwandeln</9>
+
+//Video Search Panel
+	<10>Video Suche</10>
+	<11>Globale Video Suche</11>
+	<12>Name</12>
+	<13>Länge</13>
+	<14>Kategorie</14>
+	<15>Kanal</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 Suche</16>
+	<17>Titel</17>
+	<18>Herunterladen !</18>
+
+//Options Panel
+	<19>Automatische Aufnahme beim Programmstart von TubeMaster++ aktivieren.</19>
+	<20>Automatische Überprüfung auf eine neue Version beim Start von TubeMaster++</20>
+	<21>Taskbar einschalten wenn TubeMaster++ minimiert wird.</21>
+	<22>Löschen der aufgezeichnete Daten nach der Übertragung.</22>
+	<23>Programmsprache</23>
+	<24>Standard Verzeichniss für Mediendaten</24>
+	<25>Automatische Umwandlung starten wenn Datei vollständig ist.</25>
+	
+//List File Item	
+	<26>Datei sichern</26>
+	<27>Datei umwandeln</27>
+	<28>Datei abspielen</28>
+	<29>Klicken für Datei umbenennen ...</29>
+	<30>Fertig !</30>
+	<31>Warte auf Übertragung ...</31>
+	<32>Kopiere direkten Link in die Zwischenablage.</32>
+	<33>Stoppen der Übertragung.</33>
+	<34>Laden ...</34>
+	<35>Neue Datei gefunden ! Aufzeichnung ...</35>
+
+	<36>Wiedergabe Video</36>
+	
+//MessageBoxes
+	<37>Sicher ?</37>
+	<38>Wollen Sie die Übertragung anhalten ?</38>
+	<39>Wollen Sie alle übertragenen Dateien löschen ?</39>
+	<40>Die Datei ist bereits vorhanden !</40>
+	<41>Fehler ! Datei ist bereits vorhanden. Bitte ändern Sie den Dateinamen.</41>
+	<42>Diese Operation beenden die Übertragung ! Schliessen Sie den Downloader !</42>
+	<43>Diese Datei wirklich löschen ?</43>
+	<44>Das Programm LibPcap (WinPcap for Windows) ist nicht auf Ihrem Computer installiert. TubeMaster++ läuft nur mit LibPcap.</44>
+	<45>Möchten Sie das Programm jetzt installieren ?</45>
+	<46>Fehler ! Bitte installieren Sie LibPcap !</46>
+	<47>Möchten Sie TubeMaster++ schliessen?</47>
+	<48>Ein Update ist verfügbar</48>
+	<49>Ein Update ist verfügbar fürTubeMaster++. Möchten Sie es jetzt herunterladen ? (Empfohlen)</49>
+	
+//Added
+	<50>Fehler. Keine Antwort, Bitte versuchen Sie es etwas später.</50>
+	<51>Herunterladen</51>
+	<52>Laden</52>
+	<53>Die Aufzeichung ist noch eingeschalten. Sie sollten diese solange stoppen bis TubeMaster++ diese MP3 Datei übertragen hat. Nun ausschalten ?</53>
+	<54>Es wird empfohlen die Aufzeichnung zu beenden.</54>
+	<55>Fragen bevor TubeMaster++ beendet werden soll?</55>
+	<56>Beenden</56>
+	<57>Tipp : >Sie können hierher externe Dateien (MP3,MP4,FLV,MOV,M4A) durch verschieben hereinziehen.</57>
+	
+//ID3 Editor
+	<58>Liedname</58>
+	<59>Interpret</59>
+	<60>Album Title</60>
+	<61>Jahr</61>
+	<62>Track Nummer</62>
+	<63>Genre</63>
+	<64>Abbrechen</64>
+	<65>Wiederholen</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

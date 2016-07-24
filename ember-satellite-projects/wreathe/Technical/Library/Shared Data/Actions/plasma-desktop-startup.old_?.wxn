@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Plasma startup script
+# Version 9, 17 December 2012 (for Wreathe)
+
+grep ^wallpaper=/ ~/.kde/share/config/plasma-desktop-appletsrc > .Background.wreathe-system-token-worker;
+sed '2!d' .Background.wreathe-system-token-worker > ~/.Background.2.wreathe-system-token-worker;
+ME=`whoami`;
+sed -i 's/wallpaper=//' /home/$ME/.Background.2.wreathe-system-token-worker;
+BACKGROUND=`cat /home/$ME/.Background.2.wreathe-system-token-worker`;
+Run Write-Personal-Token Background "cat ~/.Background.2.wreathe-system-token-worker";
+cp /Technical/Library/Shared\ Data/Action\ Resources/plasma-desktop-startup/plasma-desktop-appletsrc ~/.kde/share/config/ ;
+sleep 0.1;
+sed -i "s:/Technical/Library/Resources/Backgrounds/995.png:$BACKGROUND:" ~/.kde/share/config/plasma-desktop-appletsrc;
+#printf '%s\n' '/^wallpaper=/c' "wallpaper=$BACKGROUND" . w | ed -s ~/.kde/share/config/plasma-desktop-appletsrc
+sleep 0.3;
+plasma-desktop ;
+sleep 0.5;
+/usr/bin/wxn/cairo-dock-startup.wxn;
+compiz --replace;
+sleep 1;
+krunner;

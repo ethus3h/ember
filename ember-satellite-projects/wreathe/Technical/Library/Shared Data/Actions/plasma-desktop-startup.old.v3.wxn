@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Plasma startup script
+# Version 3, 20 August 2012 (for Wreathe)
+
+plasma-desktop &

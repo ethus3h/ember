@@ -1,0 +1,118 @@
+﻿//TubeMaster++ Dil Dosyasi.
+//TERCÜMANLAR IÇIN : Lütfen dogru söz yapisini koruyunuz.
+(<X>Translated_Text</X>).
+
+//Header
+	<0>Seçenekler</0>
+	<1>Lütfen Bagis Yapin</1>
+	<2>Hakkinda</2>
+	<3>Medya Yakalama</3>
+	<4>Video Arama</4>
+	<5>MP3 Arama</5>
+
+//Panel Capture
+	<6>Yakalamayi Etkisizlestir</6>
+	<7>Yakalamayi Etkinlestir</7>
+	<8>Seçilen Dosyalari Kaydet</8>
+	<9>Seçilen Dosyalari Dönüstür</9>
+
+//Video Search Panel
+	<10>Video Arama Motoru</10>
+	<11>Evrensel Video Arama</11>
+	<12>Isim</12>
+	<13>Uzunluk</13>
+	<14>Kategori</14>
+	<15>Kanal</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 Arama Motoru</16>
+	<17>Baslik</17>
+	<18>Indir !</18>
+
+//Options Panel
+	<19>TubeMaster++ baslatildiginda yakalamayi kendiliginden etkinlestir.</19>
+	<20>TubeMaster++ baslatildiginda güncellemeleri kontrol et.</20>
+	<21>TubeMaster++ küçültüldügünde görev çubugu simgesini etkinlestir.</21>
+	<22>Dönüstürmeden sonra yakalanan dosyalari listeden sil.</22>
+	<23>Yazilim Dili</23>
+	<24>Varsayilan Medya çikis klasörü</24>
+	<25>Dosya indiginde otomatik dönüstürmeyi etkinlestir.</25>
+	
+//List File Item	
+	<26>Dosyayi Kaydet</26>
+	<27>Dosyayi Dönüstür</27>
+	<28>Dosyayi Oynat</28>
+	<29>Yeniden adlandirmak için tiklayin...</29>
+	<30>Bitti !</30>
+	<31>Dönüstürme için bekleniyor ...</31>
+	<32>Direkt linki panoya kopyala.</32>
+	<33>Dönüstürme islemini durdur.</33>
+	<34>Yükleniyor ...</34>
+	<35>Yeni Dosya Algilandi ! Yakalaniyor ...</35>
+
+	<36>Video Oynat</36>
+	
+//MessageBoxes
+	<37>Emin misiniz ?</37>
+	<38>Dönüstürmeyi durdurmak istiyor musunuz ?</38>
+	<39>Yakalanan bütün dosyalari silmek istiyor musunuz ?</39>
+	<40>Dosya zaten mevcut</40>
+	<41>Hata. Dosya zaten mevcut. Lütfen dosya adini degistirin.</41>
+	<42>Bu islem indirmeyi kapatacak ! Indiriciyi kapat ?</42>
+	<43>Bu dosyayi silmek ister misiniz ?</43>
+	<44>Bu bilgisayarda LibPcap (Windows için WinPcap) yüklü görünmüyor. LibPcap olmadan TubeMaster++ çalisamaz</44>
+	<45>Bunu simdi yüklemek istiyor musunuz ?</45>
+	<46>Hata ! Lütfen LibPcap yükleyiniz !</46>
+	<47>TubeMaster++’i kapatmak mi istiyorsunuz ?</47>
+	<48>Güncelleme Mevcut</48>
+	<49>TubeMaster++ için bir güncelleme mevcut. Indirmek ister misiniz ? (Tavsiye Edilir)</49>
+	
+//Added
+	<50>Hata. Karsilik yok. Lütfen daha sonra tekrar deneyiniz.</50>
+	<51>Indiriliyor</51>
+	<52>Yükleniyor</52>
+	<53>Yakalama etkin. TubeMaster++ MP3’ü yakalayacagi için bunu devre disi birakmalisiniz. Simdi devre disi birak ?</53>
+	<54>Yakalamayi durdurmak için önerilir.</54>
+	<55> TubeMaster++’i kapatmadan önce sor.</55>
+	<56>Kapat</56>
+	<57>Ipucu : Harici medya dosyalarini buraya Sürükle-Birak yapabilirsiniz (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Song Title</58>
+	<59>Artist Name</59>
+	<60>Album Title</60>
+	<61>Year</61>
+	<62>Track Number</62>
+	<63>Genre</63>
+	<64>Cancel</64>
+	<65>Apply</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

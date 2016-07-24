@@ -1,0 +1,73 @@
+//Wreathe layout (Revision A). 11 September 2012. Thanks to http://people.uleth.ca/~daniel.odonnell/Blog/custom-keyboard-in-linuxx11 and http://mathematicalmulticore.wordpress.com/the-keyboard-layout-project/ Based on Dvorak International
+xkb_symbols "wreathe-a" {
+
+    name[Group1]= "Wreathe (Revision A)";
+
+    include "us(dvorak-intl)"
+
+    key <TLDE> { [ backslash, asciicircum, dead_circumflex, dead_circumflex ] };
+
+    key <AE01> { [ 1, asciitilde, dead_tilde, dead_tilde ] };
+    key <AE02> { [ 2, bracketleft ] };
+    key <AE03> { [ 3, braceleft ] };
+    key <AE04> { [ 4, less, EuroSign ] };
+    key <AE05> { [ 5, bar ] };
+    key <AE06> { [ 6, numbersign ] };
+    key <AE07> { [ 7, greater ] };
+    key <AE08> { [ 8, braceright ] };
+    key <AE09> { [ 9, bracketright, dead_grave ] };
+    key <AE10> { [ 0, percent ] };
+    key <AE11> { [ q, Q ] };
+    key <AE12> { [ z, Z ] };
+
+    key <AD01> { [ y, Y, dead_acute, dead_diaeresis ] };
+    key <AD02> { [ p, P, adiaeresis, dead_caron ] };
+    key <AD03> { [ o, O, ecircumflex, periodcentered ] };
+    key <AD04> { [ u, U, ediaeresis, dead_cedilla ] };
+    key <AD05> { [ hyphen, equals, udiaeresis ] };
+    key <AD06> { [ k, K ] };
+    key <AD07> { [ d, D ] };
+    key <AD08> { [ l, L, ccedilla, dead_abovedot ] };
+    key <AD09> { [ c, C ] };
+    key <AD10> { [ w, W ] };
+    key <AD11> { [ x, X ] };
+    key <AD12> { [ slash, plus ] };
+
+    key <AC01> { [ comma, colon, agrave ] };
+    key <AC02> { [ n, N, ocircumflex ] };
+    key <AC03> { [ e, E, eacute ] };
+    key <AC04> { [ a, A, ucircumflex ] };
+    key <AC05> { [ i, I, icircumflex ] };
+    key <AC06> { [ m, M ] };
+    key <AC07> { [ h, H ] };
+    key <AC08> { [ t, T ] };
+    key <AC09> { [ s, S, ssharp ] };
+    key <AC10> { [ r, R, ] };
+    key <AC11> { [ quotedbl, exclam ] };
+
+
+    key <AB01> { [ parenleft, asciigrave, dead_grave, acircumflex ] };
+    key <AB02> { [ parenright, question, odiaeresis, dead_ogonek ] };
+    key <AB03> { [ apostrophe, asterisk, egrave, dead_doubleacute ] };
+    key <AB04> { [ period, semicolon, ugrave ] };
+    key <AB05> { [ underscore, ampersand, idiaeresis ] };
+    key <AB06> { [ b, B ] };
+    key <AB07> { [ f, F ] };
+    key <AB08> { [ g, G ] };
+    key <AB09> { [ v, V ] };
+    key <AB10> { [ j, J ] };
+
+    key <BKSL> { [ dollar, at ] };
+
+    key <FN05> { [ XF86Mail, F5, F5 ] };
+    key <FN08> { [ XF86Calculator, F8, F8 ] };
+    key <RCTL> { type[Group1]="TWO_LEVEL", [ XF86Search, F1 ] };
+    key <LALT> { [ Control_L ] };
+    key <LWIN> { [ Alt_L ] };
+    key <RALT> { [ Control_R ] };
+    key <MENU> { [ Alt_R ] };
+    key <LCTL> { type[Group1]="TWO_LEVEL", [ Multi_key, Multi_key ] };
+    key <CAPS> { [ VoidSymbol ] };
+
+    include "level3(ralt_switch)"
+};

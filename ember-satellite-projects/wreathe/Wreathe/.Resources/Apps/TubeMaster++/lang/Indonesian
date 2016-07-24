@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Pilihan</0>
+	<1>Menyumbang</1>
+	<2>Tentang</2>
+	<3>rekam Media</3>
+	<4>mencari Video</4>
+	<5>mencari MP3</5>
+
+//Panel capture
+	<6>Nonaktifkan penangkapan</6>
+	<7>Aktifkan penangkapan</7>
+	<8>Simpan file terpilih</8>
+	<9>Mengkonversi File terpilih</9>
+
+//Video Search Panel
+	<10>mesin pencari Video</10>
+	<11>pencarian menyeluruh</11>
+	<12>Nama</12>
+	<13>durasi</13>
+	<14>Kategori</14>
+	<15>saluran</15>
+
+
+//MP3 Search Panel
+	<16>mesin pencari MP3</16>
+	<17>Judul</17>
+	<18>unduh !</18>
+
+//options Panel
+	<19>Aktifkan rekam otomatis ketika Tubemaster mulai.</19>
+	<20>langsung periksa pembaruan saat Tubemaster dimulai.</20>
+	<21>tampilkan ikon taskbar saat Tubemaster diminimalkan.</21>
+	<22>Hapus file terekam dari daftar setelah konversi.</22>
+	<23>Bahasa Aplikasi</23>
+	<24>simpan berkas media standar</24>
+	<25>Aktifkan konversi otomatis saat rekaman selesai.</25>
+
+//List File Item
+	<26>Simpan</26>
+	<27>konversi</27>
+	<28>Putar</ 28>
+	<29>Klik untuk mengubah nama ...</29>
+	<30>Selesai !</30>
+	<31>Menunggu proses konversi ...</31>
+	<32>Salin tautan langsung</32>
+	<33>hentikan proses konversi.</33>
+	<34>memuat ...</34>
+	<35>berkas baru terdeteksi! Merekam ...</35>
+
+	<36>putar Video</36>
+
+//MessageBoxes
+	<37>yakin ?</37>
+	<38>Apakah Anda ingin menghentikan konversi ?</38>
+	<39>Apakah Anda ingin menghapus semua file terekam ?</39>
+	<40>Berkas Sudah ada</40>
+	<41>Eror. Berkas sudah ada. Silahkan ubah namanya.</41>
+	<42>ini akan menghentikan unduhan ! Tutup pengunduh ?</42>
+	<43>Apakah Anda ingin menghapus berkas ini ?</43>
+	<44>sepertinya libpcap (WinPcap untuk Windows) belum terpasang pada komputer ini. Tubemaster tidak dapat berjalan tanpa libpcap.</44>
+	<45>Apakah anda ingin pasang-sekarang ?</45>
+	<46>Eror ! Silahkan pasang libpcap !</ 46>
+	<47>Apakah Anda ingin menutup Tubemaster ?</ 47>
+	<48>versi baru Tersedia</48>
+	<49>Tubemaster Versi baru tersedia. Apakah Anda ingin mengunduhnya ?(Disarankan)</49>
+
+//Added
+	<50>Eror. tidak ada Respon. Silakan coba lagi nanti.</50>
+	<51>mengunduh </51>
+	<52>memuat</52>
+	<53>rekam aktif. Anda harus menghentikannya karena Tubemaster akan menangkap file MP3. matikan sekarang ?</53>
+	<54>rekomendasi untuk menghentikan rekaman.</54>
+	<55>Tanyakan sebelum menutup Tubemaster.</55>
+	<56>Tutup</56>
+	<57>saran: Anda dapat menyeret dan jatuhkan media di sini. (MP3, MP4, FLV, MOV, M4A)</57>.
+
+//ID3 Editor
+	<58>judul</58>
+	<59>Artis</59>
+	<60>Album</60>
+	<61>Tahun</61>
+	<62>Nomor urut</62>
+	<63>aliran</63>
+	<64>Batalkan</64>
+	<65>Terapkan</65>
+
+//Added 1.6 Version
+	<66>Sumber</66>
+	<67>Pemutar mutimedia standar</67>
+	<68>Otomatis mulai memutar file selama merekam. (Minimal:400 KB)</68>
+
+//Added 1.7 Version
+	<69>MP3 Bitrate</69>
+	<70>keluar rekaman(Detik)</70>
+	<71>untuk mematikan</71>
+	<72>Pemutar Eror</72>
+	<73>pemutar multimedia tidak ditemukan. Anda dapat memperbaikinya di jendela pilihan.</73>
+	<74>konverter FFmpeg diakhiri dengan kesalahan berikut:</74>
+	<75>Umum </75>
+	<76>rekam</76>
+	<77>Simpan/Konversi</77>
+	<78>pemutar Multimedia</78>
+	<79>Ukuran Minimum rekaman</79>
+	<80>byte</80>
+
+//Added 1.9 Version
+	<81>Menunggu data. Periksa apakah Anda tersambung ke jaringan. Mungkin perangkat jaringan Anda tidak cocok dengan Tubemaster.</81>
+	<82>Tubemaster beroperasi dengan benar dan mampu merekam data.</82>
+	<83>Peringatan! kehilangan Data terdeteksi. Cobalah untuk membatasi prosesor dan penggunaan bandwidth.</83>
+	<84>merekam tidak aktif. Anda harus mengaktifkannya untuk merekam file.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

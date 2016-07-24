@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Možnosti</0>
+	<1>Doniraj</1>
+	<2>Vizitka</2>
+	<3>Zajem media vsebine</3>
+	<4>Video iskanje</4>
+	<5>MP3 iskanje</5>
+
+//Panel Capture
+	<6>Onemogoči zajem</6>
+	<7>Omogoči zajem</7>
+	<8>Shrani izbrane datoteke</8>
+	<9>Pretvori izbrane datoteke</9>
+
+//Video Search Panel
+	<10>Video iskalnik</10>
+	<11>Globani video iskalnik</11>
+	<12>Ime</12>
+	<13>Trajanje</13>
+	<14>Kategorija</14>
+	<15>Kanal</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 isklanik</16>
+	<17>Naslov</17>
+	<18>Prenesi !</18>
+
+//Options Panel
+	<19>Omogoči avtomatski zajem, ko se TubeMaster++ zažene.</19>
+	<20>Samodejno preveri, če so na voljo posodobitve, ko se TubeMaster++ zažene.</20>
+	<21>Omogoči sistemsko ikono, ko je TubeMaster++ minimiziran.</21>
+	<22>Izbriši zajete datoteke s seznama, ko so pretvorjene.</22>
+	<23>Jezik aplikacije</23>
+	<24>Privzeta mapa media datotek</24>
+	<25>Omogoči avtomatsko pretvorbo, ko je prenos končan.</25>
+	
+//List File Item	
+	<26>Shrani datoteko</26>
+	<27>Pretvori datoteko</27>
+	<28>Predvajaj datoteko</28>
+	<29>Klikni tukaj za preimenovanje...</29>
+	<30>Urejeno !</30>
+	<31>Čakanje na pretvorbo ...</31>
+	<32>Kopiraj direktno povezavo v odložišče.</32>
+	<33>Ustavi proces pretvorbe.</33>
+	<34>Nalaganje ...</34>
+	<35>Nova datoteka zaznana ! Zajemam ...</35>
+
+	<36>Play Video</36>
+	
+//MessageBoxes
+	<37>Prepričani ?</37>
+	<38>Želite zaustaviti to pretvorbo ?</38>
+	<39>Želite izbrisati vse zajete datoteke ?</39>
+	<40>Datoteka že obstaja</40>
+	<41>Napaka. Datoteka že obstaja. Spremenite ime datoteke.</41>
+	<42>To dejanje bo zaustavilo prenos ! Zaprem prgram za prenos ?</42>
+	<43>Želite izbrisati to datoteko ?</43>
+	<44>Zdi se, da nimate nameščenega programa LipPcap (WinPcap za Windows). Tubemaster++ ga potrebuje za svoje delovanje.</44>
+	<45>Ga želite namestiti zdaj ?</45>
+	<46>Napaka ! Prosimo namestite LibPcap !</46>
+	<47>Želite zapreti TubeMaster++ ?</47>
+	<48>Na voljo je posodobitev</48>
+	<49>Na voljo je posodobitev za TubeMaster++. Bi jo želeli namestiti zdaj ? (Priporočljivo)</49>
+	
+//Added
+	<50>Napaka. Ni odziva. Prosimo poskusite kasneje.</50>
+	<51>Prenašanje</51>
+	<52>Nalaganje</52>
+	<53>Zajem je aktiven. Morate ga zaustaviti, saj bo TubeMater++ zajel MP3. Zaustavitev zdaj ?</53>
+	<54>Priporočljivo je zaustaviti zajem.</54>
+	<55>Vprašaj preden se TubeMaster++ zapre.</55>
+	<56>Zapri</56>
+	<57>Namig : Tukaj lahko povlecite in spustite media datoteke (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Naslov skladbe</58>
+	<59>Ime izvajalca</59>
+	<60>Ime albuma</60>
+	<61>Leto</61>
+	<62>Številka skladbe</62>
+	<63>Žanr</63>
+	<64>Prekliči</64>
+	<65>Uporabi</65>
+
+//Added 1.6 Version
+	<66>Vir</66>	
+	<67>Privzeti media predvajalniki</67>
+	<68>Samodejno začni predvajati datoteke med pretvorbo (najmanj: 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 kakovost</69>
+	<70>Časovna omejitev za prenos (sekunde)</70>
+	<71>onemogočiti</71>
+	<72>Napaka predvajalnika</72>
+	<73>Predvajalnik ni bil najden. Napako se lahko popravi v oknu Možnosti.</73>
+	<74>FFMPeg se je končal zaradi sledečih napak :</74>
+	<75>Splošno</75>
+	<76>Zajem</76>
+	<77>Shranjevanje/Pretvorba</77>
+	<78>Multimedia predvajalniki</78>
+	<79>Najmanjša dovoljena velikost zajema</79>
+	<80>bitov</80>
+
+//Added 1.9 Version
+	<81>Čakanje na podatke. Preverite, če ste povezani na internet. Mogoče vaša omrežna naprava ni združjiva s programom TubeMaster++.</81>
+	<82>TubeMaster++ deluje normalno in je pripravljen za sprejetje podatkov.</82>
+	<83>Opozorilo ! Zaznana je izguba podatkov. Poskusite omejiti porabo prosesorskega spomina in pasovno širino.</83>
+	<84>Zajem je izklopljen. Da lahko zajema datoteke, mora biti vklopjen.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

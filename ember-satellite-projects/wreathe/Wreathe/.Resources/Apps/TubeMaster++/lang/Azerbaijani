@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Seçənəklər</0>
+	<1>Xahiş Edirik Bagış Edin</1>
+	<2>Haqqında</2>
+	<3>Media Yükləmə</3>
+	<4>Video Axtarış</4>
+	<5>MP3 Axtarış</5>
+
+//Panel Capture
+	<6>Yükləməni İşə Sal</6>
+	<7>Yükləməni Söndür</7>
+	<8>Seçilən Faylları Saxla</8>
+	<9>Seçilən Faylları Çevir</9>
+
+//Video Search Panel
+	<10>Video Axtarış</10>
+	<11>Qlobal Video Axtarış</11>
+	<12>Adı</12>
+	<13>Uzunluğu</13>
+	<14>Kateqoriya</14>
+	<15>Kanal</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 Axtarış</16>
+	<17>Adı</17>
+	<18>Endir!</18>
+
+//Options Panel
+	<19>TubeMaster++ işə salınarkən yükləməni aktivləşdir.</19>
+	<20>TubeMaster++ işə salınarkən yeniləmələri yoxla.</20>
+	<21>TubeMaster++ kiçildilərkən görev çubugu simgesini aktivləşdir.</21>
+	<22>Çevrilmədən sonra yüklənən faylları siyahıdan sil.</22>
+	<23>Proqram dili</23>
+	<24>Yüklənmə qovluğu</24>
+	<25>Fayl yüklənəndən sonra avtomatik çevrilsin.</25>
+	
+//List File Item	
+	<26>Faylı Saxla</26>
+	<27>Faylı Çevir</27>
+	<28>Faylı Oxut</28>
+	<29>Yenidən adlandırmaq üçün çıqqıldadın...</29>
+	<30>Bitdi!</30>
+	<31>Çevrilir...</31>
+	<32>Linki kopyala.</32>
+	<33>Çevrilməni saxla.</33>
+	<34>Yüklənir...</34>
+	<35>Yeni fayl aşkar olundu! Yüklənir...</35>
+
+	<36>Videonu Oxut</36>
+	
+//MessageBoxes
+	<37>Əminsinizmi?</37>
+	<38>Çevrilməni dayandırmaq istəyirsinizmi?</38>
+	<39>Bütün aşkarlanan faylları silmək istəyirsinizmi?</39>
+	<40>Bu adda fayl artıq mövcuddur.</40>
+	<41>Xəta! Bu adda fayl artıq mövcuddur. Faylın adını dəyişin.</41>
+	<42>Yüklənmə dayandırılacaq. Bağlansınmı?</42>
+	<43>Bu faylı silmək istəyirsinizmi?</43>
+	<44>Sizin kompüterinizdə LibPcap (Windows üçün WinPcap) yüklənməmişdir. LibPcap olmadan TubeMaster++ işləməz</44>
+	<45>Yüklənsinmi?</45>
+	<46>Xəta! Xahiş edirik LibPcap yükləyəsiniz!</46>
+	<47>TubeMaster++’i bağlamaq istəyirsinizmi?</47>
+	<48>Yeniləmə var.</48>
+	<49>TubeMaster++ üçün bir yeniləmə var. Yenilənsinmi? (Məsləhət görülür)</49>
+	
+//Added
+	<50>Xəta! Server cavab vermir. Xahiş edirik bir az sonra yoxlayasınız.</50>
+	<51>Endirilir...</51>
+	<52>Yüklənir...</52>
+	<53>Yüklənmə aktivdir. TubeMaster++ MP3’ü yüklədiyindən siz bunu dayandırmalısınız. Dayandırılsınmı?</53>
+	<54>Yüklənməni dayandırmaq məsləhət görülür.</54>
+	<55> TubeMaster++’i bağlamazdan əvvəl soruş.</55>
+	<56>Bağla</56>
+	<57>Məsləhət : Xarici media fayllarını buraya Drag & Drop edə bilərsiniz (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Mahnı Adı</58>
+	<59>İfaçının Adı</59>
+	<60>Albomun Adı</60>
+	<61>İl</61>
+	<62>Track Sayı</62>
+	<63>Janr</63>
+	<64>Ləğv Etmək</64>
+	<65>Tətbiq Etmək</65>
+
+//Added 1.6 Version
+	<66>Mənbə</66>	
+	<67>Standart MediaPlayer'lər</67>
+	<68>Yükənmə zamanı faylları avtomatik oxut. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bit Tezliyi</69>
+	<70>Yüklənmə İntervalı (Saniyələrlə)</70>
+	<71>Sondürmək üçün</71>
+	<72>Player Xətası</72>
+	<73>MediaPlayer tapılmadı.</73>
+	<74>FFMPeg çevrici aşağıdakı xətalara görə bağlanıb :</74>
+	<75>Ümumi</75>
+	<76>Yükləmə</76>
+	<77>Saxla/Emal</77>
+	<78>MediaPlayer'lər</78>
+	<79>Minimum Ölçünü Saxla</79>
+	<80>Bayt</80>
+	
+//Added 1.9 Version
+	<81>Gözənilir. İnternetlə bağlantını yoxlayın. Ola bilsin ki, sizin aparat vasitələriniz TubeMaster++'la uyğunlaşmır.</81>
+	<82>TubeMaster++ lazımmi qaydada işləyir və yükləməyə hazırdır.</82>
+	<83>Xəbərdarlıq! Xəta aşkarlanıb.</83>
+	<84>Yüklənmə mümkün deyil. Siz yüklənməni işə salmalısınız.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

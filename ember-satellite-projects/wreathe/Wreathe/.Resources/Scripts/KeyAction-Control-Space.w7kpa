@@ -1,0 +1,3 @@
+#!/bin/bash
+#2016jun12
+xte "keydown Control_L" "key Space" "keyup Control_L"

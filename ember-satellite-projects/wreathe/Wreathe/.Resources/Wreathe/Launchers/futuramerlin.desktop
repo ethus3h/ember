@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_US]=/usr/share/Wreathe/AppIcons/futuramerlin.svg
+Name[en_US]=Futuramerlin
+Exec=futuramerlin
+Name=Futuramerlin
+Icon=/usr/share/Wreathe/AppIcons/futuramerlin.svg

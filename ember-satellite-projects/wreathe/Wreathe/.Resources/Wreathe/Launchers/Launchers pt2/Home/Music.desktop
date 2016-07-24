@@ -1,0 +1,21 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=banshee
+GenericName[en_US]=
+GenericName=
+Icon[en_US]=/usr/share/icons/AwOkenDark/clear/128x128/apps/sonata.png
+Icon=/usr/share/icons/AwOkenDark/clear/128x128/apps/sonata.png
+MimeType=
+Name[en_US]=Music
+Name=Music
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

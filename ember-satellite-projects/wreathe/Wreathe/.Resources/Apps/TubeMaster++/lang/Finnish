@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Vaihtoehdot</0>
+	<1>Tee Lahjoitus</1>
+	<2>Tietoja</2>
+	<3>Median Kaappaus</3>
+	<4>Videon Etsintä</4>
+	<5>MP3:n Etsintä</5>
+
+//Panel Capture
+	<6>Estä Kaappaus</6>
+	<7>Salli Kaappaus</7>
+	<8>Tallenna Valitut Tiedostot</8>
+	<9>Muunna Valitut Tiedostot</9>
+
+//Video Search Panel
+	<10>Etsittävä Video tiedosto</10>
+	<11>Yleinen Video Etsintä</11>
+	<12>Nimi</12>
+	<13>Pituus</13>
+	<14>Luokka</14>
+	<15>Kanava</15>
+	
+	
+//MP3 Search Panel
+	<16>Etsittävä MP3 kappale</16>
+	<17>Kappaleen nimi</17>
+	<18>Lataa !</18>
+
+//Options Panel
+	<19>Salli automaattinen muunto kun TubeMaster++ käynnistyy.</19>
+	<20>Tarkista päivitykset automaattisesti kun TubeMaster++ käynnistyy.</20>
+	<21>Salli tehtäväpalkin kuvake kun TubeMaster++ on pienennettynä.</21>
+	<22>Poista kaapatut tiedostot listalta muunnon jälkeen.</22>
+	<23>Sovelluksen kieli</23>
+	<24>Oletus tallennuskansio</24>
+	<25>Salli automaattinen muunto kun tiedosto valmis.</25>
+	
+//List File Item	
+	<26>Tallenne Tiedosto</26>
+	<27>Muunna Tiedosto</27>
+	<28>Toista Tiedosto</28>
+	<29>Klikkaa tästä uudelleen nimetäksesi...</29>
+	<30>Tehty !</30>
+	<31>Odottaa muuntamista ...</31>
+	<32>Kopioi suora linkki leikepöydälle.</32>
+	<33>Pysäytä muunto tapahtuma.</33>
+	<34>Ladataan ...</34>
+	<35>Uusi tiedosto löydetty ! Muunnetaan ...</35>
+
+	<36>Toista Video</36>
+	
+//MessageBoxes
+	<37>Oletko varma ?</37>
+	<38>Haluatko pysäyttää tämän muunntamisen ?</38>
+	<39>Haluatko poistaa kaikki muunnetut tiedostot ?</39>
+	<40>Tiedosto on jo</40>
+	<41>VIRHE. Tiedosto on jo. Muuta tiedostonimeä.</41>
+	<42>Tämä toiminto pysäyttää latauksen ! Suljetaanko lataaminen ?</42>
+	<43>Haluatko poistaa tämän tiedoston ?</43>
+	<44>Näyttää ettei Sinulla ole LibPcap (WinPcap Windowsille) asennettuna. TubeMaster++ ei voi toimia ilman LibPcapia.</44>
+	<45>Haluatko asentaa sen nyt ?</45>
+	<46>VIRHE ! Asenna LibPcap !</46>
+	<47>Haluatko sulkea TubeMaster++:n ?</47>
+	<48>Päivitys saatavilla</48>
+	<49>Päivitys saatavilla TubeMaster++:n. Haluatko ladata sen ? (Suositeltavaa)</49>
+	
+//Added
+	<50>VIRHE. Ei vastaa. Yritä myöhemmin uudelleen.</50>
+	<51>Ladataan verkosta</51>
+	<52>Ladataan</52>
+	<53>Kaappaus on aktiivisena. Sinun täytyy pysäyttää se koska TubeMaster++ muuntaa MP3 tiedostoa. Pysäytetäänkö nyt ?</53>
+	<54>Suositeltavaa pysäyttää muuntaminen.</54>
+	<55>Kysy ennen kuin TubeMaster++ suljetaan.</55>
+	<56>Sulje</56>
+	<57>Vihje: Voit vetää ja pudottaa ulkoisia media tiedostoja tänne (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Laulun Nimi</58>
+	<59>Esittäjän Nimi</59>
+	<60>Levyn Nimi</60>
+	<61>Vuosi</61>
+	<62>Kappale Numero</62>
+	<63>Laji</63>
+	<64>Keskeytä</64>
+	<65>Salli</65>
+
+//Added 1.6 Version
+	<66>Lähde</66>	
+	<67>Oletus Multimedia Soittimet</67>
+	<68>Käynnistä automaattisesti tiedoston toisto muunon aikana. (Vähintään: 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bittinopeus</69>
+	<70>Muokkauksen kesto (Sekunttia)</70>
+	<71>estä</71>
+	<72>Soitin Virhe</72>
+	<73>Multimedia soitinta ei löydy. Voit korjata sen Vaihtoehdot näkymässä.</73>
+	<74>FFMPeg muunnin pysäytetty seuraavasta virheestä:</74>
+	<75>Yleinen</75>
+	<76>Muunna</76>
+	<77>Tallenna/Muunnos</77>
+	<78>Multimedia Soittimet</78>
+	<79>Muunnoksen Vähimmäis Koko</79>
+	<80>bittiä</80>
+
+//Added 1.9 Version
+	<81>Odotetaan dataa. Tarkista että olet kytkeytyneenä verkkoon. Ehkä verkkolaitteesi ei ole yhteensopiva TubeMaster++:n kanssa.</81>
+	<82>TubeMaster++ toimii kunnolla ja on valmis muuntamaan paketteja.</82>
+	<83>VAROITUS ! Datan hävikkiä havaittu. Yritä rajoittaa prosessorin ja verkon käyttöä.</83>
+	<84>Kaappaus on estetty. Sinun täytyy sallia sallia tiedostojen sieppaus.</84>
+		
+//Added 2.4 Version
+	<85>Kopioi</85>
+	<86>Liitä</86>

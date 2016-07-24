@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Opţiuni</0>
+	<1>Fă o donaţie</1>
+	<2>Despre</2>
+	<3>Captură multimedia</3>
+	<4>Căutare video</4>
+	<5>Căutare MP3</5>
+
+//Panel Capture
+	<6>Dezactivează captura</6>
+	<7>Activează captura</7>
+	<8>Salvează fişierele selectate</8>
+	<9>Converteşte fişierele selectate</9>
+
+//Video Search Panel
+	<10>Motor de căutare video</10>
+	<11>Cautare video globală</11>
+	<12>Nume</12>
+	<13>Durată</13>
+	<14>Categorie</14>
+	<15>Canal</15>
+	
+	
+//MP3 Search Panel
+	<16>Motor de căutare MP3</16>
+	<17>Titlu</17>
+	<18>Descarcă !</18>
+
+//Options Panel
+	<19>Activează automat captura cand porneşte TubeMaster++.</19>
+	<20>Caută automat update-uri cand porneşte TubeMaster++.</20>
+	<21>Activează icoana din taskbar cand TubeMaster++ este minimizat.</21>
+	<22>Şterge din listă fişierle capturate după conversie.</22>
+	<23>Limba aplicaţiei</23>
+	<24>Dosarul implicit de salvare a fişierelor</24>
+	<25>Activează conversia automata când un fişier este complet.</25>
+	
+//List File Item	
+	<26>Salvează fişierul</26>
+	<27>Converteşte fişierul</27>
+	<28>Rulează fişierul</28>
+	<29>Dă click aici pentru a redenumi...</29>
+	<30>Gata !</30>
+	<31>Se aşteaptă conversia ...</31>
+	<32>Copiază link-ul direct pe clipboard.</32>
+	<33>Opreşte procesul de conversie.</33>
+	<34>Se încarcă ...</34>
+	<35>Fişier nou detectat ! Se capturează ...</35>
+
+	<36>Rulează Video</36>
+	
+//MessageBoxes
+	<37>Sigur ?</37>
+	<38>Vrei să opreşti această conversie ?</38>
+	<39>Vrei să ştergi toate fişierele capturate ?</39>
+	<40>Fişierul există deja</40>
+	<41>Eroare. Fişierul există deja. Schimbă numele fişierului.</41>
+	<42>Această operaţiune va opri descărcarea ! Închizi descărcarea ?</42>
+	<43>Vrei să ştergi acest fişier ?</43>
+	<44>Se pare că nu ai instalat LibPcap (WinPcap for Windows) pe acest calculator. TubeMaster++ nu poate rula fără LibPcap.</44>
+	<45>Vrei să-l instalezi acum ?</45>
+	<46>Eroare ! Instalează LibPcap !</46>
+	<47>Vrei să închizi TubeMaster++ ?</47>
+	<48>Update disponibil</48>
+	<49>Un update este disponibil pentru TubeMaster++. Vrei să-l descarci ? (Recomandat)</49>
+	
+//Added
+	<50>Eroare. Niciun răspuns. Încearcă te rog mai tarziu.</50>
+	<51>Se descarcă</51>
+	<52>Se încarcă</52>
+	<53>Captura este activă. Ar trebui să o opreşti fiindcă TubeMaster++ va captura fişierul MP3. O dezactivezi acum ?</53>
+	<54>Este recomandată oprirea capturii.</54>
+	<55>Întreabă înainte de închiderea TubeMaster++.</55>
+	<56>Închide</56>
+	<57>Sfat : Poţi "trage şi pune" (Drag And Drop) aici fişiere media externe (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Titlu piesă</58>
+	<59>Nume artist</59>
+	<60>Titlu album</60>
+	<61>An</61>
+	<62>Numarul piesei</62>
+	<63>Gen</63>
+	<64>Anulează</64>
+	<65>Aplică</65>
+
+//Added 1.6 Version
+	<66>Sursă</66>	
+	<67>Player multimedia implicit</67>
+	<68>Porneşte automat rularea fişierelor în timpul capturii. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>Calitatea MP3</69>
+	<70>Expirarea capturii (Seconds)</70>
+	<71>pentru a dezactiva</71>
+	<72>Eroare player</72>
+	<73>Player multimedia negăsit. Poţi rezolva problema în fereastra de opţiuni.</73>
+	<74>Convertorul FFMPeg întrerupt cu urmatoarele erori :</74>
+	<75>General</75>
+	<76>Captură</76>
+	<77>Salvează/Converteşte</77>
+	<78>Playere multimedia</78>
+	<79>Dimensiunea minimă a capturii</79>
+	<80>bytes</80>
+
+//Added 1.9 Version
+	<81>În aşteptarea datelor. Verifică daca eşti conectat la internet. Probabil că dispozitivul tău de reţea este incompatibil cu TubeMaster++.</81>
+	<82>TubeMaster++ operează în mod corespunzator şi este apt să capteze pachete de date.</82>
+	<83>Avertizare ! Se detectează pierderi de date. Încearcă limitarea utilizarii procesorului şi a lărgimii de bandă.</83>
+	<84>Captura este dezactivată. Trebuie activată pentru a putea captura fişiere.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

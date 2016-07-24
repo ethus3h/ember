@@ -1,0 +1,10 @@
+#!/bin/sh
+#2016jun12
+
+echo "Welcome to Wreathe! Setting things up..."
+
+#Place symlinks for scripts and apps in the PATH
+ln -s /Wreathe/.Resources/Scripts/* /usr/bin/
+ln -s /Wreathe/Apps/* /usr/bin/
+
+echo "Wreathe setup done."

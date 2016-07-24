@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Cairo-Dock startup script
+# Version 1, 10 August 2012 (for Wreathe)
+
+sleep 10;
+
+cairo-dock -c --keep-above;

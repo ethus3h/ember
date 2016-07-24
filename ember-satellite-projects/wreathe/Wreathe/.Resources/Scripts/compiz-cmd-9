@@ -1,0 +1,3 @@
+#!/bin/bash
+#2016jul02
+xte "mouseclick 3"

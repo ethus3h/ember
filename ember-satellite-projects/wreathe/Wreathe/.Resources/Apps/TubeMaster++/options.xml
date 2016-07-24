@@ -1,0 +1,17 @@
+<autoCapture>1</autoCapture>
+<autoUpdate>1</autoUpdate>
+<trayIcon>1</trayIcon>
+<delConv>1</delConv>
+<defRep>/home/kyan</defRep>
+<autoConv>0</autoConv>
+<autoConvPreset>Save Original File</autoConvPreset>
+<langFile>English</langFile>
+<mp3Bitrate>224</mp3Bitrate>
+<closeBox>1</closeBox>
+<repFLV>ffplay</repFLV>
+<repMP3>ffplay</repMP3>
+<repMP4>ffplay</repMP4>
+<repMOV>ffplay</repMOV>
+<autoPlay>0</autoPlay>
+<timeout>60</timeout>
+<minimal>100000</minimal>

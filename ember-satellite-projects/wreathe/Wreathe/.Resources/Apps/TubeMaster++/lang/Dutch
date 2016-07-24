@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Voorkeuren</0>
+	<1>Doneer a.u.b.</1>
+	<2>Over</2>
+	<3>Media Opname</3>
+	<4>Video Zoeken</4>
+	<5>MP3 Zoeken</5>
+
+//Panel Capture
+	<6>Opname Uitschakelen</6>
+	<7>Opname Inschakelen</7>
+	<8>Selectie Opslaan</8>
+	<9>Selectie Converteren</9>
+
+//Video Search Panel
+	<10>Video Zoekmachine</10>
+	<11>Globaal Video Zoeken</11>
+	<12>Naam</12>
+	<13>Lengte</13>
+	<14>Categorie</14>
+	<15>Kanaal</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 Zoekmachine</16>
+	<17>Titel</17>
+	<18>Download !</18>
+
+//Options Panel
+	<19>Automatisch opnemen zodra TubeMaster++ wordt gestart.</19>
+	<20>Automatisch controleren op updates zodra TubeMaster++ wordt gestart.</20>
+	<21>TubeMaster++ minimaliseren naar systeembalk.</21>
+	<22>Opgenomen bestanden na conversie van de lijst verwijderen.</22>
+	<23>Applicatie Taal</23>
+	<24>Standaardmap voor media-output</24>
+	<25>Automatische conversie inschakelen zodra een bestand compleet is.</25>
+	
+//List File Item	
+	<26>Bestand Opslaan</26>
+	<27>Bestand Converteren</27>
+	<28>Bestand Afspelen</28>
+	<29>Klik hier om te hernoemen...</29>
+	<30>Gereed !</30>
+	<31>Wachten op conversie...</31>
+	<32>Kopieer de directe link naar het klembord.</32>
+	<33>Stop het conversieproces.</33>
+	<34>Laden ...</34>
+	<35>Nieuw bestand gedetecteerd ! Opnemen ...</35>
+
+	<36>Video Afspelen</36>
+	
+//MessageBoxes
+	<37>Weet u het zeker ?</37>
+	<38>Wilt u deze conversie afbreken ?</38>
+	<39>Wilt u alle opgenomen bestanden verwijderen ?</39>
+	<40>Bestand Bestaat Reeds</40>
+	<41>Fout. Bestand bestaat reeds. Kies een andere bestandsnaam.</41>
+	<42>Deze operatie zal de download afbreken ! De downloader sluiten ?</42>
+	<43>Wilt u dit bestand verwijderen ?</43>
+	<44>Het lijkt erop dat LibPcap (WinPcap voor Windows) niet op deze computer is geinstalleerd. TubeMaster++ werkt niet zonder LibPcap.</44>
+	<45>Wilt u het nu installeren ?</45>
+	<46>Fout ! Installeer a.u.b. LibPcap !</46>
+	<47>Wilt u TubeMaster++ sluiten ?</47>
+	<48>Update Beschikbaar</48>
+	<49>Er is een update beschikbaar voor TubeMaster++. Wilt u deze downloaden ? (Aanbevolen)</49>
+	
+//Added
+	<50>Fout. Geen Reactie. Probeer het later nog eens.</50>
+	<51>Downloaden</51>
+	<52>Laden</52>
+	<53>De opname is actief. U zou dit moeten afbreken, omdat TubeMaster++ het MP3 bestand wil opnemen. Nu uitschakelen ?</53>
+	<54>Aanbevolen de opname af te breken.</54>
+	<55>Vragen alvorens TubeMaster++ af te sluiten.</55>
+	<56>Sluiten</56>
+	<57>Tip : U kunt hier externe mediabestanden (MP3,MP4,FLV,MOV,M4A) slepen en neerzetten.</57>
+	
+//ID3 Editor
+	<58>Titel Lied</58>
+	<59>Naam Artiest</59>
+	<60>Titel Album</60>
+	<61>Jaar</61>
+	<62>Tracknummer</62>
+	<63>Genre</63>
+	<64>Anulleren</64>
+	<65>Toepassen</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

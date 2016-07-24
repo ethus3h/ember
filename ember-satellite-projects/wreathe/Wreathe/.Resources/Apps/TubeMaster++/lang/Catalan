@@ -1,0 +1,116 @@
+﻿// TubeMaster + + Idioma de l'arxiu.
+// PELS TRADUCTORS: Si us plau, respecti la sintaxi correcta (<X> Translated_Text </ X>).
+
+// Capçalera
+	<0>Opcions</0>
+	<1>Si us plau Dona</1>
+	<2>Quant a</2>
+	<3>Captura Multimèdia</3>
+	<4>Cerca de vídeos</4>
+	<5>MP3 Cerca</5>
+
+// Panell de captura
+	<6>Desactivar Captura</6>
+	<7>Activar Captura</7>
+	<8>Desar arxius seleccionats</8>
+	<9>Converteix arxius seleccionats</9>
+
+// Panell de Recerca
+	<10>Eina de cerca de video</10>
+	<11>Cerca global de video</11>
+	<12>Nom</12>
+	<13>Durada</13>
+	<14>Categoria</14>
+	<15>canal</15>
+
+// Panell de Recerca de MP3
+	<16>MP3 Eina de Cerca</16>
+	<17>Títol</17>
+	<18>Descarregar</18>
+
+// Opcions de Grup
+	<19>Activar captura automàticament quan s'inicia TubeMaster + +.</19>
+	<20>comprovar automàticament si hi ha actualitzacions quan s'inicia TubeMaster + +.</20>
+	<21>Activar l'icona de la barra de tasques quan TubeMaster++ és minimitzat.</21>
+	<22>Esborrar arxius capturats de la llista després de la conversió.</22>
+	<23>Idioma de l'aplicació</23>
+	<24>carpeta de sortida per defecte dels arxius capturats</24>
+	<25>Activar conversió automàtica quan un arxiu està complet.</25>
+
+// Llista de fitxers Tema
+	<26>Desa Arxiu</26>
+	<27>Converteix Arxiu</27>
+	<28>Reproduir Arxiu</28>
+	<29>Cliqueu aquí per canviar el nom ...</29>
+	<30>Fet</30>
+	<31>Esperant la conversió ...</31>
+	<32>Copiar enllaç directe amb el portapapers.</32>
+	<33>Aturar el procés de conversió.</33>
+	<34>Carregant ...</34>
+	<35>Nou arxiu detectat! Capturar ...</35>
+
+	<36>Veure Video</36>
+
+// MessageBoxes
+	<37>Segur?</37>
+	<38>Voleu aturar aquesta conversió?</38>
+	<39>Voleu esborrar tots els arxius capturats?</39>
+	<40>l'arxiu ja existeix</40>
+	<41>d'error. El fitxer ja existeix. Si us plau, canvieu el nom del fitxer.</41>
+	<42>Aquesta operació atura la descàrrega! Voleu cancel.lar la baixada?</42>
+	<43>Voleu esborrar aquest arxiu?</43>
+	<44>Sembla que no has instal.lat WinPcap en aquest equip. TubeMaster++ no es pot executar sense WinPcap.</44>
+	<45>Voleu instal.lar-lo ara?</45>
+	<46>Error! Si us plau, instal WinPcap</46>
+	<47>Vols tancar TubeMaster++</47>
+	<48>Actualització disponible</48>
+	<49>Una actualització està disponible per TubeMaster++. Vols descarregar-lo? (Recomanat)</49> 
+	
+//Added
+	<50>Error. No Response. Please try again later.</50>
+	<51>Downloading</51>
+	<52>Loading</52>
+	<53>The capture is active. You should stop it because TubeMaster++ will capture the MP3 file. Disable-it now ?</53>
+	<54>Recommended to stop the capture.</54>
+	<55>Ask before closing TubeMaster++.</55>
+	<56>Close</56>
+	<57>Tip : You can Drag And Drop external media files here (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Song Title</58>
+	<59>Artist Name</59>
+	<60>Album Title</60>
+	<61>Year</61>
+	<62>Track Number</62>
+	<63>Genre</63>
+	<64>Cancel</64>
+	<65>Apply</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

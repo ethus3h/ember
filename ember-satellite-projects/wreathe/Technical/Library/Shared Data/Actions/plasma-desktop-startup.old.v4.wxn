@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Plasma startup script
+# Version 3, 20 August 2012 (for Wreathe)
+
+cp /Technical/Library/Shared\ Data/Action\ Resources/plasma-desktop-startup/plasma-desktop-appletsrc ~/.kde/share/config/ ;
+plasma-desktop &

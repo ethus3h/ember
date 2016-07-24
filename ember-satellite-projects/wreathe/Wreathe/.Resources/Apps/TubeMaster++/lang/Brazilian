@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Arquivo de Idioma.
+//PARA OS TRADUTORES: Favor manter corretamente as sentenças (<X>Texto_Traduzido</X>).
+
+//Header
+	<0>Opções</0>
+	<1>Doações</1>
+	<2>Sobre</2>
+	<3>Capturar Mídia</3>
+	<4>Procurar Vídeo</4>
+	<5>Procurar MP3</5>
+
+//Panel Capture
+	<6>Desabilitar Captura</6>
+	<7>Habilitar Captura</7>
+	<8>Salvar Arquivos Selecionados</8>
+	<9>Converter Arquivos Selecionados</9>
+
+//Video Search Panel
+	<10>Procurar</10>
+	<11>Procura Global</11>
+	<12>Nome</12>
+	<13>Tamanho</13>
+	<14>Categoria</14>
+	<15>Canal</15>
+	
+	
+//MP3 Search Panel
+	<16>Procurar</16>
+	<17>Título</17>
+	<18>Baixar</18>
+
+//Options Panel
+	<19>Ativar captura automatica ao iniciar TubeMaster++.</19>
+	<20>Verificar automaticamente se há atualizações ao iniciar TubeMaster++.</20>
+	<21>Ativar ícone taskbar quando TubeMaster++ for minimizado.</21>
+	<22>Excluir da lista os arquivos capturados após a conversão.</22>
+	<23>Idioma</23>
+	<24>Selecionar pasta padrão da mídia</24>
+	<25>Permitir conversão automática quando um arquivo for completado.</25>
+	
+//List File Item	
+	<26>Salvar Arquivo</26>
+	<27>Converter Arquivo</27>
+	<28>Reproduzir Arquivo</28>
+	<29>Renomear...</29>
+	<30>Processo terminado!</30>
+	<31>Esperando pela conversão...</31>
+	<32>Copiar link direto para a área de transferência.</32>
+	<33>Parar com o processo de conversão.</33>
+	<34>Carregando...</34>
+	<35>Novo arquivo detectado! Capturando...</35>
+
+	<36>Reproduzir Vídeo</36>
+	
+//MessageBoxes
+	<37>Tem certeza?</37>
+	<38>Você deseja parar esta conversão?</38>
+	<39>Você deseja deletar todos os arquivos capturados?</39>
+	<40>Este Arquivo Já Existe</40>
+	<41>Erro. Este arquivo já existe. Por favor, mude o nome do arquivo.</41>
+	<42>Esta operação vai cancelar o download! Fechar o gerenciador?</42>
+	<43>Você deseja deletar este arquivo?</43>
+	<44>Parece que você não tem o LibPcap (WinPcap para Windows) instalado no seu computador. O TubeMaster++ não pode iniciar sem o LibPcap.</44>
+	<45>Você deseja instalar agora?</45>
+	<46>Erro! Por favor, instale o LibPcap!</46>
+	<47>Você quer fechar o TubeMaster++?</47>
+	<48>Atualização disponível!</48>
+	<49>Uma atualização está disponível para o TubeMaster++. Deseja baixá-la?</49>
+	
+//Added
+	<50>Erro. Não há resposta. Favor tentar mais tarde.</50>
+	<51>Baixando</51>
+	<52>Carregando</52>
+	<53>A captura está ativa. Você deveria parar com isso, pois o TubeMaster++ irá capturar um arquivo MP3. Desabilitar agora?</53>
+	<54>Recomendável parar a captura.</54>
+	<55>Perguntar antes de fechar o TubeMaster++.</55>
+	<56>Fechar</56>
+	<57>Dica: Você pode arrastar e soltar arquivos aqui mídia externa (FLV,MP3,MP4,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Song Title</58>
+	<59>Artist Name</59>
+	<60>Album Title</60>
+	<61>Year</61>
+	<62>Track Number</62>
+	<63>Genre</63>
+	<64>Cancel</64>
+	<65>Apply</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

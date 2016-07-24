@@ -1,0 +1,117 @@
+﻿//TubeMaster++ Language File.
+//FOR TRANSLATORS : Please keep the correct syntax (<X>Translated_Text</X>).
+
+//Header
+	<0>Optione</0>
+	<1>D'Schpanda</1>
+	<2>Um d'Logiciel</2>
+	<3>Multimedia Empfàng</3>
+	<4>Vidéos süacha</4>
+	<5>MP3 süacha</5>
+
+//Panel Capture
+	<6>Empfàng Ussmàcha</6>
+	<7>Empfàng àànmàcha</7>
+	<8>S'Usswàhl büacha</8>
+	<9>S'Usswàhl ùmmàcha</9>
+
+//Video Search Panel
+	<10>Vidéo Süachmàchin</10>
+	<11>Gsàmtsüach</11>
+	<12>Nàme</12>
+	<13>D'Zittlànge</13>
+	<14>D'Kàtegorie</14>
+	<15>S'Sander</15>
+	
+	
+//MP3 Search Panel
+	<16>MP3 süachmàchin</16>
+	<17>Titel</17>
+	<18>Rùnterlàde</18>
+
+//Options Panel
+	<19>Automàtisch s'empfàng làda wenn TubeMaster++ ààngemàcht werd.</19>
+	<20>Automàtisch kontrollera ver neiji Fàssunge wenn Tubemaster++ àngemàcht werd.</20>
+	<21>S'Icône én d'Uffgàbstreck activera wenn Tubemaster++ reduzert werd.</21>
+	<22>Empfàngene Sàche schtricha denàch dàss se ùmgemàcht sén.</22>
+	<23>Spràch Usswàhl</23>
+	<24>Originàl Büachungsplàtz</24>
+	<25>Automatisch s'Umwàndlung noch s'Empfàng màcha</25>
+	
+//List File Item	
+	<26>Büacha</26>
+	<27>Ummàcha</27>
+	<28>Spééla</28>
+	<29>Drécke ùm nejzenàmma</29>
+	<30>Ferti !</30>
+	<31>Zùm Ummàcha</31>
+	<32>D'Verbendùng vom Büachhàlter àbschriva</32>
+	<33>S'Ummàche hàlta</33>
+	<34>Làdung ...</34>
+	<35>Neijes Datei uffgeschpùrt ! Empfàng fàngt àn...</35>
+
+	<36>Video laase</36>
+	
+//MessageBoxes
+	<37>Sen-se secher ?</37>
+	<38>Welle-ner s'Empfàng hàlta ?</38>
+	<39>Welle-ner àlles üsswescha ?</39>
+	<40>Dateie existera schon</40>
+	<41>Fahler. Dateie existera schon. Bitte s'Nàhme wachsla.</41>
+	<42>Des màcht d'Rùnterlàdung üss. S'Fanschter zümacha ?</42>
+	<43>Welle-ner dé Dateie üsswescha ?</43>
+	<44>LibPcap (WinPcap fer Windows) esch net instàlleert. Tubemaster++ brücht LibPcap ùm ze fùnctionnera.</44>
+	<45>Welle-ners jetzt instàlleera ?</45>
+	<46>Fahler ! Bitte LibPcap wederinstàlleera !</46>
+	<47>Welle-ner TubeMaster++ üsmàcha ?</47>
+	<48>Neijes Fàssung Verfiagbar !</48>
+	<49>A neijes Fàssung ver Tubemaster++ esch verfiagbar. Welle-ners jetz rùnterlàda ? (Recommandert)</49>
+	
+//Added
+	<50>Fahler. Kenn Antwort. Nochhare wederversùcha.</50>
+	<51>Rùnterlàdung</51>
+	<52>Prozassùng</52>
+	<53>Empfàng aktivert. Sech besser Tubemaster++ üsszemàcha, sonst wore d'MP3 gebüacht. Empfàng üssmàcha ?</53>
+	<54>Empfàng üssschàlda recommandert</54>
+	<55>Verlànge vor Tubemaster++ zümàcha</55>
+	<56>Zümàcha</56>
+	<57>Mainung : Sie kenne d'Dateie haare ninrutscha (MP3,MP4,FLV,MOV,M4A).</57>
+	
+//ID3 Editor
+	<58>Song Title</58>
+	<59>Artist Name</59>
+	<60>Album Title</60>
+	<61>Year</61>
+	<62>Track Number</62>
+	<63>Genre</63>
+	<64>Cancel</64>
+	<65>Apply</65>
+
+//Added 1.6 Version
+	<66>Source</66>	
+	<67>Default Multimedia Players</67>
+	<68>Automatically start playing files during capture. (Minimum : 400 KB)</68>
+	
+//Added 1.7 Version	
+	<69>MP3 Bitrate</69>
+	<70>Capture Timeout (Seconds)</70>
+	<71>to disable</71>
+	<72>Player Error</72>
+	<73>Multimedia player not found. You can fix it in the option window.</73>
+	<74>The FFMPeg converter terminated with following errors :</74>
+	<75>General</75>
+	<76>Capture</76>
+	<77>Save/Conversion</77>
+	<78>Multimedia Players</78>
+	<79>Capture Minimal Size</79>
+	<80>bytes</80>
+	
+//Added 1.9 Version
+	<81>Waiting for data. Check that you are connected to the network. Maybe your network device is not compatible with TubeMaster++.</81>
+	<82>TubeMaster++ is operating properly and is able to capture packets.</82>
+	<83>Warning ! Data loss detected. Try to limit processor and bandwidth usage.</83>
+	<84>The capture is disabled. You must enable it in order to catch files.</84>
+		
+//Added 2.4 Version
+	<85>Copy</85>
+	<86>Paste</86>

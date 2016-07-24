@@ -1,0 +1,4 @@
+Module: unix
+[success=end new_authtok_reqd=done default=ignore]	pam_unix.so
+Module: winbind
+[success=end new_authtok_reqd=done default=ignore]	pam_winbind.so
