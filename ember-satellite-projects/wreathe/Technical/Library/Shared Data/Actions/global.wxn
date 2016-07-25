@@ -1,5 +1,0 @@
-#!/bin/bash
-#Wreathe: Write a global registry token
-#Version 1, 6 November 2012
-
-echo -n "$2">/Technical/Library/Shared\ Data/System/Token\ Registry/$1.wreathe-system-token

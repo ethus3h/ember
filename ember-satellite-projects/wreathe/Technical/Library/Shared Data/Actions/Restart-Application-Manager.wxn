@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#Restart application manager
-#Version 1, 30 November 2012
-
-Run Stop-Application-Manager;
-sleep 3;
-Run Start-Application-Manager &

@@ -1,5 +1,0 @@
-#!/bin/bash
-#Wreathe: Read a global registered token
-#Version 1, 6 November 2012
-
-cat /Technical/Library/Shared\ Data/System/Token\ Registry/$1.wreathe-system-token

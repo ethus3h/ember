@@ -1,4 +1,0 @@
-#!/bin/bash
-#Start WWW browser. Version 1, 10 December 2012. For Wreathe. Template based on Start-Document-Editor version 1.
-
-/opt/firefox/firefox/firefox "$1";

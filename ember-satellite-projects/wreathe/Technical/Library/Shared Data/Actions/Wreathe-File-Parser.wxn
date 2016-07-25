@@ -1,7 +1,0 @@
-#!/bin/bash
-#Wreathe File Parser: Action wrapper. Version 1, 10 December 2012. For Wreathe. This script is released under the Affero GPL version 3 (run wfscan-help to see the license), with the added provisions : author attribution is required, and misrepresentation of the origin of the material is prohibited. http://futuramerlin.com/ Copyright © 2011 Futuramerlin.com. This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details. You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>. Based on Wreathe File Scanner execution script V4.1.
-rm -f ~/.Wreathe-File-Parser/input.scdat
-touch ~/.Wreathe-File-Parser/input.scdat
-cp "$1" ~/.Wreathe-File-Parser/input.scdat
-rm -f ~/.Wreathe-File-Parser/output.scdat
-perl /usr/bin/wfparser.pl

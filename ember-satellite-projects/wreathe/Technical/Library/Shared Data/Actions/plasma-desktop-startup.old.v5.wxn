@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Plasma startup script
-# Version 5, 11 September 2012 (for Wreathe) (note that I think that version 4 is mislabeled/misdated as version 3) (Accidentally edited 30 November 2012; attempted reconstruction.)
-
-cp /Technical/Library/Shared\ Data/Action\ Resources/plasma-desktop-startup/plasma-desktop-appletsrc ~/.kde/share/config/ ;
-plasma-desktop ;
-sleep 3 ;
-/usr/bin/wxn/cairo-dock-startup.wxn &

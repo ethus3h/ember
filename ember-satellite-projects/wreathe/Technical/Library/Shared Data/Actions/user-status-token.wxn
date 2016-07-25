@@ -1,3 +1,0 @@
-#!/bin/bash
-#Save user token to global registry
-Run global CurrentUser `whoami`
