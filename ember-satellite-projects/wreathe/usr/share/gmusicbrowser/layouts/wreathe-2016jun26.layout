@@ -9,7 +9,7 @@ Name		= _"Wreathe default"
 
 VBmain		= 5VBplayer  _HBmain
  HBmain		= NBPlayListView _VBLeft _VBRight
-  NBPlayListView = (newbutton=0) _FilterPane1(pages=savedtree,hidetabs=1,activate=playlist,activate2=queueinsert) _FilterPane(pages=artist,searchbox=1,hidetabs=1,activate=playlist,activate2=queueinsert,page_artist="depth:1,histogram:1,lmarkup:'0|<b>%a</b>%Y\x0a<small>%b</small>\x0a<small>%s <small>%l</small></small>',lpicsize:0|64,sort='default|alpha',type='artist|album'")
+  NBPlayListView = (newbutton=0) PluginLyrics1
   VBRight	= HBmenuA Text(markup="Up next:") _QueueList(songtree=1,cols="titleaay",colwidth="queuenumber 0",showbb=1,activate=play,activate2=queueinsert) _NBTrackInfoPane
    NBTrackInfoPane = (newbutton=0) PluginLyrics SongInfo(tabtitle=_"Track info") PictureBrowser0(tabtitle=_"Album art")
    HBmenuA = _BMmenuA
