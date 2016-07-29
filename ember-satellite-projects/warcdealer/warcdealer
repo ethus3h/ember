@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='2.0.17'
+export warcdealerVersion='2.0.18'
 
 #Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 
@@ -15,7 +15,7 @@ export warcdealerVersion='2.0.17'
 #Script should exit if any operation fails.
 set -e
 
-WarcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
+WarcdealerPackID=$(date +%Y-%m%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
 
 echo "Working..."
 
