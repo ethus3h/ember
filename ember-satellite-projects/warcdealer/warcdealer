@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='2.0.18'
+export warcdealerVersion='2.0.19'
 
 #Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 
@@ -15,9 +15,9 @@ export warcdealerVersion='2.0.18'
 #Script should exit if any operation fails.
 set -e
 
-WarcdealerPackID=$(date +%Y-%m%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
+WarcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
 
-echo "Working..."
+echo "Working on $WarcdealerPackID..."
 
 ls -a -B -l -R -i . | tee "./$WarcdealerPackID.listing"
 
@@ -25,7 +25,7 @@ set +e
 
 find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"Warcdlr-\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
+find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
 
 ia upload "$WarcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172" --metadata="title:Warcdealer pack $WarcdealerPackID" --metadata="subject:$WarcdealerPackID" --metadata="collection:opensource" --delete "$WarcdealerPackID.listing"
 
