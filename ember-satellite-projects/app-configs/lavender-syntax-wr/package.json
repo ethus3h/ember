@@ -1,8 +1,8 @@
 {
-  "name": "lavender-syntax",
+  "name": "lavender-syntax-wr",
   "theme": "syntax",
   "version": "0.0.2",
-  "description": "Lavender syntax theme",
+  "description": "Lavender syntax theme: Wreathe mod",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
   "bugs": {
     "url": "https://github.com/madhead/lavender-syntax/issues"
   },
-  "homepage": "https://github.com/madhead/lavender-syntax#readme",
-  "_id": "lavender-syntax@0.0.2",
+  "homepage": "https://github.com/ethus3h/ember",
+  "_id": "lavender-syntax-wr@0.0.2",
   "_shasum": "b23ec1683ad0b86e5d119bf7da1ef457265f8cb3",
   "_resolved": "file:../d-11671-31300-13pfe10/package.tgz",
   "_from": "../d-11671-31300-13pfe10/package.tgz",
