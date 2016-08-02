@@ -1,34 +1,15 @@
 {
-  "name": "lavender-syntax-wr",
+  "name": "lavenderfm2016aug01",
   "theme": "syntax",
-  "version": "0.0.2",
-  "description": "Lavender syntax theme: Wreathe mod",
+  "version": "0.0.0",
+  "description": "A short description of your syntax theme",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/atom/lavenderfm2016aug01",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/madhead/lavender-syntax.git"
-  },
   "engines": {
-    "atom": ">0.50.0"
-  },
-  "readme": "## Lavender theme (Syntax)\n\n[Atom](https://atom.io/) syntax theme heavily inspired by [Dayle Rees's Lavender](http://daylerees.github.io/):\n\n![lavender](https://cloud.githubusercontent.com/assets/577360/6507238/9e179892-c361-11e4-8e88-927d41d3b7f3.png)\n\nThere is also a matching [UI theme](https://github.com/madhead/lavender-ui).\n\n### Install\n\nThe installation is pretty simple with [`apm`](https://github.com/atom/apm).\nJust execute `apm link` from the root of this repo and you're done! Restart Atom and enjoy the theme.\n\n### Thanks to\n+ [Dayle Rees](http://daylerees.com/)\n+ [One Dark Syntax](https://github.com/atom/one-dark-syntax) team\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/madhead/lavender-syntax/issues"
-  },
-  "homepage": "https://github.com/ethus3h/ember",
-  "_id": "lavender-syntax-wr@0.0.2",
-  "_shasum": "b23ec1683ad0b86e5d119bf7da1ef457265f8cb3",
-  "_resolved": "file:../d-11671-31300-13pfe10/package.tgz",
-  "_from": "../d-11671-31300-13pfe10/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
+    "atom": ">=1.0.0 <2.0.0"
   }
 }
