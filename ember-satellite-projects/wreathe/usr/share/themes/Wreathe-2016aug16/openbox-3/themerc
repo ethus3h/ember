@@ -126,10 +126,10 @@ window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #70747d
 
 window.inactive.button.*.bg: Flat Gradient splitVertical Border
-window.inactive.button.*.bg.color: #ffffff
-window.inactive.button.*.bg.color.splitto: #ffffff
-window.inactive.button.*.bg.colorTo: #ffffff
-window.inactive.button.*.bg.colorTo.splitto: #ffffff
+window.inactive.button.*.bg.color: #E3E2E0
+window.inactive.button.*.bg.color.splitto: #E3E2E0
+window.inactive.button.*.bg.colorTo: #E3E2E0
+window.inactive.button.*.bg.colorTo.splitto: #E3E2E0
 window.inactive.button.*.bg.border.color: #ffffff
 window.inactive.button.*.image.color: #6D6C6C
 
