@@ -116,9 +116,9 @@ window.active.button.hover.bg.border.color: #4A658C
 !#window.inactive.border.color: #7e8285
 window.inactive.title.separator.color: #96999d
 
-window.inactive.title.bg: Raised Gradient splitvertical
+window.inactive.title.bg: Raised Gradient MirrorHorizontal
 window.inactive.title.bg.color: #E3E2E0
-window.inactive.title.bg.color.splitTo: #E3E2E0
+window.inactive.title.bg.color.splitTo: #d5d3ff
 window.inactive.title.bg.colorTo: #E3E2E0
 window.inactive.title.bg.colorTo.splitTo: #E3E2E0
 
