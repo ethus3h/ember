@@ -118,9 +118,9 @@ window.inactive.title.separator.color: #96999d
 
 window.inactive.title.bg: Raised Gradient MirrorHorizontal
 window.inactive.title.bg.color: #E3E2E0
-window.inactive.title.bg.color.splitTo: #d5d3ff
-window.inactive.title.bg.colorTo: #E3E2E0
-window.inactive.title.bg.colorTo.splitTo: #E3E2E0
+#window.inactive.title.bg.color.splitTo: #d5d3ff
+window.inactive.title.bg.colorTo: #d5d3ff
+#window.inactive.title.bg.colorTo.splitTo: #E3E2E0
 
 window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #70747d
