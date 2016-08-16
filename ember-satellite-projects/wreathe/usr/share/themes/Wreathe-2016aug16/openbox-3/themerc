@@ -69,10 +69,10 @@ menu.separator.color: #aaaaaa
 !# set handles here and only the once?
 
 window.*.handle.bg: Raised solid
-window.*.handle.bg.color: #eaebec
+window.*.handle.bg.color: #e2daf1
 
 window.*.grip.bg: Raised solid
-window.*.grip.bg.color: #eaebec
+window.*.grip.bg.color: #e2daf1
 
 !# Active
 
@@ -81,8 +81,8 @@ window.*.border.color: #ffffff
 window.active.title.separator.color: #ffffff
 
 *.title.bg: Raised Gradient splitvertical
-*.title.bg.color: #8CB0DC
-*.title.bg.color.splitTo: #99BAE3
+*.title.bg.color: #e2daf1
+*.title.bg.color.splitTo: #e2daf1
 *.title.bg.colorTo: #86ABD9
 *.title.bg.colorTo.splitTo: #7AA1D1
 
@@ -91,9 +91,9 @@ window.active.label.text.color: #ffffff
 
 window.active.button.*.bg: Flat Gradient splitvertical Border
 
-window.active.button.*.bg.color: #92B4DF
+window.active.button.*.bg.color: #e2daf1
 window.active.button.*.bg.color.splitTo: #B0CAEB
-window.active.button.*.bg.colorTo: #86ABD9
+window.active.button.*.bg.colorTo: #e2daf1
 window.active.button.*.bg.colorTo.splitTo: #769FD0
 
 window.active.button.*.bg.border.color: #49678B
