@@ -80,23 +80,23 @@ window.*.border.color: #ffffff
 
 window.active.title.separator.color: #ffffff
 
-*.title.bg: Raised Gradient splitvertical
+*.title.bg: Raised Gradient MirrorHorizontal
 *.title.bg.color: #e2daf1
-*.title.bg.color.splitTo: #e2daf1
-*.title.bg.colorTo: #86ABD9
-*.title.bg.colorTo.splitTo: #7AA1D1
+#*.title.bg.color.splitTo: #f6f3fa
+*.title.bg.colorTo: #ffffff
+#*.title.bg.colorTo.splitTo: #e2daf1
 
 window.active.label.bg: Parentrelative
-window.active.label.text.color: #ffffff
+window.active.label.text.color: #2a1657
 
 window.active.button.*.bg: Flat Gradient splitvertical Border
 
 window.active.button.*.bg.color: #e2daf1
-window.active.button.*.bg.color.splitTo: #B0CAEB
+window.active.button.*.bg.color.splitTo: #e2daf1
 window.active.button.*.bg.colorTo: #e2daf1
-window.active.button.*.bg.colorTo.splitTo: #769FD0
+window.active.button.*.bg.colorTo.splitTo: #e2daf1
 
-window.active.button.*.bg.border.color: #49678B
+window.active.button.*.bg.border.color: #ffffff
 window.active.button.*.image.color: #F4F5F6
 
 window.active.button.hover.bg.color: #b5d3ef
@@ -118,9 +118,9 @@ window.inactive.title.separator.color: #96999d
 
 window.inactive.title.bg: Raised Gradient splitvertical
 window.inactive.title.bg.color: #E3E2E0
-window.inactive.title.bg.color.splitTo: #EBEAE9
-window.inactive.title.bg.colorTo: #DEDCDA
-window.inactive.title.bg.colorTo.splitTo: #D5D3D1
+window.inactive.title.bg.color.splitTo: #E3E2E0
+window.inactive.title.bg.colorTo: #E3E2E0
+window.inactive.title.bg.colorTo.splitTo: #E3E2E0
 
 window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #70747d
@@ -128,9 +128,9 @@ window.inactive.label.text.color: #70747d
 window.inactive.button.*.bg: Flat Gradient splitVertical Border
 window.inactive.button.*.bg.color: #ffffff
 window.inactive.button.*.bg.color.splitto: #ffffff
-window.inactive.button.*.bg.colorTo: #F9F8F8
-window.inactive.button.*.bg.colorTo.splitto: #E9E7E6
-window.inactive.button.*.bg.border.color: #928F8B
+window.inactive.button.*.bg.colorTo: #ffffff
+window.inactive.button.*.bg.colorTo.splitto: #ffffff
+window.inactive.button.*.bg.border.color: #ffffff
 window.inactive.button.*.image.color: #6D6C6C
 
 
