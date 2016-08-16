@@ -97,7 +97,7 @@ window.active.button.*.bg.colorTo: #e2daf1
 window.active.button.*.bg.colorTo.splitTo: #e2daf1
 
 window.active.button.*.bg.border.color: #ffffff
-window.active.button.*.image.color: #F4F5F6
+window.active.button.*.image.color: #ffffff
 
 window.active.button.hover.bg.color: #b5d3ef
 window.active.button.hover.bg.color.splitTo: #b5d3ef
