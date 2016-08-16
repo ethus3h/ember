@@ -80,7 +80,7 @@ window.*.border.color: #ffffff
 
 window.active.title.separator.color: #ffffff
 
-*.title.bg: Raised Gradient MirrorHorizontal
+*.title.bg: Flat Gradient MirrorHorizontal
 *.title.bg.color: #e2daf1
 #*.title.bg.color.splitTo: #f6f3fa
 *.title.bg.colorTo: #ffffff
@@ -116,7 +116,7 @@ window.active.button.hover.bg.border.color: #4A658C
 !#window.inactive.border.color: #7e8285
 window.inactive.title.separator.color: #96999d
 
-window.inactive.title.bg: Raised Gradient MirrorHorizontal
+window.inactive.title.bg: Flat Gradient MirrorHorizontal
 window.inactive.title.bg.color: #E3E2E0
 #window.inactive.title.bg.color.splitTo: #d5d3ff
 window.inactive.title.bg.colorTo: #d5d3ff
@@ -125,13 +125,13 @@ window.inactive.title.bg.colorTo: #d5d3ff
 window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #70747d
 
-window.inactive.button.*.bg: Flat Gradient splitVertical Border
+window.inactive.button.*.bg: Solid Flat Border
 window.inactive.button.*.bg.color: #E3E2E0
 window.inactive.button.*.bg.color.splitto: #E3E2E0
 window.inactive.button.*.bg.colorTo: #E3E2E0
 window.inactive.button.*.bg.colorTo.splitto: #E3E2E0
 window.inactive.button.*.bg.border.color: #ffffff
-window.inactive.button.*.image.color: #6D6C6C
+window.inactive.button.*.image.color: #ffffff
 
 
 !# osd (pop ups and what not, dock?)
