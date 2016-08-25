@@ -1,8 +1,15 @@
 #!/bin/bash
 #2016jun12
 if is_function $1.w7axn; then
-  $1.w7axn
+  $1.w7axn &
+  exit 0
 fi
 if is_function $1.w7kpa; then
-  $1.w7kpa
+  $1.w7kpa &
+  exit 0
 fi
+if is_function $1.wxn; then
+  $1.wxn &
+  exit 0
+fi
+exit 1

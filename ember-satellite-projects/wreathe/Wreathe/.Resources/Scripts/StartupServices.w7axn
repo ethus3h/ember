@@ -6,5 +6,6 @@ echo "Welcome to Wreathe! Setting things up..."
 #Place symlinks for scripts and apps in the PATH
 ln -s /Wreathe/.Resources/Scripts/* /usr/bin/
 ln -s /Wreathe/Apps/* /usr/bin/
+ln -s /Wreathe/.Resources/7r2-Compatibility/Scripts/* /usr/bin/
 
 echo "Wreathe setup done."
