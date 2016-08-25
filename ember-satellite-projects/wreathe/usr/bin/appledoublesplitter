@@ -1,0 +1,10 @@
+#!/bin/bash
+#10 April 2014.
+#Based on filenames-for-mac.v2
+#Prepare filenames in the given directory for transfer to Mac OS X. Does not distinguish case-sensitive files.
+NOW=`date -u +%Y.%m.%d.%H.%M.%S.%N.%Z`;
+find $1 -depth -name '._*' &> AppleDoubles.out.$NOW.txt
+find $1 -depth -name '._*' -execdir bash -c 'mv "$1" "${1//._/.._}"' _ {} \;
+#find $1 -depth -name '.AppleDouble' &> AppleDoubleFolders.out.$NOW.txt
+#find $1 -depth -name '.AppleDouble' -execdir bash -c 'mv "$1" "${1//.AppleDouble/.AppleDoubleFolder}"' _ {} \;
+echo "Done."

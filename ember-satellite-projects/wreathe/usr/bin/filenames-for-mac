@@ -1,0 +1,8 @@
+#!/bin/bash
+#10 March 2014. Version 2, 11 March 2014.
+#Prepare filenames in the given directory for transfer to Mac OS X. Does not distinguish case-sensitive files.
+NOW=`date -u +%Y.%m.%d.%H.%M.%S.%N.%Z`;
+find $1 -depth -name '*:*' &> COLONS.out.$NOW.txt
+find $1 -depth -name '*:*' -execdir bash -c 'mv "$1" "${1//:/⁚}"' _ {} \;
+convmv -f utf8 -t utf8 --nfd --notest $1 &> NFD.out.$NOW.txt
+echo "Done."
