@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# System repair script (GUI)
+# Version 2, 18 August 2012 (for Wreathe) (WXN template copied from autofix.cli.wxn v1) (accidentally edited 10 September 2012; attempted restoration)
+
+firefox /usr/bin/wxn/Action\ Resources/autofix/a.html &
+
+/usr/bin/wxn/compiz-restart.wxn;
+
+/usr/bin/wxn/plasma-desktop-startup.wxn;
+
+/usr/bin/wxn/cairo-dock-restart.wxn;
+
+/usr/bin/wxn/fix-broken-pam.gksu.wxn;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+gksu killall nautilus;
+
+/usr/bin/wxn/fix-gui-bug.wxn;
+
+/usr/bin/wxn/gnome-panel-restart.wxn;
+
+/usr/bin/wxn/decompiz.wxn;
+
+firefox /usr/bin/wxn/Action\ Resources/autofix/c.html &
+
+gnome-terminal
+
+firefox /usr/bin/wxn/Action\ Resources/autofix/a.html &
+
+/usr/bin/wxn/recompiz.wxn;
+
+/usr/bin/wxn/cairo-dock-restart.wxn;
+
+/usr/bin/wxn/gnome-panel-restart.wxn;
+
+firefox /usr/bin/wxn/Action\ Resources/autofix/b.html &
+
+echo 'Done.';

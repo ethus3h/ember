@@ -1,0 +1,117 @@
+#!/bin/bash
+
+# System repair script (GUI)
+# Version 5, 30 July 2013 (for Wreathe) (WXN template copied from autofix.cli.wxn v1)
+export GTK_RGBA_APPS="allbut:installer0.11_30july2013.py:autofixer_0.1.py:installer.py:soffice:firefox-bin:firefox:plugin-container:mail-notification:gnome-mplayer:audacity:inkscape:kompozer-bin:glest:/usr/games/glest:gnome-screensaver:dia:glest:eclipse:<unknown>:exe";
+/usr/bin/wxn/Action\ Resources/autofix/autofixer-0.1/autofixer_0.1.py &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+
+killall plasma-desktop;
+killall cairo-dock;
+killall compiz;
+openbox --replace &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+
+for i in {1..9}; do gksu killall nautilus; done
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+killall openbox;
+killall compiz;
+openbox --replace &
+
+gnome-appearance-properties &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+
+killall gnome-appearance-properties;
+killall openbox;
+killall compiz;
+openbox --replace &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+
+rm ~/.kde/share/config/plasma-desktop-appletsrc;
+
+cp /usr/bin/wxn/Action\ Resources/plasma-desktop-appletsrc ~/.kde/share/config/plasma-desktop-appletsrc;
+
+killall openbox;
+compiz --replace &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+Run Start-Application-Manager &
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+killall krunner;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+sleep 1;
+wmctrl -r NOOTHERWINDOWHASTHISINITSTITLE -b toggle,above;
+
+wmctrl -F -c 'Please wait... Autofixer (NOOTHERWINDOWHASTHISINITSTITLE)';
+
+echo 'Done.';

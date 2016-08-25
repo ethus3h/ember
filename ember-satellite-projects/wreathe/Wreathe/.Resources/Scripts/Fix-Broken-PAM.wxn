@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# PAM repair script
+# Version 2, 1 September 2012 (after midnight of 31 August 2012) (for Wreathe) (WXN template copied from plasma-desktop-startup.wxn v1)
+
+# This now takes no action (it is, for the moment, not needed)
+
+# Must be run as root; see fix-broken-pam.gksu.wxn for one using gksu
+
+#cp -a -t / /usr/bin/wxn/Action\ Resources/fix-broken-pam/*;
+
+echo 'Done.';
