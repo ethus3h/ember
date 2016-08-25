@@ -2,4 +2,4 @@
 #Wreathe: Read a global registered token
 #Version 1, 6 November 2012
 
-cat /Technical/Library/Shared\ Data/System/Token\ Registry/$1.wreathe-system-token
+cat /Wreathe/.Resources/7r2-Compatibility/TokenRegistry/$1.wreathe-system-token

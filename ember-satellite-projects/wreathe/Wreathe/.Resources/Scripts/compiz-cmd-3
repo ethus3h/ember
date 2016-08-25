@@ -1,2 +1,0 @@
-#!/bin/bash
-dbus-send --dest=org.kde.Spectacle --type=method_call / org.kde.Spectacle.ActiveWindow boolean:true boolean:false

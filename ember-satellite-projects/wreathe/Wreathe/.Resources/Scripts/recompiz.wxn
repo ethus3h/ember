@@ -3,10 +3,10 @@
 # Enable compositing
 # Version 1, 18 August 2012 (for Wreathe) (WXN template and some code copied from decompiz.wxn v1)
 
-killall openbox;
-
-killall metacity;
-
-killall kwin;
-
-/usr/bin/wxn/compiz-restart.wxn &
+# killall openbox;
+#
+# killall metacity;
+#
+# killall kwin;
+#
+# /usr/bin/wxn/compiz-restart.wxn &

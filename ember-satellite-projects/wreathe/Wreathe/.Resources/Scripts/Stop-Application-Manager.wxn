@@ -3,5 +3,5 @@
 #Stop application manager
 #Version 1, 30 November 2012
 
-killall plasma-desktop;
-killall cairo-dock;
+# killall plasma-desktop;
+# killall cairo-dock;

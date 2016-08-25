@@ -3,4 +3,4 @@
 # Magic Square encoder wrapper
 # Version 1, 2 September 2012 (for Wreathe) (WXN template copied from autofix.cli.wxn v1)
 
-python /Technical/Library/Program\ Data/Scripted\ Utilities/MagicSquare.py;
+python /Wreathe/.Resources/Scripts/MagicSquare.py;

@@ -2,13 +2,13 @@
 
 #Compiz restart script
 #Revision Set 1, Version 2, 18 August 2012. Some code copied from autofix.gui.wxn version 2.
-
-killall compiz;
-
-killall metacity;
-
-killall kwin;
-
-killall openbox;
-
-compiz &
+#
+# killall compiz;
+#
+# killall metacity;
+#
+# killall kwin;
+#
+# killall openbox;
+#
+# compiz &

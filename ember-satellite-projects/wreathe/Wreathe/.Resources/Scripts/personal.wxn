@@ -2,4 +2,4 @@
 #Wreathe: Write a personal registry token
 #Version 1, 6 November 2012. Wxn template and some code copied from global.wxn v1.
 
-"$2">~/Technical/Library/Shared\ Data/System/Token\ Registry/$1.wreathe-system-token
+"$2">~/.7r2-Compat-TokenRegistry/$1.wreathe-system-token

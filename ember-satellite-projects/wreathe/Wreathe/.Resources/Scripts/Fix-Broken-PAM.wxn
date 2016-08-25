@@ -9,4 +9,4 @@
 
 #cp -a -t / /usr/bin/wxn/Action\ Resources/fix-broken-pam/*;
 
-echo 'Done.';
+# echo 'Done.';

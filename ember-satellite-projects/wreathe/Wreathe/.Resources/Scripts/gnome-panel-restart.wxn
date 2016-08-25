@@ -2,9 +2,9 @@
 
 # Gnome Panel restart script
 # Version 1, 18 August 2012 (for Wreathe) (WXN template copied from cairo-dock-restart.wxn version 2)
-
-killall gnome-panel;
-
-sleep 3;
-
-gnome-panel &
+#
+# killall gnome-panel;
+#
+# sleep 3;
+#
+# gnome-panel &

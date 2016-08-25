@@ -4,5 +4,5 @@
 # Version 3, 3 December 2012 (for Wreathe)
 
 #sleep 10;
-
-cairo-dock -c -k --keep-above;
+#
+# cairo-dock -c -k --keep-above;
