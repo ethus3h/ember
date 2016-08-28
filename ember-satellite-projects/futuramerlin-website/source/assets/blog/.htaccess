@@ -1,13 +1,13 @@
-#.htaccess for wordpress, v1, 2015jan27
+#.htaccess for blog
 DirectoryIndex index.php
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /c/
+RewriteBase /blog/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /c/index.php [L]
+RewriteRule . /blog/index.php [L]
 </IfModule>
 
 # END WordPress
