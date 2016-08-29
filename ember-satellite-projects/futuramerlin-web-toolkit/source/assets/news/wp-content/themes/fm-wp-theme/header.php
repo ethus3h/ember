@@ -28,7 +28,7 @@
             <li class="nav-item nav-item-inactive index">
 				<a href="/">Home</a>
 			</li>
-			<li class="nav-item nav-item-inactive news">
+			<li class="nav-item nav-item-active news">
 				<a href="/news">News</a>
 			</li>
             <li class="nav-item nav-item-inactive ready-to-use">
