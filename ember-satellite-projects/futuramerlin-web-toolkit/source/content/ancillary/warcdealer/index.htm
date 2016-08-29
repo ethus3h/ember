@@ -8,8 +8,7 @@
 <p>It is available <a href="https://github.com/ethus3h/ember/tree/master/ember-satellite-projects/warcdealer">at GitHub</a>.</p>
 <p>It can be used with <a href="https://github.com/ludios/grab-site/">grab-site</a> for a complete on-demand Web archival system.</p>
 <p>Command aliases for quick archival:</p>
-<pre><code>
-#Archive a Web site's directory recursively
+<pre><code>#Archive a Web site's directory recursively
 a() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error\ --tries=1024 "$@"; }
 export -f a;
 
