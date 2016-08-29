@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package fm-wp-theme
+ * @package ember-wp-theme
  */
 ?><!DOCTYPE html>
 <html lang="en">
