@@ -18,6 +18,9 @@
 </ul>
 <p>In addition, it also provides <a href="internal-scripts.htm">several scripts that it uses internally</a>.</p>
 <h3>Installation</h3>
+<h4>Download</h4>
+<p>To download Crystallise, run:</p>
+<pre><code>git clone https://github.com/ethus3h/ember.git</code></pre>
 <h4>Requirements</h4>
 <ul>
     <li>UNIX-like operating system (Wreathe, Ubuntu, and Mac OS X 10.11 are currently supported.)</li>
@@ -25,6 +28,7 @@
     <li>ia (<a href="https://pypi.python.org/pypi/internetarchive">https://pypi.python.org/pypi/internetarchive</a>) 1.0.2 or later (must be configured by running <code>ia configure</code> before Crystallise can be used)</li>
     <li>a root login or administrator/sudo privileges for your local computer, both for installation and use of all tools except quickliquid and dequicklify.</li>
     <li>wget 1.14 or later</li>
+    <li>git</li>
     <li>hashdeep</li>
     <li>(A recent version of bash)</li>
 </ul>
@@ -37,10 +41,12 @@
     <li>the path of a <span class="important-word">directory to contain temporary files</span>: This directory should exist, be writeable, and have enough free space for three times the amount of information being crystallised at any one time.</li>
 </ul>
 <p>Each of these items should be on a separate line. They should not contain newlines.</p>
+<p>Finally, copy the files (in ember-satellite-projects/crystallise/) to /usr/bin/, and make them executable.</p>
 <h3>Future plans</h3>
 <ul>
     <li>Move config.txt to something less generic.</li>
     <li>Have decrystallise verify checksums.</li>
     <li>Verify that the coal5 file can correctly be expanded to the original files before (or while?) uploading, and before deleting input files.</li>
     <li>Add folder support to quickliquid.</li>
+    <li>Change to install to /usr/local/bin/</li>
 </ul>
