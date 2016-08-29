@@ -1,13 +1,13 @@
-#.htaccess for blog
+#.htaccess for Ember news
 DirectoryIndex index.php
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /blog/
+RewriteBase /news/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /blog/index.php [L]
+RewriteRule . /news/index.php [L]
 </IfModule>
 
 # END WordPress
