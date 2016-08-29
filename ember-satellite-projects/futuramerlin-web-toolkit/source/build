@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#Usage: build
+
 #Requires html-minifier: https://www.npmjs.com/package/html-minifier
 #Requires html5-tidy: https://github.com/htacg/tidy-html5
 #Requires minifier: https://www.npmjs.com/package/minifier
@@ -27,8 +30,12 @@ cp -r ./assets/* ./assets/.[^.]* "../built/"
 					fi
 				fi
 			else
-				echo "Building page: $i"
-				../scripts/build-page "$i"
+				if [[ $i =~ \.htm ]]; then
+					echo "Building page: $i"
+					../scripts/build-page "$i"
+				else
+					echo "Preserving asset: $i"
+				fi
 			fi
 		done
 	}
