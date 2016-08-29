@@ -537,7 +537,7 @@
 
 /* Figures */
 
-    .center-figure {
+    .center-figure, .center-image {
         padding: 0.5rem;
         margin: 1rem;
     }
@@ -655,7 +655,7 @@
     }
 
     figure.thumbnail-left > figcaption::after,
-    .wp-caption.alignleft > figcaption::after {
+    .wp-caption.alignleft > figcaption::after, .center-image::after {
         content: "\aTap image to view.";
         top: 0.25rem;
         right: -0.5rem;
@@ -663,6 +663,10 @@
         margin-left: 0.5rem;
         white-space: pre;
         color: rgba(42, 22, 87, 0.7);
+    }
+
+    .center-image {
+        padding: 0.5rem;
     }
 
     .thumbnail-top {
