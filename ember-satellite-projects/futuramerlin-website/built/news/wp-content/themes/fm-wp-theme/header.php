@@ -24,24 +24,18 @@
 			"/">ember</a>
 		</p>
 		<ul>
-			<li>Navigation:</li>
-			<li class="nav-item nav-item-inactive index">
+            <li>Navigation:</li>
+            <li class="nav-item nav-item-inactive index">
 				<a href="/">Home</a>
 			</li>
-			<li class="nav-item nav-item-inactive bio">
-				<a href="/blog">Blog</a>
-			</li>
 			<li class="nav-item nav-item-inactive news">
-				<a href="/specification">Specification</a>
+				<a href="/news">News</a>
 			</li>
-			<li class="nav-item nav-item-inactive blog">
-				<a href="/community">Community</a>
+            <li class="nav-item nav-item-inactive ready-to-use">
+				<a href="/ancillary/ready-to-use.htm">Ready-to-use software</a>
 			</li>
-			<li class="nav-item nav-item-inactive contact">
-				<a href="/computing">Computing</a>
-			</li>
-			<li class="nav-item nav-item-inactive resume">
-				<a href="/library">Library</a>
+			<li class="nav-item nav-item-inactive specification">
+				<a href="/components.htm">Core project</a>
 			</li>
 			<li class="nav-item nav-item-inactive ember">
 				<a href="/people">People</a>
