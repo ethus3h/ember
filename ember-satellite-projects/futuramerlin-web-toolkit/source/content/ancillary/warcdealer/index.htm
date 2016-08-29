@@ -34,6 +34,6 @@ op() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --w
 export -f op;
 
 #Quickly upload a file to the Internet Archive (for emergencies)
-iu() { IUIDENTIFIER=$(python2 -c 'import uuid; print str(uuid.uuid4())')-$(date +%Y.%m.%d.%H.%M.%S.%N)-$(xxd -pu <<< "$(date +%z)"); ia upload $IUIDENTIFIER --metadata="subject:Uploaded using iu v3; 291E5EDE-6B59-4CB7-8928-375368F5725B" "$@"; echo 'https://archive.org/download/'$IUIDENTIFIER; }
+iu() { IUIDENTIFIER=$(python2 -c 'import uuid; print str(uuid.uuid4())')-$(date +%Y.%m.%d.%H.%M.%S.%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)"); ia upload $IUIDENTIFIER --metadata="subject:Uploaded using iu v3; 291E5EDE-6B59-4CB7-8928-375368F5725B" "$@"; echo 'https://archive.org/download/'$IUIDENTIFIER; }
 export -f iu;
 </code></pre>
