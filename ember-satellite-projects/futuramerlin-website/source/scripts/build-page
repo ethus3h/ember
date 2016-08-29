@@ -26,7 +26,7 @@ tr '\r' ' ' < "../../built/2.tmp" > "../../built/3.tmp"
 perl -0777 -p -i -e "s/nav-item-inactive $Page\"/nav-item-selected\"/g" "../../built/$1"
 cp "../content/$1" "../../built/4.tmp"
 #For debugging: wc -l ../../built/$1
-#TODO: what does the next line do? Am I breaking anything by commenting it out? OHHH this is all just working on the title
+#Working on the title
 perl -ni -e "print, exit if s/(<h1 class=\"title\">(((?!<\/h1>)[\S\s])*)<\/h1>)/\\1/sg" "../../built/4.tmp"
 perl -0777 -p -i -e 's/^\s*//;s/\s*$//;' "../../built/4.tmp"
 #"it's looking for a non-empty <h1 class="title> tag" —go|dfish
@@ -46,6 +46,7 @@ if [ -n "$title" ]; then
     replace="s/<title>Futuramerlin<\/title>/<title>$title &mdash; Futuramerlin<\/title>/g"
     perl -0777 -p -i -e "$replace" "../../built/$1"
 fi
+#Work on home page
 if [ "$Page" == "." ]; then
     replace="s/<p class=\"logo\">(((?!<\/p>)[\S\s])*)<\/p>/<h1 class=\"logo\">\1<\/h1>/g"
     perl -0777 -p -i -e "$replace" "../../built/$1"
@@ -54,7 +55,7 @@ if [ "$Page" == "." ]; then
     perl -0777 -p -i -e "s/<label/<label class=\"expanded\"/g" "../../built/$1"
     perl -0777 -p -i -e "s/<body>/<body class=\"expanded\">/g" "../../built/$1"
 fi
-perl -0777 -p -i -e "s/nav-item-inactive \w+/nav-item-inactive/g" "../../built/$1"
+perl -0777 -p -i -e "s/nav-item-inactive [^\"]+/nav-item-inactive/g" "../../built/$1"
 shopt -u extglob
 StrMatch="s/href=\"(..\/)?..\/(.\/)*\//href=\"\//g"
 perl -0777 -p -i -e "$StrMatch" "../../built/$1"
