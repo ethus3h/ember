@@ -671,6 +671,7 @@
 
     .center-image {
         padding: 0.5rem;
+        border: .095rem solid #ddd;
     }
 
     .thumbnail-top {
