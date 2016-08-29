@@ -1,5 +1,5 @@
 /* To do list */
-    /* 
+    /*
     * Make Close button on blog menu dropdowns not collide with dropdown contents.
     * Make first and last items in toolbar not draw their edge borders all the way down the toolbar when there are multiple rows of buttons on the toolbar.
     * Make toolbar and pagination sticky / always visible (feature request) (probably not on mobile).
@@ -7,7 +7,7 @@
     * Add "All Topics" link to Categories tab in blog.
     * Fix entry-title not wrapping around entry-meta.
     * Fix blockquote end quotation mark not being inset.
-    * Fix buttons not showing the highlights correctly (use SVG instead of PNG). 
+    * Fix buttons not showing the highlights correctly (use SVG instead of PNG).
     * Fix header section labels overlapping with header text.
     * Make category page post featured image thumbnail links have the same dotted border on hover as the main blog home page.
     * Fix zoomed-in media query bug (? As of this writing, 2016 Feb. 17, I don't remember exactly what this was or how to reproduce it).
@@ -103,10 +103,6 @@
 
         .note-emphasis, .song-title, .meta-nav, a.logolink {
             font-style: italic;
-        }
-
-        span.big-annotation {
-            font-size: 1.3rem;
         }
 
     /* Non-Unicode font hacks */
@@ -545,7 +541,7 @@
         padding: 0.5rem;
         margin: 1rem;
     }
-    
+
     figure > a {
         border-bottom: none;
     }
@@ -957,17 +953,11 @@
 
     /* Hatnotes */
 
-        span.hatnote-emphasis,
-        span.big-annotation {
+        .hatnote-emphasis, .hatnote-emphasis-warning {
             background-color: rgba(0, 0, 0, 0.07);
             padding: 0.5rem;
             margin: 1rem;
             display: table;
-        }
-
-        span.hatnote-emphasis {
-            font-weight: bold;
-            font-style: italic;
         }
 
         .hatnote-emphasis-warning::before {
