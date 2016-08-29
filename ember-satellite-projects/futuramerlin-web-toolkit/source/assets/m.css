@@ -714,7 +714,7 @@
             font-size: 1.25rem;
             background: rgba(255, 255, 255, 0.5);
             text-indent: 0;
-            padding-bottom: 1rem;
+            margin-bottom: .5rem;
         }
         .breadcrumbs::after {
             content: ' this page';
