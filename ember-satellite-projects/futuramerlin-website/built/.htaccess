@@ -12,8 +12,8 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.futuramerlin\.com$ [NC]
 RewriteRule ^(.*)$ http://futuramerlin.com/$1 [R=301,L]
-RewriteRule ^/?c/(.+)$ blog/$1 [L,QSA]
-RewriteRule ^/?fractallise/(.+)$ blog/$1 [L,QSA]
+RewriteRule ^/?c/(.+)$ news/$1 [L,QSA]
+RewriteRule ^/?fractallise/(.+)$ news/$1 [L,QSA]
 
 AddDefaultCharset utf-8
 
