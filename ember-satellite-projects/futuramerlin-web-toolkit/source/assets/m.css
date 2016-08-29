@@ -582,7 +582,7 @@
     .featured-image,
     *:not(.figcaption-empty-figure) > a > .alignright,
     figure.alignright,
-    .figcaption-empty-figure, figure.center-image {
+    .figcaption-empty-figure {
         float: right;
         margin: 1rem;
         margin-right: 0;
