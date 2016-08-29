@@ -542,6 +542,10 @@
         margin: 1rem;
     }
 
+    .center-image {
+        margin: 1.5rem;
+    }
+
     figure > a {
         border-bottom: none;
     }
@@ -577,7 +581,7 @@
     .featured-image,
     *:not(.figcaption-empty-figure) > a > .alignright,
     figure.alignright,
-    .figcaption-empty-figure {
+    .figcaption-empty-figure, figure.center-image {
         float: right;
         margin: 1rem;
         margin-right: 0;
@@ -708,6 +712,7 @@
             font-size: 1.25rem;
             background: rgba(255, 255, 255, 0.5);
             text-indent: 0;
+            padding-bottom: 1rem;
         }
         .breadcrumbs::after {
             content: ' this page';
