@@ -1,11 +1,19 @@
-<!DOCTYPE html>
+<?php
+/**
+ * The Header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package fm-wp-theme
+ */
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <link href="/m.css" rel="stylesheet" type="text/css">
     <meta content="Ember" name="author">
     <meta content="width=device-width, height=device-height, user-scalable=yes" name="viewport">
-    <title>Ember</title>
+    <title><?php if(is_front_page()) { echo "Ember Blog"; } else { wp_title( '—', true, 'right' ); } ?></title>
 </head>
 <body>
 	<input class="nav-trigger" id="nav-trigger" type="checkbox">
