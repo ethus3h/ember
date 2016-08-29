@@ -43,7 +43,7 @@ ere_quote() {
 export -f ere_quote
 title="$(ere_quote $title)"
 if [ -n "$title" ]; then
-    replace="s/<title>Futuramerlin<\/title>/<title>$title &mdash; Futuramerlin<\/title>/g"
+    replace="s/<title>Ember<\/title>/<title>$title &mdash; Futuramerlin<\/title>/g"
     perl -0777 -p -i -e "$replace" "../../built/$1"
 fi
 #Work on home page
