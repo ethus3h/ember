@@ -22,7 +22,7 @@ cp -r ./assets/* ./assets/.[^.]* "../built/"
 	traversedirectory() {
 		echo "Entered directory $1..."
 		for i in "$1"/*; do
-			mkdir -p "../built/$1"
+			mkdir -p "../../built/$1"
 			if [[ -d "$i" ]]; then
 				if ! [[ "$i" == "." ]]; then
 					if ! [[ "$i" == ".." ]]; then
@@ -36,7 +36,7 @@ cp -r ./assets/* ./assets/.[^.]* "../built/"
 					../scripts/build-page "$i"
 				else
 					echo "Copying asset: $i"
-					cp "$i" "../built/$i"
+					cp "$i" "../../built/$i"
 				fi
 			fi
 		done
