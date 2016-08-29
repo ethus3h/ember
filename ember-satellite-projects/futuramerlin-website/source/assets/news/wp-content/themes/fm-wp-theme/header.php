@@ -25,28 +25,17 @@
 		</p>
 		<ul>
             <li>Navigation:</li>
-			<li class="nav-item nav-item-inactive index">
+            <li class="nav-item nav-item-inactive index">
 				<a href="/">Home</a>
 			</li>
-			<li class="nav-item nav-item-active news">
+			<li class="nav-item nav-item-inactive news">
 				<a href="/news">News</a>
 			</li>
             <li class="nav-item nav-item-inactive ready-to-use">
 				<a href="/ancillary/ready-to-use.htm">Ready-to-use software</a>
-			</li>			<li class="nav-item nav-item-inactive specification">
-				<a href="/specification">Core: Specification</a>
 			</li>
-			<li class="nav-item nav-item-inactive community">
-				<a href="/community">Core: Community</a>
-			</li>
-			<li class="nav-item nav-item-inactive computing">
-				<a href="/computing">Core: Computing</a>
-			</li>
-			<li class="nav-item nav-item-inactive library">
-				<a href="/library">Core: Library</a>
-			</li>
-            <li class="nav-item nav-item-inactive work-in-progress">
-				<a href="/ancillary/work-in-progress.htm">Other work in progress</a>
+			<li class="nav-item nav-item-inactive specification">
+				<a href="/components.htm">Core project</a>
 			</li>
 			<li class="nav-item nav-item-inactive ember">
 				<a href="/people">People</a>
