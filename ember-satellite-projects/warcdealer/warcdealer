@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='2.0.20.1'
+export warcdealerVersion='2.0.20.2'
 
 #Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 
@@ -26,8 +26,8 @@ set +e
 
 find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID. Pack contains: <pre>$WarcdealerPackListing</pre>\" --metadata=\"subject:"\$1"\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
+find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID.\" --metadata=\"subject:"\${1%%-*}"\" --metadata=\"subject:"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
 
-ia upload "$WarcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID" --metadata="description:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID. Pack contains: <pre>$WarcdealerPackListing</pre>" --metadata="subject:$WarcdealerPackID.listing" --metadata="subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172" --metadata="title:Warcdealer pack $WarcdealerPackID" --metadata="subject:$WarcdealerPackID" --metadata="collection:opensource" --delete "$WarcdealerPackID.listing"
+ia upload "$WarcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID" --metadata="description:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID." --metadata="subject:$WarcdealerPackID.listing" --metadata="subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172" --metadata="title:Warcdealer pack $WarcdealerPackID" --metadata="subject:$WarcdealerPackID" --metadata="collection:opensource" --delete "$WarcdealerPackID.listing"
 
 echo "Done; sleeping 3 minutes..."
