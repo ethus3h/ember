@@ -31,6 +31,7 @@
     <li>Figure out what partition you would like to monitor for free disk space (e.g. <code>/</code> for the root partition). When you know this, substitute it in place of "<code>diskMonitorPartition</code>" in the following command, and run the resulting command:<br /><pre><code>echo "diskMonitorPartition" >> ~/.warcdealer.cfg</code></pre></li>
     <li>Decide how frequently, in seconds, you want the free disk space to be checked. A reasonable default is "<code>60</code>". When you have decided this, substitute it in place of "diskCheckInterval" in the following command, and run the resulting command:<br /><pre><code>echo "<code>diskCheckInterval</code>" >> ~/.warcdealer.cfg; set +H</code></pre></li>
     <li>As the user you chose in step 2, run the following command:<br /><pre><code>warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; cat ./ember/ember-satellite-projects/warcdealer/profile.append >> ~/.bash_profile; echo "#"'!'"/bin/bash" >> ~/.bashrc; echo ". ~/.bash_profile" >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc</code></pre></li>
+    <li>Log out and log in again, to update your shell aliases.
 </ol>
 
 <h2>Updating</h2>
