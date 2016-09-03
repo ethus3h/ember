@@ -8,38 +8,8 @@ export warcdealerVersion='3.0'
 #Usage: ~/.warcdealer
 #The file(s) to be uploaded must be within the current directory.
 
-#Installation:
-#Instructions for installing the current version of Warcdealer are available at http://futuramerlin.com/ancillary/warcdealer/ and https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer.
-
-#1. Ensure your system has the correct dependencies:
-# * Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
-# * Requires hashdeep (probably provided in the md5deep package for your system).
-# * Requires Python 2 installed, and runnable as python2.
-# * Requires Git (for installing and updating).
-# * Optionally, can be used with grab-site.
-
-#2. Figure out as what user warcdealer should run. If you're using grab-site, this is either the user as which grab-site is running, or root. Otherwise, this is any user with write permission for the files you would like to upload. (root will work in either case.) When you have selected the correct user, substitute it in place of "userName" in the following command, and run the resulting command:
-# echo "userName" > ~/.warcdealer.cfg
-
-#3. Decide at what threshold of free disk space, in gigabytes, you would like uploads to begin. A reasonable default for large disks is "80". When you have decided this, substitute that number in place of "diskThreshold" in the following command, and run the resulting command:
-# echo "diskThreshold" >> ~/.warcdealer.cfg
-
-#4. Figure out what partition you would like to monitor for free disk space (e.g. / for the root partition). When you know this, substitute it in place of "diskMonitorPartition" in the following command, and run the resulting command:
-# echo "diskMonitorPartition" >> ~/.warcdealer.cfg
-
-#5. Decide how frequently, in seconds, you want the free disk space to be checked. A reasonable default is "60". When you have decided this, substitute it in place of "diskCheckInterval" in the following command, and run the resulting command:
-# echo "diskCheckInterval" >> ~/.warcdealer.cfg
-
-#6. As the user you chose in step 2, run the following command:
-# warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; echo '#!/bin/bash\n\n#Archive a Web site\'s directory recursively\na() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error\ --tries=1024 "$@"; }\nexport -f a;\n\n#Archive a single Web page:\no() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error\ --tries=1024 --1 "$@"; }\nexport -f o;\n\n#Quick recursive archival (gives up easily on retriable errors; use for urgent jobs to get a quick grab, then run a full archival for thoroughness)\naq() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error "$@"; }\nexport -f aq;\n\n#Quick single archival\noq() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error --1 "$@"; }\nexport -f oq;\n\n#Archive using PhantomJS\nap() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error\ --tries=1024\ --phantomjs "$@"; }\nexport -f ap;\n\n#Archive single page using PhantomJS\nop() { cd /home/grabbot/grabs/ && grab-site --no-dupespotter --concurrency=5 --wpull-args=--warc-move=/home/grabbot/warcdealer/\ --read-timeout=3600\ --connect-timeout=20\ --dns-timeout=20\ --retry-connrefused\ --retry-dns-error\ --max-redirect=128\ --phantomjs-scroll=50000\ --phantomjs-exe=/phantomjs-1.9.8-linux-x86_64/bin/phantomjs\ --content-on-error\ --tries=1024\ --phantomjs --1 "$@"; }\nexport -f op;\n\n#Quickly upload a file to the Internet Archive (for emergencies)\niu() { IUIDENTIFIER=$(python2 -c \'import uuid; print str(uuid.uuid4())\')-$(date +%Y.%m.%d.%H.%M.%S.%N)-$(xxd -pu <<< "$(date +%z)"); ia upload $IUIDENTIFIER --metadata="subject:Uploaded using iu v3; 291E5EDE-6B59-4CB7-8928-375368F5725B" "$@"; echo \'https://archive.org/download/\'$IUIDENTIFIER; }\nexport -f iu;' >> ~/.bash_profile; echo '#!/bin/bash\n. ~/.bash_profile' >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc
-
-#Updating:
-
-#1. Check for changes to the requirements.
-#2. Check the Warcdealer version. If the major version has changed (the part before the first .), follow the current installation instructions shown at http://futuramerlin.com/ancillary/warcdealer/ or https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer instead (unless you know you don't need to).
-#3. As the user you chose in step 2 of the installation process, run the following command:
-# warcdealerTemporaryUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerTemporaryUUID"; cd "$warcdealerTemporaryUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
-
+#Installation and updating:
+#Instructions for installing and/or updating to the current version of Warcdealer are available at http://futuramerlin.com/ancillary/warcdealer/ and https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer.
 
 #Script should exit if any operation fails.
 set -e
