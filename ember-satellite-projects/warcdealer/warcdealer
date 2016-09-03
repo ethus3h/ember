@@ -44,7 +44,7 @@ export warcdealerVersion='3.0'
 set -e
 
 warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
-[ "$(whoami)" != "$warcdealerUserName\n" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
+[ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
 
 warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskThreshold=$(($warcdealerDiskThresholdTemp * 1024 * 1024))
