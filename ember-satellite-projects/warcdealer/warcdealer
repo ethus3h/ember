@@ -3,7 +3,7 @@
 # Version:
 export warcdealerVersion='3.0'
 
-#Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
+#Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
 #Usage: ~/.warcdealer
 #The file(s) to be uploaded must be within the current directory.
@@ -13,53 +13,86 @@ export warcdealerVersion='3.0'
 #1. Ensure your system has the correct dependencies:
 # * Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 # * Requires hashdeep (probably provided in the md5deep package for your system).
+# * Requires Python.
+# * Requires Git (for installing and updating).
+# * Optionally, can be used with grab-site.
 
-#2. Copy the file to /usr/bin/warcdealer:
-#cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
+#2. Figure out as what user warcdealer should run. If you're using grab-site, this is either the user as which grab-site is running, or root. Otherwise, this is any user with write permission for the files you would like to upload. (root will work in either case.) When you have selected the correct user, substitute it in place of "userName" in the following command, and run the resulting command:
+# echo "userName" >> ~/.warcdealer.cfg
 
-#3. There is no step 3.
+#3. Decide at what threshold of free disk space, in gigabytes, you would like uploads to begin. A reasonable default for large disks is "80". When you have decided this, substitute that number in place of "diskThreshold" in the following command, and run the resulting command:
+# echo "diskThreshold" >> ~/.warcdealer.cfg
+
+#4. Figure out what partition you would like to monitor for free disk space (e.g. / for the root partition). When you know this, substitute it in place of "diskMonitorPartition" in the following command, and run the resulting command:
+# echo "diskMonitorPartition" >> ~/.warcdealer.cfg
+
+#5. Decide how frequently, in seconds, you want the free disk space to be checked. A reasonable default is "60". When you have decided this, substitute it in place of "diskCheckInterval" in the following command, and run the resulting command:
+# echo "diskCheckInterval" >> ~/.warcdealer.cfg
+
+#6. As the user you chose in step 2, run the following command:
+# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())') >> ~/.warcdealer.cfg;
+
+#Updating:
+
+#1. Check for changes to the requirements.
+#2. Check the Warcdealer version. If the major version has changed (the part before the first .), follow the current installation instructions shown at http://futuramerlin.com/ancillary/warcdealer/ or https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer instead (unless you know you don't need to).
+#3. As the user you chose in step 2 of the installation process, run the following command:
+# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
+
 
 #Script should exit if any operation fails.
 set -e
 
 warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
-export warcdealerUserName
 [ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
 
-warcdealerUserUUID=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
-export warcdealerUserUUID
+warcdealerDiskThreshold=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
+warcdealerInstallationUUID=$(sed '5q;d' "$HOME"/.warcdealer.cfg)
 
-WarcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
+while true; do
+    left=$(df "$warcdealerDiskMonitorPartition" | grep / | sed -r 's/ +/ /g' | cut -f 4 -d ' ')
+    if (( left >= $warcdealerDiskThreshold )); then
+        echo "Disk OK, resuming all grab-sites"
+        killall -CONT grab-site
+    fi
+    if (( left < $warcdealerDiskThreshold )); then
+        echo "Disk low, pausing all grab-sites and uploading WARCs"
+        killall -STOP grab-site
+        warcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
 
-echo "Working on $WarcdealerPackID..."
+        echo "Working on $warcdealerPackID..."
 
-ls -a -B -l -R -i . | tee "./$WarcdealerPackID.listing"
-echo "Building local index..."
-hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd . | tee "./$WarcdealerPackID.idx-l"
-echo "Building deep index..."
-hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd -r . | tee "./$WarcdealerPackID.idx-d"
+        ls -a -B -l -R -i . | tee "./$warcdealerPackID.listing"
+        echo "Building local index..."
+        hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd . | tee "./$warcdealerPackID.idx-l"
+        echo "Building deep index..."
+        hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd -r . | tee "./$warcdealerPackID.idx-d"
 
-#Ignore exit code 1 from tar on Linux, which indicates files changed while reading; see http://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it
-set +e
-tar -cv -P --format pax -f "./$WarcdealerPackID.pax" "./$WarcdealerPackID.listing" "./$WarcdealerPackID.idx-l" "./$WarcdealerPackID.idx-d" "~/.warcdealer.cfg"
-exitcode=$?
-if [ "$exitcode" != "0" ] && [[ $OSTYPE != *inux* ]]; then
-    exit $exitcode
-fi
-if [ "$exitcode" != "1" ] && [ "$exitcode" != "0" ]; then
-    exit $exitcode
-fi
-set -e
+        #Ignore exit code 1 from tar on Linux, which indicates files changed while reading; see http://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it
+        set +e
+        tar -cv -P --format pax -f "./$warcdealerPackID.pax" "./$warcdealerPackID.listing" "./$warcdealerPackID.idx-l" "./$warcdealerPackID.idx-d" "~/.warcdealer.cfg"
+        exitcode=$?
+        if [ "$exitcode" != "0" ] && [[ $OSTYPE != *inux* ]]; then
+            exit $exitcode
+        fi
+        if [ "$exitcode" != "1" ] && [ "$exitcode" != "0" ]; then
+            exit $exitcode
+        fi
+        set -e
 
-echo "Removing temporary metadata files, now that they are successfully packed."
-rm -v "./$WarcdealerPackID.listing" "./$WarcdealerPackID.idx-l" "./$WarcdealerPackID.idx-d"
+        echo "Removing temporary metadata files, now that they are successfully packed."
+        rm -v "./$warcdealerPackID.listing" "./$warcdealerPackID.idx-l" "./$warcdealerPackID.idx-d"
 
-echo "Done preparing metadata; beginning upload."
+        echo "Done preparing metadata; beginning upload."
 
+        find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-set +e
-find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
+        find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $warcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $warcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:$warcdealerInstallationUUID\" --metadata=\"subject:$warcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
 
-find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
-
-ia upload "$WarcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID" --metadata="description:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID." --metadata="subject:$WarcdealerPackID.listing" --metadata="subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172" --metadata="title:Warcdealer pack $WarcdealerPackID" --metadata="subject:$WarcdealerPackID" --metadata="collection:opensource" --delete "$WarcdealerPackID.listing"
+        ia upload "$warcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID" --metadata="description:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID." --metadata="subject:$warcdealerPackID.listing" --metadata="subject:$warcdealerInstallationUUID" --metadata="title:Warcdealer pack $warcdealerPackID" --metadata="subject:$warcdealerPackID" --metadata="collection:opensource" --delete "$warcdealerPackID.listing"
+        echo "Done uploading WARCs."
+    fi
+    sleep "$warcdealerDiskCheckInterval"
+done
