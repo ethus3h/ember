@@ -174,7 +174,6 @@
             margin: 0.25rem;
             padding: 0.25rem;
             overflow-x: scroll;
-            max-width: fill;
             border: 0.063rem dotted rgba(128,128,128,0.5);
             background: #ddd;
             /*white-space: pre-wrap;*/ /* Don't wrap unless hanging indentation can be created per line; this would probably be better applied using JavaScript, along with line numbers. */
