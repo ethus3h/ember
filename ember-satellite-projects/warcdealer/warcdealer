@@ -30,21 +30,21 @@ export warcdealerVersion='3.0'
 # echo "diskCheckInterval" >> ~/.warcdealer.cfg
 
 #6. As the user you chose in step 2, run the following command:
-# warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg;
+# warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg
 
 #Updating:
 
 #1. Check for changes to the requirements.
 #2. Check the Warcdealer version. If the major version has changed (the part before the first .), follow the current installation instructions shown at http://futuramerlin.com/ancillary/warcdealer/ or https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer instead (unless you know you don't need to).
 #3. As the user you chose in step 2 of the installation process, run the following command:
-# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
+# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer
 
 
 #Script should exit if any operation fails.
 set -e
 
 warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
-[ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
+[ "$(whoami)" != "$warcdealerUserName\n" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
 
 warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskThreshold=$(($warcdealerDiskThresholdTemp * 1024 * 1024))
@@ -52,7 +52,7 @@ warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
 warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
 
-warcdealerUUIDRegex='^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$'
+warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
 if [[ ! $warcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then
     echo "Invalid installation ID."
     exit 1;
