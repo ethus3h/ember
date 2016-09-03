@@ -37,7 +37,7 @@ export warcdealerVersion='3.0'
 #1. Check for changes to the requirements.
 #2. Check the Warcdealer version. If the major version has changed (the part before the first .), follow the current installation instructions shown at http://futuramerlin.com/ancillary/warcdealer/ or https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer instead (unless you know you don't need to).
 #3. As the user you chose in step 2 of the installation process, run the following command:
-# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer
+# warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer
 
 
 #Script should exit if any operation fails.
