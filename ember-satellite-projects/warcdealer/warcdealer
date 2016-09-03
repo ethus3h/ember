@@ -46,7 +46,8 @@ set -e
 warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
 [ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
 
-warcdealerDiskThreshold=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDiskThreshold=$(($warcdealerDiskThresholdTemp * 1024 * 1024))
 warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
 warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
