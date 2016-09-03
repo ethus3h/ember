@@ -18,7 +18,7 @@ export warcdealerVersion='3.0'
 # * Optionally, can be used with grab-site.
 
 #2. Figure out as what user warcdealer should run. If you're using grab-site, this is either the user as which grab-site is running, or root. Otherwise, this is any user with write permission for the files you would like to upload. (root will work in either case.) When you have selected the correct user, substitute it in place of "userName" in the following command, and run the resulting command:
-# echo "userName" >> ~/.warcdealer.cfg
+# echo "userName" > ~/.warcdealer.cfg
 
 #3. Decide at what threshold of free disk space, in gigabytes, you would like uploads to begin. A reasonable default for large disks is "80". When you have decided this, substitute that number in place of "diskThreshold" in the following command, and run the resulting command:
 # echo "diskThreshold" >> ~/.warcdealer.cfg
