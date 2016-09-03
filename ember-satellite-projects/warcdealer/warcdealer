@@ -9,6 +9,7 @@ export warcdealerVersion='3.0'
 #The file(s) to be uploaded must be within the current directory.
 
 #Installation:
+#Instructions for installing the current version of Warcdealer are available at http://futuramerlin.com/ancillary/warcdealer/ and https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer.
 
 #1. Ensure your system has the correct dependencies:
 # * Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
@@ -30,14 +31,14 @@ export warcdealerVersion='3.0'
 # echo "diskCheckInterval" >> ~/.warcdealer.cfg
 
 #6. As the user you chose in step 2, run the following command:
-# warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg
+# warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; echo
 
 #Updating:
 
 #1. Check for changes to the requirements.
 #2. Check the Warcdealer version. If the major version has changed (the part before the first .), follow the current installation instructions shown at http://futuramerlin.com/ancillary/warcdealer/ or https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer instead (unless you know you don't need to).
 #3. As the user you chose in step 2 of the installation process, run the following command:
-# warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer
+# warcdealerTemporaryUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerTemporaryUUID"; cd "$warcdealerTemporaryUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
 
 
 #Script should exit if any operation fails.
