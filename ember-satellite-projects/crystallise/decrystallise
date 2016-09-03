@@ -60,8 +60,8 @@ mv -v "./$CrystalLogID.ip.warc.gz.xz.gpg" "./$CrystalLogID.coal5-ip"
 mv -v "./$CrystalLogID.time-env.warc.gz.xz.gpg" "./$CrystalLogID.coal5-tenv"
 mv -v "./$CrystalLogID.time-end.warc.gz.xz.gpg" "./$CrystalLogID.coal5-tend"
 set -e
-ia upload "$CrystalLogID" --checksum --retries=10 --metadata="subject:Uploaded using Decrystallise $crystalliseVersion" --metadata="subject:Decrystallise log" --metadata="subject:log" --metadata="subject:logs" --metadata="subject:1EA21BD8-DB7E-11E5-9733-728C37852114" --metadata="subject:$CrystalAddress" --metadata="collection:$crystalCollection" --delete "./$CrystalLogID.coal5-log" "./$CrystalLogID.coal5-ts" "./$CrystalLogID.coal5-ip" "./$CrystalLogID.coal5-tenv"
-ia upload "$CrystalLogID" --checksum --retries=10 "./$CrystalLogID.coal5-tend"
+ia upload "$CrystalLogID" --verify --retries=10 --metadata="subject:Uploaded using Decrystallise $crystalliseVersion" --metadata="subject:Decrystallise log" --metadata="subject:log" --metadata="subject:logs" --metadata="subject:1EA21BD8-DB7E-11E5-9733-728C37852114" --metadata="subject:$CrystalAddress" --metadata="collection:$crystalCollection" --delete "./$CrystalLogID.coal5-log" "./$CrystalLogID.coal5-ts" "./$CrystalLogID.coal5-ip" "./$CrystalLogID.coal5-tenv"
+ia upload "$CrystalLogID" --verify --retries=10 "./$CrystalLogID.coal5-tend"
 set +e
 mkdir -v "./$CrystalLogID.coal5-meta"
 mv -v "./$CrystalLogID."!(coal5-meta) "./$CrystalLogID.coal5-meta/"
