@@ -1,33 +1,65 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='2.0.20.3'
+export warcdealerVersion='3.0'
 
 #Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 
-#Script must be run as root. TODO: Figure out and document why I decided this, since I don't remember.
-
-#Usage: warcdealer
+#Usage: ~/.warcdealer
 #The file(s) to be uploaded must be within the current directory.
 
-[ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
+#Installation:
+
+#1. Ensure your system has the correct dependencies:
+# * Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
+# * Requires hashdeep (probably provided in the md5deep package for your system).
+
+#2. Copy the file to /usr/bin/warcdealer:
+#cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer;
+
+#3. There is no step 3.
 
 #Script should exit if any operation fails.
 set -e
+
+warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
+export warcdealerUserName
+[ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
+
+warcdealerUserUUID=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
+export warcdealerUserUUID
 
 WarcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
 
 echo "Working on $WarcdealerPackID..."
 
 ls -a -B -l -R -i . | tee "./$WarcdealerPackID.listing"
-WarcdealerPackListing=$(cat "./$WarcdealerPackID.listing")
+echo "Building local index..."
+hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd . | tee "./$WarcdealerPackID.idx-l"
+echo "Building deep index..."
+hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd -r . | tee "./$WarcdealerPackID.idx-d"
+
+#Ignore exit code 1 from tar on Linux, which indicates files changed while reading; see http://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it
+set +e
+tar -cv -P --format pax -f "./$WarcdealerPackID.pax" "./$WarcdealerPackID.listing" "./$WarcdealerPackID.idx-l" "./$WarcdealerPackID.idx-d" "~/.warcdealer.cfg"
+exitcode=$?
+if [ "$exitcode" != "0" ] && [[ $OSTYPE != *inux* ]]; then
+    exit $exitcode
+fi
+if [ "$exitcode" != "1" ] && [ "$exitcode" != "0" ]; then
+    exit $exitcode
+fi
+set -e
+
+echo "Removing temporary metadata files, now that they are successfully packed."
+rm -v "./$WarcdealerPackID.listing" "./$WarcdealerPackID.idx-l" "./$WarcdealerPackID.idx-d"
+
+echo "Done preparing metadata; beginning upload."
+
 
 set +e
-
-find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
+find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
 find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
 
 ia upload "$WarcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID" --metadata="description:$WarcdealerPackID.listing: from Warcdealer pack $WarcdealerPackID." --metadata="subject:$WarcdealerPackID.listing" --metadata="subject:002F9DCE-F064-11E5-99AD-6BFA56EF8172" --metadata="title:Warcdealer pack $WarcdealerPackID" --metadata="subject:$WarcdealerPackID" --metadata="collection:opensource" --delete "$WarcdealerPackID.listing"
-
-echo "Done; sleeping 3 minutes..."
