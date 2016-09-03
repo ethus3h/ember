@@ -13,7 +13,7 @@ export warcdealerVersion='3.0'
 #1. Ensure your system has the correct dependencies:
 # * Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.
 # * Requires hashdeep (probably provided in the md5deep package for your system).
-# * Requires Python.
+# * Requires Python 2 installed, and runnable as python2.
 # * Requires Git (for installing and updating).
 # * Optionally, can be used with grab-site.
 
@@ -30,7 +30,7 @@ export warcdealerVersion='3.0'
 # echo "diskCheckInterval" >> ~/.warcdealer.cfg
 
 #6. As the user you chose in step 2, run the following command:
-# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo $(python -c 'import uuid; print str(uuid.uuid4())') >> ~/.warcdealer.cfg;
+# cd ~; mkdir 002F9DCE-F064-11E5-99AD-6BFA56EF8172; cd 002F9DCE-F064-11E5-99AD-6BFA56EF8172; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)") >> ~/.warcdealer.cfg; echo $(python2 -c 'import uuid; print str(uuid.uuid4())') >> ~/.warcdealer.cfg;
 
 #Updating:
 
@@ -67,7 +67,7 @@ while true; do
     if (( left < $warcdealerDiskThreshold )); then
         echo "Disk low, pausing all grab-sites and uploading WARCs"
         killall -STOP grab-site
-        warcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python -c 'import uuid; print str(uuid.uuid4())')
+        warcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python2 -c 'import uuid; print str(uuid.uuid4())')
 
         echo "Working on $warcdealerPackID..."
 
@@ -96,7 +96,7 @@ while true; do
 
         find . \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-        find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $warcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $warcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:$warcdealerInstallationUUID\" --metadata=\"subject:$warcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
+        find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python2 -c 'import uuid; print str(uuid.uuid4())')\" --checksum --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion\" --metadata=\"title:"\$1": from Warcdealer pack $warcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $warcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:$warcdealerInstallationUUID\" --metadata=\"subject:$warcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
 
         ia upload "$warcdealerPackID" --checksum --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID" --metadata="description:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID." --metadata="subject:$warcdealerPackID.listing" --metadata="subject:$warcdealerInstallationUUID" --metadata="title:Warcdealer pack $warcdealerPackID" --metadata="subject:$warcdealerPackID" --metadata="collection:opensource" --delete "$warcdealerPackID.listing"
         echo "Done uploading WARCs."
