@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='3.0'
+export warcdealerVersion='3.0.1'
 
 #Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
