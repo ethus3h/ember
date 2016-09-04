@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='3.0.2.1'
+export warcdealerVersion='3.0.2.2'
 
 #Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
@@ -21,7 +21,7 @@ warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskThreshold=$((warcdealerDiskThresholdTemp * 1024 * 1024))
 warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
-warcdealerDestinationCollection=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDestinationCollection=$(sed '5q;d' "$HOME"/.warcdealer.cfg)
 warcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg)
 
 warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
