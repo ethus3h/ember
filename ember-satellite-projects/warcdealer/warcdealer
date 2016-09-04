@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='3.0.1'
+export warcdealerVersion='3.0.2'
 
 #Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
@@ -21,7 +21,8 @@ warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskThreshold=$((warcdealerDiskThresholdTemp * 1024 * 1024))
 warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
-warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
+warcdealerDestinationCollection=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
+warcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg)
 
 warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
 if [[ ! $warcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then
@@ -68,9 +69,9 @@ while true; do
 
         find . -maxdepth 1 \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-        find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" \;
+        find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
 
-        ia upload "$warcdealerPackID" --verify --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID" --metadata="description:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID." --metadata="subject:$warcdealerPackID.listing" --metadata="subject:$warcdealerInstallationUUID" --metadata="title:Warcdealer pack $warcdealerPackID" --metadata="subject:$warcdealerPackID" --metadata="collection:opensource" --delete "$warcdealerPackID.pax.xz"
+        ia upload "$warcdealerPackID" --verify --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID" --metadata="description:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID." --metadata="subject:$warcdealerPackID.listing" --metadata="subject:$warcdealerInstallationUUID" --metadata="title:Warcdealer pack $warcdealerPackID" --metadata="subject:$warcdealerPackID" --metadata="collection:$warcdealerDestinationCollection" --delete "$warcdealerPackID.pax.xz"
         echo "Done uploading WARCs."
     fi
     sleep "$warcdealerDiskCheckInterval"

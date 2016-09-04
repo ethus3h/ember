@@ -11,5 +11,5 @@ ia upload "$2" \
  --metadata="subject:$1" \
  --metadata="subject:$4" \
  --metadata="subject:$2" \
- --metadata="collection:opensource" \
+ --metadata="collection:$5" \
  --delete "$1"
