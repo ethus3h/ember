@@ -18,7 +18,7 @@ warcdealerUserName=$(sed '1q;d' "$HOME"/.warcdealer.cfg)
 [ "$(whoami)" != "$warcdealerUserName" ] && exec sudo -u "$warcdealerUserName" -- "$0" "$@"
 
 warcdealerDiskThresholdTemp=$(sed '2q;d' "$HOME"/.warcdealer.cfg)
-warcdealerDiskThreshold=$(($warcdealerDiskThresholdTemp * 1024 * 1024))
+warcdealerDiskThreshold=$((warcdealerDiskThresholdTemp * 1024 * 1024))
 warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
 warcdealerInstallationUUID=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
@@ -31,17 +31,18 @@ fi
 
 while true; do
     left=$(df "$warcdealerDiskMonitorPartition" | grep / | sed -r 's/ +/ /g' | cut -f 4 -d ' ')
-    if (( left >= $warcdealerDiskThreshold )); then
+    if (( left >= warcdealerDiskThreshold )); then
         echo "Disk OK, resuming all grab-sites"
         killall -CONT grab-site
     fi
-    if (( left < $warcdealerDiskThreshold )); then
+    if (( left < warcdealerDiskThreshold )); then
         echo "Disk low, pausing all grab-sites and uploading WARCs"
         killall -STOP grab-site
         warcdealerPackID=$(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu <<< "$(date +%z)")-$(python2 -c 'import uuid; print str(uuid.uuid4())')
 
         echo "Working on $warcdealerPackID..."
 
+        # shellcheck disable=SC2012
         ls -a -B -l -R -i . | tee "./$warcdealerPackID.listing"
         echo "Building local index..."
         hashdeep -c md5,sha1,sha256,tiger,whirlpool -o fbsd . | tee "./$warcdealerPackID.idx-l"
