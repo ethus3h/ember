@@ -1,7 +1,7 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='3.0.2'
+export warcdealerVersion='3.0.2.1'
 
 #Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
@@ -71,7 +71,6 @@ while true; do
 
         find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
 
-        ia upload "$warcdealerPackID" --verify --retries=10 --metadata="subject:Uploaded using Warcdealer $warcdealerVersion" --metadata="title:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID" --metadata="description:$warcdealerPackID.listing: from Warcdealer pack $warcdealerPackID." --metadata="subject:$warcdealerPackID.listing" --metadata="subject:$warcdealerInstallationUUID" --metadata="title:Warcdealer pack $warcdealerPackID" --metadata="subject:$warcdealerPackID" --metadata="collection:$warcdealerDestinationCollection" --delete "$warcdealerPackID.pax.xz"
         echo "Done uploading WARCs."
     fi
     sleep "$warcdealerDiskCheckInterval"

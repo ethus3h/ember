@@ -4,7 +4,7 @@ ia upload "$2" \
  --verify \
  --retries=10 \
  --metadata="subject:Uploaded using Warcdealer $3" \
- --metadata="title:$1: from Warcdealer pack $2" \
+ --metadata="title:Warcdealer pack $2" \
  --metadata="description:$1: from Warcdealer pack $2." \
  --metadata="subject:site-${1%%-*}" \
  --metadata="subject:site-${1%%\.*}" \
