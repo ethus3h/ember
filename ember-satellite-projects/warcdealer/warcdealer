@@ -42,6 +42,23 @@ fi
 
 if [[ $warcdealerArchiveIndexEnabled ]]; then
     echo "Starting viewer"
+    mkdir -p "~/.warcdealerViewer"
+    warcdealerWARCPath=$(pwd)
+    cd "~/.warcdealerViewer"
+    rm -rf ./ArchiveBot
+    git clone https://github.com/ArchiveTeam/ArchiveBot.git
+    cp -f ~/.warcdealer-viewer.patch ./viewer.patch
+    perl -pi -e "s/warcdealerIndexQuery/subject:$warcdealerInstallationUUID/g" ./viewer.patch
+    cd ArchiveBot
+    patch -p1 <viewer.patch
+    cd viewer
+    python3 -m archivebotviewer
+    warcdealerViewerPID=$!
+    function warcdealerStopViewer {
+        kill "$warcdealerViewerPID"
+    }
+    trap warcdealerStopViewer EXIT
+    cd "$warcdealerWARCPath"
 fi
 
 while true; do

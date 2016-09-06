@@ -21,10 +21,17 @@
             <li>Only tested and supported using GNU/Linux operating systems. It may be possible to run Warcdealer using other UNIX-like operating systems, but that is not currently supported.</li>
             <li>Requires a connection to the World Wide Web able to access the <a href="https://archive.org/">Internet Archive</a>, and <a href="https://github.com/">GitHub</a> for installation and updates.</li>
             <li>Requires ia (https://pypi.python.org/pypi/internetarchive) to be installed and to have been configured since being updated to version 1.0.2.</li>
-            <li>Requires hashdeep (probably provided in the md5deep package for your system).</li>
-            <li>Requires Python 2 installed, and runnable as <code>python2</code>.</li>
-            <li>Requires Git (for installing and updating).</li>
-            <li>Optionally, Warcdealer can be used with grab-site.</li>
+            <li>hashdeep (probably provided in the md5deep package for your system).</li>
+            <li>Python 2, runnable as <code>python2</code>.</li>
+            <li>Git (for installing and updating).</li>
+            <li>Optionally, Warcdealer can be used with <a href="https://github.com/ludios/grab-site/">grab-site</a>.</li>
+        </ul>
+        Needed for the optional archive index viewer:
+        <ul>
+            <li>Git</li>
+            <li>Python 3, runnable as <code>python3</code></li>
+            <li>Tornado</li>
+            <li>python-dateutil</li>
         </ul>
     </li>
     <li>If you have a version of Warcdealer prior to version 3 installed, remove it.</li>
@@ -34,7 +41,7 @@
     <li>Decide how frequently, in seconds, you want the free disk space to be checked. A reasonable default is "<code>60</code>". When you have decided this, substitute it in place of "diskCheckInterval" in the following command, and run the resulting command:<br /><pre><code>echo "diskCheckInterval" >> ~/.warcdealer.cfg</code></pre></li>
     <li>Figure out to which collection at the Internet Archive you want to upload (upload permission to the collection is necessary). If you don't know otherwise, this should be "<code>opensource</code>". When you have figured this out, substitute it in place of "destinationCollection" in the following command, and run the resulting command:<br /><pre><code>echo "destinationCollection" >> ~/.warcdealer.cfg</code></pre></li>
     <li>If you want to disable the archive index feature, run the following command:<br /><pre><code>echo "disableArchiveIndex" >> ~/.warcdealer.cfg; set +H</code></pre><br />Otherwise, run the following command:<br /><pre><code>echo "enableArchiveIndex" >> ~/.warcdealer.cfg; set +H</code></pre></li>
-    <li>As the user you chose in step 2, run the following command:<br /><pre><code>echo "enableWARCBundling" >> ~/.warcdealer.cfg; warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); oldWarcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg); warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'; if [[ $oldWarcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then warcdealerInstallationUUID="$oldWarcdealerInstallationUUID"; fi; cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; cat ./ember/ember-satellite-projects/warcdealer/profile.append >> ~/.bash_profile; echo "#"'!'"/bin/bash" >> ~/.bashrc; echo ". ~/.bash_profile" >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc</code></pre></li>
+    <li>As the user you chose in step 2, run the following command:<br /><pre><code>echo "enableWARCBundling" >> ~/.warcdealer.cfg; warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); oldWarcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg); warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'; if [[ $oldWarcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then warcdealerInstallationUUID="$oldWarcdealerInstallationUUID"; fi; cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload-split ~/.warcdealer-ia-upload-split; chmod +x ~/.warcdealer-ia-upload-split; cp -f ./ember/ember-satellite-projects/warcdealer/viewer.patch ~/.warcdealer-viewer.patch; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; cat ./ember/ember-satellite-projects/warcdealer/profile.append >> ~/.bash_profile; echo "#"'!'"/bin/bash" >> ~/.bashrc; echo ". ~/.bash_profile" >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc</code></pre></li>
     <li>Log out and log in again, to update your shell aliases.</li>
 </ol>
 
