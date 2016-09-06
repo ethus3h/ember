@@ -20,7 +20,19 @@ warcdealerDiskThreshold=$((warcdealerDiskThresholdTemp * 1024 * 1024))
 warcdealerDiskMonitorPartition=$(sed '3q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDiskCheckInterval=$(sed '4q;d' "$HOME"/.warcdealer.cfg)
 warcdealerDestinationCollection=$(sed '5q;d' "$HOME"/.warcdealer.cfg)
-warcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg)
+warcdealerArchiveIndexConfig=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
+warcdealerWARCBundlingConfig=$(sed '7q;d' "$HOME"/.warcdealer.cfg)
+warcdealerInstallationUUID=$(sed '9q;d' "$HOME"/.warcdealer.cfg)
+
+warcdealerArchiveIndexDisabled=false
+warcdealerWARCBundlingDisabled=false
+if [[ $warcdealerArchiveIndexConfig == "disableArchiveIndex" ]]; then
+    warcdealerArchiveIndexDisabled=true
+fi
+if [[ $warcdealerWARCBundlingConfig == "disableWARCBundling" ]]; then
+    warcdealerWARCBundlingDisabled=true
+    echo "WARNING! WARC bundling is disabled. Only use this option if you know what you are doing."
+fi
 
 warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
 if [[ ! $warcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then
