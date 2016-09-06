@@ -1,15 +1,13 @@
 #!/bin/bash
 # Warcdealer
 # Version:
-export warcdealerVersion='3.0.2.2'
+export warcdealerVersion='3.1'
+
+#Documentation:
+#Instructions for using, installing and/or updating to the current version of Warcdealer are available at http://futuramerlin.com/ancillary/warcdealer/.
 
 #Credits: Incorporates a modified version of https://github.com/ludios/grab-site/blob/master/extra_docs/pause_resume_grab_sites.sh
 
-#Usage: ~/.warcdealer
-#The file(s) to be uploaded must be within the current directory.
-
-#Installation and updating:
-#Instructions for installing and/or updating to the current version of Warcdealer are available at http://futuramerlin.com/ancillary/warcdealer/ and https://github.com/ethus3h/ember/blob/master/ember-satellite-projects/warcdealer/warcdealer.
 
 #Script should exit if any operation fails.
 set -e

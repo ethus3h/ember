@@ -28,21 +28,35 @@
         </ul>
     </li>
     <li>If you have a version of Warcdealer prior to version 3 installed, remove it.</li>
-    <li>Figure out as what user Warcdealer should run. If you're using grab-site, this is either the user as which grab-site is running, or <code>root</code>. Otherwise, this is any user with write permission for the files you would like to upload. (<code>root</code> will work in either case.) When you have selected the correct user, substitute it in place of "<code>userName</code>" in the following command, and run the resulting command:<br /><pre><code>echo "userName" > ~/.warcdealer.cfg</code></pre></li>
+    <li>Figure out as what user Warcdealer should run. If you're using grab-site, this is either the user as which grab-site is running, or <code>root</code>. Otherwise, this is any user with write permission for the files you would like to upload. (<code>root</code> will work in either case.) When you have selected the correct user, substitute it in place of "<code>userName</code>" in the following command, and run the resulting command (note that output beginning with "<code>mv: cannot stat</code>" can be safely ignored):<br /><pre><code>mv ~/.warcdealer.cfg ~/.warcdealer.bak; echo "userName" > ~/.warcdealer.cfg</code></pre></li>
     <li>Decide at what threshold of free disk space, in gigabytes, you would like uploads to begin. A reasonable default for large disks is "<code>80</code>". When you have decided this, substitute that number in place of "<code>diskThreshold</code>" in the following command, and run the resulting command:<br /><pre><code>echo "diskThreshold" >> ~/.warcdealer.cfg</code></pre></li>
     <li>Figure out what partition you would like to monitor for free disk space (e.g. <code>/</code> for the root partition). When you know this, substitute it in place of "<code>diskMonitorPartition</code>" in the following command, and run the resulting command:<br /><pre><code>echo "diskMonitorPartition" >> ~/.warcdealer.cfg</code></pre></li>
     <li>Decide how frequently, in seconds, you want the free disk space to be checked. A reasonable default is "<code>60</code>". When you have decided this, substitute it in place of "diskCheckInterval" in the following command, and run the resulting command:<br /><pre><code>echo "<code>diskCheckInterval</code>" >> ~/.warcdealer.cfg</code></pre></li>
     <li>Figure out to which collection at the Internet Archive you want to upload (upload permission to the collection is necessary). If you don't know otherwise, this should be "<code>opensource</code>". When you have figured this out, substitute it in place of "destinationCollection" in the following command, and run the resulting command:<br /><pre><code>echo "<code>destinationCollection</code>" >> ~/.warcdealer.cfg; set +H</code></pre></li>
-    <li>As the user you chose in step 2, run the following command:<br /><pre><code>warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; cat ./ember/ember-satellite-projects/warcdealer/profile.append >> ~/.bash_profile; echo "#"'!'"/bin/bash" >> ~/.bashrc; echo ". ~/.bash_profile" >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc</code></pre></li>
-    <li>Log out and log in again, to update your shell aliases.
+    <li>As the user you chose in step 2, run the following command:<br /><pre><code>warcdealerInstallationUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); oldWarcdealerInstallationUUID=$(sed '7q;d' "$HOME"/.warcdealer.cfg); warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'; if [[ $oldWarcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then warcdealerInstallationUUID="$oldWarcdealerInstallationUUID"; fi; cd ~; mkdir "$warcdealerInstallationUUID"; cd "$warcdealerInstallationUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload; echo $(date +%Y-%m-%d-%H-%M-%S-%N)-$(xxd -pu &lt;&lt;&lt; "$(date +%z)") >> ~/.warcdealer.cfg; echo "$warcdealerInstallationUUID" >> ~/.warcdealer.cfg; cat ./ember/ember-satellite-projects/warcdealer/profile.append >> ~/.bash_profile; echo "#"'!'"/bin/bash" >> ~/.bashrc; echo ". ~/.bash_profile" >> ~/.bashrc; chmod +x ~/.bash_profile; chmod +x ~/.bashrc</code></pre></li>
+    <li>Log out and log in again, to update your shell aliases.</li>
 </ol>
 
 <h2>Updating</h2>
 <ol>
     <li>Check for changes to the requirements.</li>
-    <li>Check the Warcdealer version. If the major version has changed, or <a href="release-notes.htm">the release notes</a> specify that it should be reinstalled since the version you have installed, (the part before the first "." in the version number), follow the current installation instructions instead (unless you know you don't need to, <span class="foreign-text">e.g.</span> if the release notes specify that the configuration file format is compatible with the major version you have installed).</li>
+    <li>Check the Warcdealer version. If the major version has changed, or <a href="release-notes.htm">the release notes</a> specify that it should be reinstalled since the version you have installed, (the part before the first "." in the version number), follow the current installation instructions instead (unless you know you don't need to, <span class="foreign-text">e. g.</span> if the release notes specify that the configuration file format is compatible with the major version you have installed).</li>
     <li>As the user you chose in step 2 of the installation process, run the following command:<br /><pre><code>warcdealerTemporaryUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerTemporaryUUID"; cd "$warcdealerTemporaryUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload;</code></pre></li>
 </ol>
 
 <h2>Release notes</h2>
 <p>See <a href="release-notes.htm">the dedicated page</a>.</p>
+
+<h2>Configuration file format</h2>
+<p>The configuration file is located at <code>~/.warcdealer.cfg<code>. It contains configuration values separated by a line feed (0x0A), as follows:</p>
+<ul>
+    <li>Name of user as which Warcdealer should run</li>
+    <li>Amount of free space in gigabytes below which WARC files should be uploaded and crawls should be paused</li>
+    <li>Delay in seconds between disk space checks</li>
+    <li>Internet Archive target collection identifier</li>
+    <li>"disableArchiveIndex" to disable the archive search tool, or "enableArchiveIndex" to enable it (any other value will be treated as "enableArchiveIndex")</li>
+    <li>"disableWARCBundling" to upload each file as a separate item, or "enableWARCBundling" to enable it (any other value will be treated as "enableWARCBundling")</li>
+    <li>Installation time</li>
+    <li>Installation UUID</li>
+</ul>
+<p>Note that there is currently no facility for storing configuration values containing line feeds.</p>
