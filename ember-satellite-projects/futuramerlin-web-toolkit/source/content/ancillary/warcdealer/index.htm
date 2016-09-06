@@ -49,22 +49,22 @@
 <ol>
     <li>Check for changes to the requirements.</li>
     <li>Check the Warcdealer version. If the major version has changed, or <a href="release-notes.htm">the release notes</a> specify that it should be reinstalled since the version you have installed, (the part before the first "." in the version number), follow the current installation instructions instead (unless you know you don't need to, <span class="foreign-text">e. g.</span> if the release notes specify that the configuration file format is compatible with the major version you have installed).</li>
-    <li>As the user you chose in step 2 of the installation process, run the following command:<br /><pre><code>warcdealerTemporaryUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerTemporaryUUID"; cd "$warcdealerTemporaryUUID"; git clone https://github.com/ethus3h/ember.git; cp ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload;</code></pre></li>
+    <li>As the user you chose in step 2 of the installation process, run the following command:<br /><pre><code>warcdealerTemporaryUUID=$(python2 -c 'import uuid; print str(uuid.uuid4())'); cd ~; mkdir "$warcdealerTemporaryUUID"; cd "$warcdealerTemporaryUUID"; git clone https://github.com/ethus3h/ember.git; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer ~/.warcdealer; chmod +x ~/.warcdealer; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload ~/.warcdealer-ia-upload; chmod +x ~/.warcdealer-ia-upload; cp -f ./ember/ember-satellite-projects/warcdealer/warcdealer-ia-upload-split ~/.warcdealer-ia-upload-split; chmod +x ~/.warcdealer-ia-upload-split; cp -f ./ember/ember-satellite-projects/warcdealer/viewer.patch ~/.warcdealer-viewer.patch;</code></pre></li>
 </ol>
 
 <h2>Release notes</h2>
 <p>See <a href="release-notes.htm">the dedicated page</a>.</p>
 
 <h2>Configuration file format</h2>
-<p><span class="hatnote-emphasis-warning">Be careful when manually editing the configuration file. Specifically, do <b>NOT</b> use the "disableWARCBundling" option unless you know what you are doing.</span></p>
+<p><span class="hatnote-emphasis-warning">Be careful when manually editing the configuration file. Specifically, do <b>NOT</b> use the "<code>disableWARCBundling</code>" option unless you know what you are doing.</span></p>
 <p>The configuration file is located at <code>~/.warcdealer.cfg<code>. It contains configuration values separated by a line feed (0x0A), as follows:</p>
 <ul>
     <li>Name of user as which Warcdealer should run</li>
     <li>Amount of free space in gigabytes below which WARC files should be uploaded and crawls should be paused</li>
     <li>Delay in seconds between disk space checks</li>
     <li>Internet Archive target collection identifier</li>
-    <li>"disableArchiveIndex" to disable the archive search tool, or "enableArchiveIndex" to enable it (any other value will be treated as "enableArchiveIndex")</li>
-    <li>"disableWARCBundling" to upload each file as a separate item, or "enableWARCBundling" to enable it (any other value will be treated as "enableWARCBundling")</li>
+    <li>"<code>disableArchiveIndex</code>" to disable the archive search tool, or "<code>enableArchiveIndex</code>" to enable it (any other value will be treated as "<code>enableArchiveIndex</code>")</li>
+    <li>"<code>disableWARCBundling</code>" to upload each file as a separate item, or "<code>enableWARCBundling</code>" to enable it (any other value will be treated as "<code>enableWARCBundling</code>")</li>
     <li>Installation time</li>
     <li>Installation UUID</li>
 </ul>
