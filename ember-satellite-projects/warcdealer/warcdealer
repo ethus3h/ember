@@ -79,7 +79,11 @@ while true; do
 
         find . -maxdepth 1 \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-        find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
+        if [[ warcdealerWARCBundlingDisabled ]]; then
+            find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --verify --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion with WARC bundling disabled\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:$warcdealerInstallationUUID\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
+        else
+            find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
+        fi
 
         echo "Done uploading WARCs."
     fi
