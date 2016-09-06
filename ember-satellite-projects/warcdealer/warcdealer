@@ -42,9 +42,9 @@ fi
 
 if [[ $warcdealerArchiveIndexEnabled ]]; then
     echo "Starting viewer"
-    mkdir -p "~/.warcdealerViewer"
+    mkdir -p ~/.warcdealerViewer
     warcdealerWARCPath=$(pwd)
-    cd "~/.warcdealerViewer"
+    cd ~/.warcdealerViewer
     rm -rf ./ArchiveBot
     git clone https://github.com/ArchiveTeam/ArchiveBot.git
     cp -f ~/.warcdealer-viewer.patch ./viewer.patch
