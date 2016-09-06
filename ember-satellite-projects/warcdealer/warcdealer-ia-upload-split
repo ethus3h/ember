@@ -1,0 +1,14 @@
+#!/bin/bash
+ia upload W"$(date +%Y-%m-%d-%H-%M-%S-%N)"-"$(xxd -pu <<< "$(date +%z)")"-"$(python2 -c 'import uuid; print str(uuid.uuid4())')" \
+ --verify \
+ --retries=10 \
+ --metadata="subject:Uploaded using Warcdealer $3 with WARC bundling disabled" \
+ --metadata="title:$1: from Warcdealer pack $2" \
+ --metadata="description:$1: from Warcdealer pack $2." \
+ --metadata="subject:site-${1%%-*}" \
+ --metadata="subject:site-${1%%\.*}" \
+ --metadata="subject:$1" \
+ --metadata="subject:$4" \
+ --metadata="subject:$2" \
+ --metadata="collection:$5" \
+ --delete "$1"

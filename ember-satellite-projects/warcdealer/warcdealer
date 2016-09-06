@@ -24,10 +24,10 @@ warcdealerArchiveIndexConfig=$(sed '6q;d' "$HOME"/.warcdealer.cfg)
 warcdealerWARCBundlingConfig=$(sed '7q;d' "$HOME"/.warcdealer.cfg)
 warcdealerInstallationUUID=$(sed '9q;d' "$HOME"/.warcdealer.cfg)
 
-warcdealerArchiveIndexDisabled=false
+warcdealerArchiveIndexEnabled=true
 warcdealerWARCBundlingDisabled=false
 if [[ $warcdealerArchiveIndexConfig == "disableArchiveIndex" ]]; then
-    warcdealerArchiveIndexDisabled=true
+    warcdealerArchiveIndexEnabled=false
 fi
 if [[ $warcdealerWARCBundlingConfig == "disableWARCBundling" ]]; then
     warcdealerWARCBundlingDisabled=true
@@ -38,6 +38,10 @@ warcdealerUUIDRegex='^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[
 if [[ ! $warcdealerInstallationUUID =~ $warcdealerUUIDRegex ]]; then
     echo "Invalid installation ID."
     exit 1;
+fi
+
+if [[ $warcdealerArchiveIndexEnabled ]]; then
+    echo "Starting viewer"
 fi
 
 while true; do
@@ -79,8 +83,8 @@ while true; do
 
         find . -maxdepth 1 \( -name "wpull.db" -or -name "*.cdx" -or -name "*.pax" -or -name "*.log" \) -exec xz -C sha256 -9 -e -v '{}' \;
 
-        if [[ warcdealerWARCBundlingDisabled ]]; then
-            find . \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec bash -c "ia upload \"W\$(date +%Y-%m-%d-%H-%M-%S-%N)-\$(xxd -pu <<< \"\$(date +%z)\")-\$(python -c 'import uuid; print str(uuid.uuid4())')\" --verify --retries=10 --metadata=\"subject:Uploaded using Warcdealer $warcdealerVersion with WARC bundling disabled\" --metadata=\"title:"\$1": from Warcdealer pack $WarcdealerPackID\" --metadata=\"description:"\$1": from Warcdealer pack $WarcdealerPackID.\" --metadata=\"subject:site-"\${1%%-*}"\" --metadata=\"subject:site-"\${1%%\.*}"\" --metadata=\"subject:"\$1"\" --metadata=\"subject:$warcdealerInstallationUUID\" --metadata=\"subject:$WarcdealerPackID\" --metadata=\"collection:opensource\" --delete \"\$1\"" _ '{}' \;
+        if [[ $warcdealerWARCBundlingDisabled ]]; then
+            find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload-split '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
         else
             find . -maxdepth 1 \( -name "*.warc" -or -name "*.gz" -or -name "*.xz" -or -name "*.log" -or -name "*.megawarc" -or -name "*.pem" \) -exec ~/.warcdealer-ia-upload '{}' "$warcdealerPackID" "$warcdealerVersion" "$warcdealerInstallationUUID" "$warcdealerDestinationCollection" \;
         fi
