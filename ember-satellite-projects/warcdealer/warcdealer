@@ -53,7 +53,7 @@ if [[ $warcdealerArchiveIndexEnabled ]]; then
     patch -p1 <viewer.patch
     cd viewer
     mkdir -p ~/.warcdealerViewer/data/
-    python3 -m archivebotviewer --xheaders --prefix /viewer/ --data-dir ~/.warcdealerViewer/data/
+    python3 -m archivebotviewer --xheaders --prefix /viewer/ --data-dir ~/.warcdealerViewer/data/ &
     warcdealerViewerPID=$!
     function warcdealerStopViewer {
         kill "$warcdealerViewerPID"
