@@ -86,10 +86,10 @@ while true; do
         set +e
         tar -cv -P --format pax -f "./$warcdealerPackID.pax" "./$warcdealerPackID.listing" "./$warcdealerPackID.idx-l" "./$warcdealerPackID.idx-d" "$HOME/.warcdealer.cfg"
         exitcode=$?
-        if [ "$exitcode" != "0" ] && [[ $OSTYPE != *inux* ]]; then
+        if [[ "$exitcode" != "0" ]] && [[ $OSTYPE != *inux* ]]; then
             exit $exitcode
         fi
-        if [ "$exitcode" != "1" ] && [ "$exitcode" != "0" ]; then
+        if [[ "$exitcode" != "1" ]] && [[ "$exitcode" != "0" ]]; then
             exit $exitcode
         fi
         set -e
