@@ -1,8 +1,7 @@
 #.htaccess for futuramerlin.com
 
-Redirect 301 /Wreathe%20web/index.html http://futuramerlin.com/ancillary/wreathe
+Redirect 301 /Wreathe%20web/index.html http://futuramerlin.com/ancillary/wreathe/
 Redirect 301 /home http://futuramerlin.com/
-Redirect 301 /c/2015/02/27/190-new-music-release-electric-dream-demos/ http://futuramerlin.com/c/2015/05/28/329-new-compilation-demo-released-infinite-universe-electric-dream-redux/
 
 RewriteOptions inherit
 DirectoryIndex index.htm
@@ -14,6 +13,7 @@ RewriteCond %{HTTP_HOST} ^www\.futuramerlin\.com$ [NC]
 RewriteRule ^(.*)$ http://futuramerlin.com/$1 [R=301,L]
 RewriteRule ^/?c/(.+)$ news/$1 [L,QSA]
 RewriteRule ^/?fractallise/(.+)$ news/$1 [L,QSA]
+RewriteRule ^/?news/page/\?paged=()\d+)$ news/page/$1/ [L,QSA]
 
 AddDefaultCharset utf-8
 
