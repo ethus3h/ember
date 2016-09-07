@@ -13,7 +13,9 @@ RewriteCond %{HTTP_HOST} ^www\.futuramerlin\.com$ [NC]
 RewriteRule ^(.*)$ http://futuramerlin.com/$1 [R=301,L]
 RewriteRule ^/?c/(.+)$ news/$1 [L,QSA]
 RewriteRule ^/?fractallise/(.+)$ news/$1 [L,QSA]
-RewriteRule ^/?news/page/+\?paged=(\d+)$ news/page/$1/ [L,QSA]
+
+RewriteCond %{QUERY_STRING} ^paged=(\d+)$
+RewriteRule ^/?news/page/+$ /?news/page/%1/? [L,QSA]
 
 AddDefaultCharset utf-8
 
