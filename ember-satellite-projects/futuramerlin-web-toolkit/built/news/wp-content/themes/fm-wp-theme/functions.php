@@ -146,9 +146,9 @@ jQuery(document).ready(function() {
 }
 function raze_scripts() {
 	wp_enqueue_style('raze-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,300');
-	
+
 	wp_enqueue_style( 'raze-style', get_stylesheet_uri() );
-	
+
 	if (function_exists('of_get_option')) {
 		if (of_get_option('sidebar-location',true) == 'right') {
 			wp_enqueue_style( 'raze-layout', get_template_directory_uri()."/css/layouts/content-sidebar.css" );
@@ -157,12 +157,12 @@ function raze_scripts() {
 			wp_enqueue_style( 'raze-layout', get_template_directory_uri()."/css/layouts/sidebar-content.css" );
 		}
 	}
-	else { 
+	else {
 	wp_enqueue_style('raze-layout',get_template_directory_uri()."/css/layout/content-sidebar.css");
 	}
-	
+
 	wp_enqueue_style('raze-bootstrap-style',get_template_directory_uri()."/css/bootstrap/bootstrap.min.css", array('raze-layout'));
-	
+
 	wp_enqueue_style('raze-main-skin', get_template_directory_uri()."/css/skins/main.css", array('raze-bootstrap-style'));
 
 	wp_enqueue_script( 'raze-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -214,7 +214,7 @@ function raze_nav() {
 	            echo '<li>
 				<form class="wpsp-page-nav-form" action="';
 				echo $_SERVER['REQUEST_URI'];
-				echo '/page/" method="get">
+				echo '/" method="get">
 					<input class="wpsp-input-number" type="text" placeholder="Jump to" size="6" name="paged" />
 					<input class="wpsp-button" value="Go" type="submit" >
 				</form>';
@@ -222,4 +222,3 @@ function raze_nav() {
 	           echo '</ul></div></div>';
 	 }
 }
-
