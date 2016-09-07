@@ -15,7 +15,7 @@ shopt -s extglob
 echo "Preparing environment..."
 rm -r "../built"
 mkdir "../built"
-echo "Copying assets..."
+echo "Copying theme assets..."
 cp -r ./assets/* ./assets/.[^.]* "../built/"
 (
 	cd "content" || exit
@@ -35,7 +35,7 @@ cp -r ./assets/* ./assets/.[^.]* "../built/"
 					echo "Building page: $i"
 					../scripts/build-page "$i"
 				else
-					echo "Copying asset: $i"
+					echo "Copying content asset: $i"
 					cp "$i" "../../built/$i"
 				fi
 			fi
