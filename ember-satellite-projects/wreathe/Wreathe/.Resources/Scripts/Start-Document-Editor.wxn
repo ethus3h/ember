@@ -1,4 +1,0 @@
-#!/bin/bash
-#Start document editor. Version 1, 10 December 2012. For Wreathe.
-
-libreoffice --writer "$1";

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# PAM repair script — gksu wrapper
-# Version 1, 16 August 2012 (for Wreathe) (WXN template copied from fix-broken-pam.wxn v1)
-
-# gksu /usr/bin/wxn/fix-broken-pam.wxn;

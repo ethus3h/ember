@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Calendar startup script
-# Version 1, 10 September 2012 (for Wreathe) (wxn template copied from Plasma startup script version 3)
-
-korganizer &

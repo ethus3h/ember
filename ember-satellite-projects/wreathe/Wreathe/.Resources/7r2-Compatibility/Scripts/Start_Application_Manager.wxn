@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#WFAM startup action
-#Version 1, 18 November 2012
-
-# killall compiz;
-# Run plasma-desktop-startup &
-# sleep 20;
-# Run compiz-restart;
