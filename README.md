@@ -17,5 +17,5 @@ declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site
 To save your changes to the resulting development environment:
 
 ```
-findemberfolders() { find . -type d -maxdepth 1 -exec sh -c 'cd "$1" || exit 1; git add ./* .[^.]*; git commit -a; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
+findemberfolders() { find . -maxdepth 1 -type d -exec sh -c 'cd "$1" || exit 1; git add ./* .[^.]*; git commit -a; git pull; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
 ```
