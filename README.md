@@ -11,11 +11,11 @@ declare -a emberWreatheResourceProjects=("wreathe-backgrounds" "wreathe-media-re
 ```
 
 ```
-declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site"); declare -a emberSatelliteProjects=("crystallise" "futuramerlin-web-toolkit" "rubberfs" "warcdealer" "wreathe" "wreathe-overlay" "${emberWreatheResourceProjects[@]}"); set -e; mkdir ember; cd ember || exit 1; mkdir ember; cd ember || exit 1; git clone "${emberProjects[@]}"; cd ..; mkdir ember-satellite-projects; cd ember-satellite-projects || exit 1; git clone "${emberSatelliteProjects[@]}"; cd ../.. || exit 1; echo "Finished downloading Ember."
+declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site"); declare -a emberSatelliteProjects=("crystallise" "futuramerlin-web-toolkit" "rubberfs" "warcdealer" "wreathe" "wreathe-overlay" "${emberWreatheResourceProjects[@]}"); set -e; mkdir ember; cd ember || exit 1; mkdir ember; cd ember || exit 1; for i in "${emberProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ..; mkdir ember-satellite-projects; cd ember-satellite-projects || exit 1; for i in "${emberSatelliteProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ../.. || exit 1; echo "Finished downloading Ember."
 ```
 
 To save your changes to the resulting development environment:
 
 ```
-findemberfolders() { find . -maxdepth 1 -type d -exec sh -c 'cd "$1" || exit 1; git add -A; git commit -a; git pull; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
+findemberfolders() { find . -maxdepth 1 -not -name '\.*' -type d -exec sh -c 'cd "$1" || exit 1; git add -A; git commit -a; git pull; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
 ```
