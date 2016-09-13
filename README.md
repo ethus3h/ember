@@ -11,7 +11,7 @@ declare -a emberWreatheResourceProjects=("wreathe-backgrounds" "wreathe-media-re
 ```
 
 ```
-declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site"); declare -a emberSatelliteProjects=("crystallise" "futuramerlin-web-toolkit" "internetarchive" "rubberfs" "s3ql" "warcdealer" "wreathe" "wreathe-overlay" "${emberWreatheResourceProjects[@]}"); set -e; mkdir ember; cd ember || exit 1; mkdir ember; cd ember || exit 1; for i in "${emberProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ..; mkdir ember-satellite-projects; cd ember-satellite-projects || exit 1; for i in "${emberSatelliteProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ../.. || exit 1; echo "Finished downloading Ember."
+declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site"); declare -a emberSatelliteProjects=("crystallise" "futuramerlin-web-toolkit" "internetarchive" "rubberfs" "warcdealer" "wreathe" "wreathe-overlay" "${emberWreatheResourceProjects[@]}"); set -e; mkdir ember; cd ember || exit 1; mkdir ember; cd ember || exit 1; for i in "${emberProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ..; mkdir ember-satellite-projects; cd ember-satellite-projects || exit 1; for i in "${emberSatelliteProjects[@]}"; do git clone https://github.com/ethus3h/"$i".git; done; cd ../.. || exit 1; echo "Finished downloading Ember."
 ```
 
 To save your changes to the resulting development environment:
