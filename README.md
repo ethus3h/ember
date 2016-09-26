@@ -7,7 +7,7 @@ To download all of Ember and the projects it maintains:
 Unless you are working on Wreathe, you probably don't need the Wreathe resource repositories. If you do want them, run both of the following commands, otherwise just run the second.
 
 ```
-declare -a emberWreatheResourceProjects=("wreathe-backgrounds" "wreathe-media-resources" "wreathe-office-resources" "wreathe-typeface-family" "wreathe-typefaces-redist");
+declare -a emberWreatheResourceProjects=("wreathe-backgrounds" "wreathe-media-resources" "wreathe-office-resources" "wreathe-typeface-family" "wreathe-typefaces-redist" "compiz-extra-snowflake-textures");
 ```
 
 ```
