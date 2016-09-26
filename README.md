@@ -17,5 +17,5 @@ declare -a emberProjects=("ember" "ember-client" "ember-library" "ember-web-site
 To synchronise your changes to the resulting development environment:
 
 ```
-findemberfolders() { find . -maxdepth 1 -not -name '\.*' -type d -print0 | xargs -i{} -0 -P 6 sh -c 'cd "$1" || exit 1; git add -A; git commit -a -m "Update Ember tree"; git pull; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
+findemberfolders() { find . -maxdepth 1 -not -name '\.*' -type d -print0 | xargs -i{} -0 -P 15 sh -c 'cd "$1" || exit 1; git add -A; git commit -a -m "Update Ember tree"; git pull; git push -u origin master' -- '{}' \; ; }; set -e; cd ember || exit 1; findemberfolders; cd ../ember-satellite-projects || exit 1; findemberfolders; cd .. || exit 1
 ```
