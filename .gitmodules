@@ -4,3 +4,6 @@
 [submodule "ember-library"]
 	path = ember-library
 	url = git://github.com/ethus3h/ember-library
+[submodule "ember-web-site"]
+	path = ember-web-site
+	url = git://github.com/ethus3h/ember-web-site
