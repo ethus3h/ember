@@ -1,3 +1,6 @@
 [submodule "ember-information-technology-environment"]
 	path = ember-information-technology-environment
 	url = git://github.com/ethus3h/ember-information-technology-environment
+[submodule "ember-library"]
+	path = ember-library
+	url = git://github.com/ethus3h/ember-library
