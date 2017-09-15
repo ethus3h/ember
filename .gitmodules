@@ -1,9 +1,0 @@
-[submodule "ember-information-technology-environment"]
-	path = ember-information-technology-environment
-	url = https://github.com/ethus3h/ember-information-technology-environment.git
-[submodule "ember-web-site"]
-	path = ember-web-site
-	url = https://github.com/ethus3h/ember-web-site.git
-[submodule "ember-library"]
-	path = ember-library
-	url = https://github.com/ethus3h/ember-library.git
